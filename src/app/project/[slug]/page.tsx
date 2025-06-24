@@ -21,9 +21,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <Header title={project.title} />
 
       <main className="grid grid-cols-12 gap-8 text-black">
-        <ProjectGallery project={project} />
+        {/* Gallery */}
+        <section className="col-span-12 lg:col-span-8 order-2 lg:order-1">
+          <ProjectGallery project={project} />
+        </section>
 
-        <aside className="col-span-12 lg:col-span-4 flex flex-col space-y-6 sticky top-24 self-start">
+        {/* Sidebar */}
+        <aside className="col-span-12 lg:col-span-4 flex flex-col space-y-6 sticky top-24 self-start order-1 lg:order-2 z-10 bg-white p-4 rounded-xl">
           <ProjectMetaInfo project={project} />
           <ProjectDescription project={project} />
           <ProjectContentBlocks project={project} />

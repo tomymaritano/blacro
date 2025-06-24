@@ -1,33 +1,35 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function NotFound() {
-  const { scrollYProgress } = useScroll();
-  // Imagen sube un poco en scroll
-  const yOffset = useTransform(scrollYProgress, [0, 1], [0, -40]);
-
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center bg-[#FFFDF9] text-black p-6 text-center overflow-hidden">
-      {/* Imagen de fondo con parallax */}
-      <motion.img
-        src="/images/404-illustration.svg"
-        alt="Not Found Illustration"
-        className="absolute top-1/2 left-1/2 w-64 h-64 opacity-20 -translate-x-1/2 -translate-y-1/2"
-        style={{ y: yOffset }}
-      />
+    <main className="min-h-screen flex flex-col items-center justify-center text-center p-4 bg-white text-black">
+      {/* Ícono o imagen flotante */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        className="w-32 h-32 mb-8"
+      >
+        {/* Podrías usar una imagen personalizada aquí */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 64"
+          className="w-full h-full opacity-70"
+          fill="currentColor"
+        >
+          <path d="M32 4C17.7 4 6 15.7 6 30s11.7 26 26 26 26-11.7 26-26S46.3 4 32 4zm0 48C19.8 52 10 42.2 10 30S19.8 8 32 8s22 9.8 22 22-9.8 22-22 22zM28 18v14h8V18h-8zm0 18v4h8v-4h-8z" />
+        </svg>
+      </motion.div>
 
-      {/* Contenido principal */}
-      <h1 className="text-7xl font-bold mb-2" style={{ fontFamily: "Darker Grotesque, sans-serif" }}>
-        404
-      </h1>
-      <h2 className="text-xl md:text-3xl font-medium mb-4">Oops! Página no encontrada</h2>
-      <p className="text-sm md:text-base opacity-70 mb-6 max-w-md">
-        Puede que el enlace esté roto o la página haya sido movida.
+      <h1 className="text-5xl font-bold mb-2">Oops! 404</h1>
+      <p className="text-lg opacity-70 mb-6">
+        Parece que la página que buscas no existe.
       </p>
-      <Link href="/" className="uppercase border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition-colors">
-        Volver al inicio
+
+      <Link href="/" className="bg-black text-white px-6 py-2 rounded-md hover:opacity-80 transition">
+        Volver a Inicio
       </Link>
     </main>
   );

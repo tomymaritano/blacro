@@ -15,7 +15,7 @@ export default function ProjectContentBlocks({ project }: ProjectContentBlocksPr
         switch (block.type) {
           case "text":
             return (
-              <p key={i} className="leading-relaxed opacity-80 whitespace-pre-line">
+              <p key={i} className="leading-relaxed opacity-80">
                 {block.content}
               </p>
             );

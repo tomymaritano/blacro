@@ -1,5 +1,10 @@
 // data/projects.ts
 
+export interface ProjectImage {
+  src: string;
+  size?: "large" | "medium" | "small";
+}
+
 export interface ProjectContentBlock {
   type: "text" | "image" | "quote";
   content: string;
@@ -8,7 +13,7 @@ export interface ProjectContentBlock {
 
 
 export interface Project {
-  slug: string; 
+  slug: string;
   imageSrc: string;
   title: string;
   category?: string;
@@ -18,7 +23,7 @@ export interface Project {
   year?: number;
   services?: string[];
   description?: string;
-  images?: string[];
+  images?: ProjectImage[];
   content?: ProjectContentBlock[];
 }
 
@@ -33,6 +38,14 @@ export const projects: Project[] = [
     location: "Buenos Aires",
     year: 2025,
     services: ["Branding", "Visual Identity", "Packaging", "Creative Direction"],
+    images: [
+      { src: "/images/myrica/test8.jpg", size: "large" },
+      { src: "/images/myrica/test9.jpg", size: "medium" },
+      { src: "/images/myrica/test12.jpg", size: "medium" },
+      { src: "/images/myrica/test13.jpg", size: "large" },
+      { src: "/images/myrica/test11.jpg", size: "large" },
+      { src: "/images/myrica/test13.jpg", size: "large" },
+    ],/*  */
     content: [
       { type: "text", content: "Myrica Gin es una marca que nace de la conexión..." },
       { type: "text", content: "La marca nos convocó para acompañarlos en la creación..." },
