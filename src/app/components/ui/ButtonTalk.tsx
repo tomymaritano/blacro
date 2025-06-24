@@ -8,15 +8,24 @@ interface ButtonTalkProps {
   href?: string;
   children?: React.ReactNode;
   mobile?: boolean;
+  onClick?: () => void; // <-- Nuevo prop
 }
 
-export default function ButtonTalk({ href = "/contact", children = "Let's talk", mobile = false }: ButtonTalkProps) {
+export default function ButtonTalk({
+  href = "/contact",
+  children = "Let's talk",
+  mobile = false,
+  onClick, // <-- Nuevo prop
+}: ButtonTalkProps) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <Link
       href={href}
-      className={`relative inline-block font-grotesk ${mobile ? "text-3xl my-2" : "text-[22px]"}`}
+      onClick={onClick} // <-- Lo pasas directo al Link
+      className={`relative inline-block font-grotesk ${
+        mobile ? "text-3xl my-2" : "text-[22px]"
+      }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

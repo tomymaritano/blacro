@@ -20,9 +20,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full backdrop-blur-md z-50 transition ${
-        scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
-      }`}
+      className={`fixed top-0 left-0 w-full backdrop-blur-md z-50 transition ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
+        }`}
     >
       {/* Contenedor con padding responsive */}
       <div className="grid grid-cols-12 items-center py-3 px-4 sm:px-4 md:px-6 lg:px-8">
@@ -127,7 +126,7 @@ const Navbar: React.FC = () => {
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 className="mt-12"
               >
-                <ButtonTalk href="/contact" mobile />
+                <ButtonTalk href="/contact" mobile onClick={() => setIsOpen(false)} />
               </motion.div>
             </motion.div>
           </motion.div>
