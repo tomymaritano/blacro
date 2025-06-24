@@ -3,6 +3,7 @@
 import Header from "../components/Layout/Header";
 import ProjectCarouselRow from "../project/ProjectCardCarouselRow";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -14,6 +15,36 @@ const fadeUp = {
 };
 
 export default function ContactPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        const { error } = await res.json();
+        setStatus(error || "Error sending the message.");
+      }
+    } catch {
+      setStatus("Error sending the message.");
+    }
+  }
+
   return (
     <>
       <section
@@ -43,7 +74,7 @@ export default function ContactPage() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: 0.1 }}
         >
-          <form className="space-y-6 w-full max-w-xl text-black/80">
+          <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-xl text-black/80">
             {/* Nombre */}
             <div className="flex flex-col">
               <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80">
@@ -52,7 +83,8 @@ export default function ContactPage() {
               <input
                 id="name"
                 name="name"
-                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Your full name"
                 className="px-4 py-3 w-full border border-black/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8]"
@@ -67,6 +99,8 @@ export default function ContactPage() {
               <input
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 required
                 placeholder="you@example.com"
@@ -82,6 +116,8 @@ export default function ContactPage() {
               <textarea
                 id="message"
                 name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 rows={5}
                 required
                 placeholder="Tell us about your project or idea..."
@@ -96,6 +132,10 @@ export default function ContactPage() {
             >
               Send
             </button>
+
+            {status && (
+              <p className="text-center mt-2 text-sm text-black/60">{status}</p>
+            )}
           </form>
         </motion.div>
       </section>
