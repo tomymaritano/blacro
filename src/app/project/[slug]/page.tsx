@@ -23,7 +23,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {/* Grid con altura full solo en desktop */}
       <main className="grid grid-cols-12 gap-8 text-black">
         {/* Galería scrolleable */}
-        <section className="col-span-12 lg:col-span-8 order-2 lg:order-1 h-screen overflow-y-auto pr-2 space-y-6">
+        <section className="col-span-12 lg:col-span-8 order-2 lg:order-1 h-screen overflow-y-auto pr-2 space-y-6 custom-scrollbar">
           <ProjectGallery project={project} />
         </section>
 

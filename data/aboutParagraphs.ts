@@ -1,0 +1,6 @@
+    export const aboutParagraphs = [
+        `Blacrò es un estudio creativo integral fundado por Camila Blanco y Candela Crosta. Luego de años trabajando para empresas internacionales, decidimos lanzar nuestro propio espacio para ofrecer soluciones creativas enfocadas en el diseño de experiencias, espacios y comunicación de marca.`,
+        `Somos un estudio de exploración visual. Convertimos ideas en marcas, espacios y experiencias. **Nos mueve la curiosidad, las ganas de jugar y la experimentación como forma de creación.**`,
+        `Trabajamos en proyectos increíbles junto a marcas y equipos de distintas partes del mundo, incluyendo L’Oréal Paris, YouTube, London Fashion Week, MIPCOM Cannes, Web Summit Qatar, Qatar Economic Forum, Web Summit Lisbon y Blockchain Week Paris.`,
+        `Nuestro universo incluye: Branding · Estrategia · Art Direction · Set Design · Eventos presenciales & virtuales · Experiencias de marca · Activaciones · Campañas · Contenido · Producción · Packaging · Web · Gestión de impresión & color · Fotografía.`,
+    ];

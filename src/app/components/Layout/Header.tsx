@@ -10,7 +10,7 @@ interface HeaderProps {
 export default function Header({ title, className = "" }: HeaderProps) {
   return (
     <motion.section
-      className={`mt-12 md:mt-20 mb-6 md:mb-10 px-4 text-left md:text-left ${className}`}
+      className={`mt-12 md:mt-20 mb-6 md:mb-10 text-left md:text-left ${className}`}
       // Animación desde lateral
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
