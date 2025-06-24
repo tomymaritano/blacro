@@ -7,16 +7,10 @@ interface GridWrapperProps {
 
 const GridWrapper: React.FC<GridWrapperProps> = ({ children, className = '' }) => {
   return (
-    <div className={`container grid grid-cols-12 gap-5 ${className}`}>
+    <div className={`w-full grid grid-cols-12 gap-4 px-6 sm:px-4 md:px-6 lg:px-8 ${className}`}>
       {children}
     </div>
   );
 };
 
 export default GridWrapper;
-
-// Uso:
-// <GridWrapper className="mt-10">
-//   <div className="col-span-4 bg-gray-200 p-4">Columna 1</div>
-//   <div className="col-span-8 bg-gray-200 p-4">Columna 2</div>
-// </GridWrapper>
