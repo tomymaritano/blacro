@@ -20,7 +20,7 @@ export default function HeroSection({ lines, subtitle, marginTopClass }: HeroSec
         className=" col-span-12 lg:col-span-5 flex flex-col
     items-start lg:items-end
     text-left lg:text-right
-    space-y-2 px-4"
+    space-y-2 "
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">
