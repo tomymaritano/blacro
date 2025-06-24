@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-black/10 py-8 px-8 sm:px-16 grid grid-cols-12 items-start text-black">
+    <footer className="grid grid-cols-12 items-center py-3 px-4 sm:px-4 md:px-6 lg:px-8 text-black ">
       {/* Contact & Social */}
-      <div className="col-span-6 flex flex-col space-y-4 text-sm font-grotesk">
+      <div className="col-span-6 flex flex-col space-y-4 text-[20px] font-grotesk">
         <div>
           <p className="font-bold uppercase">LET’S TALK!</p>
           <Link href="mailto:hola@blacro.com" className="hover:underline">

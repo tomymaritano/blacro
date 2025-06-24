@@ -1,4 +1,3 @@
-// components/ProjectGrid.tsx
 "use client";
 
 import ProjectCard from "./ProjectCard";
@@ -10,7 +9,7 @@ interface ProjectGridProps {
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
-    <section className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-full mx-auto">
+    <section className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-full mx-auto">
       {projects.map((project, index) => (
         <ProjectCard
           key={index}
@@ -19,6 +18,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           title={project.title}
           category={project.category}
           logo={project.logo}
+          index={index}
         />
       ))}
     </section>

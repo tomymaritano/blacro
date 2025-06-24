@@ -1,35 +1,25 @@
-import Navbar from './components/Layout/Navbar';
-import GridWrapper from './components/Layout/GridWrapper';
-import HeroSection from './components/Hero/HeroSection';
-import Footer from './components/Layout/Footer';
-import ProjectGrid from './components/project/ProjectGrid';
+// app/page.tsx
 
-import { projects } from '../../data/projects';
+import HeroSection from './components/Hero/HeroSection';
+import ProjectGrid from './components/project/ProjectGrid';
 import WhatWeDoSection from './components/WhatWeDo';
 
-
-
+import { projects } from '../../data/projects';
 
 export default function Home() {
   return (
     <>
-      {/* Navbar global */}
-      <Navbar />
-
-
-      {/* Contenido envuelto en grid */}
-      <GridWrapper className="py-8">
-        {/* Cada sección es un col-span */}
-        <main className="col-span-12 flex flex-col gap-8">
-          <HeroSection />
-          <ProjectGrid projects={projects} />
-          <WhatWeDoSection />
-          {/* Acá podrías poner ProjectGrid, CallToAction, etc. */}
-        </main>
-      </GridWrapper>
-
-      {/* Footer global */}
-      <Footer />
+      <HeroSection
+        subtitle="(Based in Buenos Aires, Working Worldwide)"
+        lines={[
+          "SOMOS UN ESTUDIO CREATIVO INTEGRAL.",
+          "CONVERTIMOS IDEAS EN MARCAS",
+          "ESPACIOS Y EXPERIENCIAS."
+        ]}
+      />
+      <ProjectGrid projects={projects} />
+      <WhatWeDoSection />
+      {/* Podés seguir sumando secciones */}
     </>
   );
 }

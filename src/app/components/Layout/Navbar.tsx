@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full backdrop-blur-md z-50 transition ${
-        scrolled ? "bg-white/5 shadow-md" : "bg-white/5"
+        scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
       }`}
     >
       {/* Contenedor con padding responsive */}
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop links */}
         <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] font-grotesk">
-          <AnimatedLink href="/projects">Projects</AnimatedLink>
+          <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about">About</AnimatedLink>
           <ButtonTalk href="/contact" />
         </div>
