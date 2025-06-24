@@ -3,8 +3,8 @@ import { Project } from "./types";
 
 export const fullProjects: Project[] = [
   {
-    slug: "project-4",
-    imageSrc: "/images/test5.jpg",
+    slug: "myrica-gin",
+    imageSrc: "/images/test1.jpg",
     title: "Creative Direction",
     category: "Creative",
     logo: "/images/logos/creative-logo.svg"

@@ -28,7 +28,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Sidebar sticky */}
-        <aside className="col-span-12 lg:col-span-4 order-1 lg:order-2 sticky top-24 self-start bg-white">
+        <aside className="col-span-12 lg:col-span-4 order-1 lg:order-2 bg-white lg:sticky lg:top-24 lg:self-start">
+
           <ProjectMetaInfo project={project} />
           <ProjectDescription project={project} />
           <ProjectContentBlocks project={project} />

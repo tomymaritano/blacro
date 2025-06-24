@@ -28,7 +28,7 @@ export default function Footer() {
       {/* Logo & Rights */}
       <div className="col-span-6 flex flex-col justify-between h-full items-end text-right text-sm font-grotesk">
         <Image
-          src="./logo.svg"
+          src="/logo.svg"
           alt="Blacro logo"
           width={100}
           height={40}

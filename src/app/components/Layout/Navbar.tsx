@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image src="./logo.svg" alt="logo" width={100} height={60} />
+            <Image src="/logo.svg" alt="logo" width={100} height={60} />
           </motion.div>
         </Link>
 
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
           >
             {/* Logo */}
             <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center space-x-2">
-              <Image src="./logo.svg" alt="logo" width={100} height={60} />
+              <Image src="/logo.svg" alt="logo" width={100} height={60} />
             </Link>
 
             {/* Close */}
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
               variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
             >
               {[
-                { href: "/projects", label: "Projects" },
+                { href: "/portfolio", label: "Projects" },
                 { href: "/about", label: "About" },
               ].map((item) => (
                 <motion.div
