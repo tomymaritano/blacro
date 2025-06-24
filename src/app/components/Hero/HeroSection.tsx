@@ -7,7 +7,7 @@ export default function HeroSection() {
             <div className="hidden lg:block col-span-7"></div>
 
             {/* Bloque derecho */}
-            <div className="col-span-12 lg:col-span-5    flex flex-col items-end lg:items-end text-right md:text-right md:items-right lg:text-right sm:items-right  space-y-4">
+            <div className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right md:text-right md:items-right lg:text-right sm:items-right  space-y-4">
                 <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk">
                     (Based in Buenos Aires, Working Worldwide)
                 </p>

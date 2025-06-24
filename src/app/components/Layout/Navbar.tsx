@@ -5,8 +5,8 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import AnimatedLink from "./AnimatedLink";
-import ButtonTalk from "./ButtonTalk";
+import AnimatedLink from "../ui/AnimatedLink";
+import ButtonTalk from "../ui/ButtonTalk";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full backdrop-blur-md z-50 transition ${
-        scrolled ? "bg-white/90 shadow-md" : "bg-white/70 border-b border-black/10"
+        scrolled ? "bg-white shadow-md" : "bg-white/5"
       }`}
     >
       {/* Contenedor tipo grid */}
