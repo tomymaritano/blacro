@@ -30,14 +30,13 @@ export const projects: Project[] = [
     imageSrc: "/images/test1.jpg",
     category: "Branding & Packaging",
     client: "Myrica Distillery",
+    location: "Buenos Aires",
     year: 2025,
     services: ["Branding", "Visual Identity", "Packaging", "Creative Direction"],
     content: [
       { type: "text", content: "Myrica Gin es una marca que nace de la conexión..." },
-      { type: "image", content: "/images/myrica/mockup-01.jpg", imageAlt: "Botella de Myrica Gin sobre fondo oscuro" },
       { type: "text", content: "La marca nos convocó para acompañarlos en la creación..." },
       { type: "text", content: "Diseñamos un plan de comunicación alineado con los valores..." },
-      { type: "image", content: "/images/myrica/mockup-02.jpg", imageAlt: "Etiqueta y botella en close-up" },
       { type: "text", content: "El resultado es una marca coherente, lista para ingresar al mercado." }
     ]
   },
