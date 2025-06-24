@@ -1,3 +1,4 @@
+// app/components/project/MasonryProjectCard.tsx
 "use client";
 
 import Image from "next/image";
@@ -5,14 +6,14 @@ import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Project } from "../../../../data/projects";
+import { Project } from "../../../data/projects";
 
 interface MasonryProjectCardProps extends Project {
   index?: number;
 }
 
 export default function MasonryProjectCard({
-  href,
+  slug,
   imageSrc,
   title,
   category,
@@ -25,12 +26,10 @@ export default function MasonryProjectCard({
 
   return (
     <motion.div
-      // Animación de scroll
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.1, duration: 0.7, ease: [0.25, 1, 0.5, 1], type: "spring", stiffness: 100 }}
-      // Hover + cursor
+      transition={{ delay: index * 0.1, duration: 0.7, ease: [0.25, 1, 0.5, 1], type: "spring" }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onMouseMove={(e) => {
@@ -41,7 +40,7 @@ export default function MasonryProjectCard({
       className="relative w-full overflow-hidden rounded-xl group cursor-none"
     >
       {/* Link */}
-      <Link href={href} className="absolute inset-0 z-10 cursor-none" />
+      <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />
 
       {/* Imagen */}
       <Image
@@ -66,7 +65,7 @@ export default function MasonryProjectCard({
         )}
       </div>
 
-      {/* Cursor personalizado */}
+      {/* Cursor */}
       {isHovered && (
         <motion.div
           className="absolute z-50 w-16 h-16 bg-white/25 backdrop-blur-md border border-black/10 rounded-full flex items-center justify-center shadow-xl pointer-events-none"

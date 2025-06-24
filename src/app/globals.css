@@ -2,17 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 @import "tailwindcss";
 
-
 :root {
   --background: #FFFDF9;
   --foreground: #171717;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #FFFDF9;
+    --background: white;
     --foreground: #ededed;
   }
 }
@@ -20,13 +17,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: 'Familjen Grotesk', 'Darker Grotesque', sans-serif;
 }
 
 .container {
   width: 100%;
-  max-width: calc(100% - 120px); /* 60px * 2 = márgenes laterales */
+  max-width: calc(100% - 120px); /* márgenes laterales */
   margin-left: auto;
   margin-right: auto;
 }
-

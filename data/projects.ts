@@ -1,136 +1,92 @@
 // data/projects.ts
+
+export interface ProjectContentBlock {
+  type: "text" | "image" | "quote";
+  content: string;
+  imageAlt?: string;
+}
+
+
 export interface Project {
-  href: string;
+  slug: string; 
   imageSrc: string;
   title: string;
   category?: string;
+  client?: string;
   logo?: string;
+  location?: string;
+  year?: number;
+  services?: string[];
+  description?: string;
+  images?: string[];
+  content?: ProjectContentBlock[];
 }
 
+// Proyectos para la homepage
 export const projects: Project[] = [
   {
-    href: "/project-1",
-    imageSrc: "/images/test.jpg",
-    title: "Brand Identity",
-    category: "Branding",
-    logo: "/images/logos/brand-logo.svg",
+    slug: "myrica-gin",
+    title: "Myrica Gin",
+    imageSrc: "/images/test1.jpg",
+    category: "Branding & Packaging",
+    client: "Myrica Distillery",
+    year: 2025,
+    services: ["Branding", "Visual Identity", "Packaging", "Creative Direction"],
+    content: [
+      { type: "text", content: "Myrica Gin es una marca que nace de la conexión..." },
+      { type: "image", content: "/images/myrica/mockup-01.jpg", imageAlt: "Botella de Myrica Gin sobre fondo oscuro" },
+      { type: "text", content: "La marca nos convocó para acompañarlos en la creación..." },
+      { type: "text", content: "Diseñamos un plan de comunicación alineado con los valores..." },
+      { type: "image", content: "/images/myrica/mockup-02.jpg", imageAlt: "Etiqueta y botella en close-up" },
+      { type: "text", content: "El resultado es una marca coherente, lista para ingresar al mercado." }
+    ]
   },
   {
-    href: "/project-2",
+    slug: "project-2",
     imageSrc: "/images/test1.jpg",
     title: "Retail Space",
     category: "Interior Design",
     logo: "/images/logos/retail-logo.svg",
   },
-    {
-    href: "/project-3",
+  {
+    slug: "project-3",
     imageSrc: "/images/test2.jpg",
     title: "Retail Space",
     category: "Interior Design",
     logo: "/images/logos/retail-logo.svg",
   },
-   {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Retail Space",
-    category: "Interior Design",
-    logo: "/images/logos/retail-logo.svg",
-  },
-   {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Retail Space",
-    category: "Interior Design",
-    logo: "/images/logos/retail-logo.svg",
-  },
-   {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Retail Space",
-    category: "Interior Design",
-    logo: "/images/logos/retail-logo.svg",
-  },
-   {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Retail Space",
-    category: "Interior Design",
-    logo: "/images/logos/retail-logo.svg",
-  },
-   {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Retail Space",
-    category: "Interior Design",
-    logo: "/images/logos/retail-logo.svg",
-  },
-
-  // ...agregá los demás
 ];
 
+// Proyectos completos para la página portfolio
 export const fullProjects: Project[] = [
   {
-    href: "/project-4",
+    slug: "project-4",
     imageSrc: "/images/test5.jpg",
     title: "Creative Direction",
     category: "Creative",
     logo: "/images/logos/creative-logo.svg",
   },
   {
-    href: "/project-1",
+    slug: "project-5",
     imageSrc: "/images/test6.jpg",
     title: "Brand Identity",
     category: "Branding",
     logo: "/images/logos/brand-logo.svg",
+
   },
   {
-    href: "/project-2",
+    slug: "project-6",
     imageSrc: "/images/test1.jpg",
     title: "Retail Space",
     category: "Interior Design",
     logo: "/images/logos/retail-logo.svg",
   },
   {
-    href: "/project-3",
+    slug: "project-7",
     imageSrc: "/images/test2.jpg",
     title: "Packaging Design",
     category: "Packaging",
     logo: "/images/logos/packaging-logo.svg",
   },
-  {
-    href: "/project-4",
-    imageSrc: "/images/test4.jpg",
-    title: "Creative Direction",
-    category: "Creative",
-    logo: "/images/logos/creative-logo.svg",
-  },
-  {
-    href: "/project-4",
-    imageSrc: "/images/test5.jpg",
-    title: "Creative Direction",
-    category: "Creative",
-    logo: "/images/logos/creative-logo.svg",
-  },
-    {
-    href: "/project-4",
-    imageSrc: "/images/test5.jpg",
-    title: "Creative Direction",
-    category: "Creative",
-    logo: "/images/logos/creative-logo.svg",
-  },
-  {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Packaging Design",
-    category: "Packaging",
-    logo: "/images/logos/packaging-logo.svg",
-  },
-  {
-    href: "/project-3",
-    imageSrc: "/images/test2.jpg",
-    title: "Packaging Design",
-    category: "Packaging",
-    logo: "/images/logos/packaging-logo.svg",
-  },
-  // ... y el resto de los proyectos que aparecen solo en el portfolio
+  // ...etc
 ];

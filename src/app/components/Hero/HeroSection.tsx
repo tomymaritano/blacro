@@ -5,18 +5,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 interface HeroSectionProps {
   lines: string[];
   subtitle?: string;
+  marginTopClass?: string;
 }
 
-export default function HeroSection({ lines, subtitle }: HeroSectionProps) {
+export default function HeroSection({ lines, subtitle, marginTopClass }: HeroSectionProps) {
   const { scrollYProgress } = useScroll();
   const yOffset = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section className="relative w-full mt-20 mb-10 grid grid-cols-12 overflow-hidden">
+    <section className={`relative w-full mb-10 grid grid-cols-12 overflow-hidden ${marginTopClass || ""}`}>
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         style={{ y: yOffset }}
-        className="col-span-12 lg:col-span-5 flex flex-col items-center lg:items-end text-center lg:text-right space-y-2 px-4"
+        className=" col-span-12 lg:col-span-5 flex flex-col
+    items-start lg:items-end
+    text-left lg:text-right
+    space-y-2 px-4"
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">

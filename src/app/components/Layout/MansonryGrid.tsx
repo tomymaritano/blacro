@@ -2,7 +2,7 @@
 
 
 import { Project } from "../../../../data/projects";
-import MasonryProjectCard from "../project/MansoryProjectCard";
+import MasonryProjectCard from "../../project/MansoryProjectCard";
 
 interface MasonryGridProps {
   projects: Project[];
@@ -23,7 +23,7 @@ export default function MasonryGrid({ projects }: MasonryGridProps) {
       {projects.map((project, index) => (
         <div key={index} className="break-inside-avoid w-full">
           <MasonryProjectCard
-            href={project.href}
+            slug={project.slug}
             imageSrc={project.imageSrc}
             title={project.title}
             category={project.category}

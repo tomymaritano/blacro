@@ -5,33 +5,43 @@ import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Project } from "../../../data/projects"; // Tu tipo Project
 
-interface ProjectCardProps {
-  href: string;
-  imageSrc: string;
-  title: string;
-  category?: string;
-  logo?: string;
-  index?: number; // índice para animación scroll
+// Interface que extiende Project y le agrega index
+interface ProjectCardProps extends Project {
+  index?: number;
 }
 
-export default function ProjectCard({ href, imageSrc, title, category, logo, index = 0 }: ProjectCardProps) {
+export default function ProjectCard({
+  slug,
+  imageSrc,
+  title,
+  category,
+  logo,
+  index = 0,
+}: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Calcula por filas (2 columnas)
-  const rowIndex = Math.floor(index / 2); 
+  // Calcula delay por fila
+  const rowIndex = Math.floor(index / 2);
   const columnIndex = index % 2;
   const delay = rowIndex * 0.2 + columnIndex * 0.1;
 
   return (
     <motion.div
-      // Animación de scroll
+      // Animación scroll
       initial={{ opacity: 0, y: 60, scale: 0.8, rotateX: 15 }}
       whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-      viewport={{ once: true, amount: 0.3 }} // Cambiar falase para que desparezcan
-      transition={{ delay, duration: 0.8, ease: [0.25, 1, 0.5, 1], type: "spring", stiffness: 100 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        delay,
+        duration: 0.8,
+        ease: [0.25, 1, 0.5, 1],
+        type: "spring",
+        stiffness: 100,
+      }}
       // Hover + cursor
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -43,8 +53,8 @@ export default function ProjectCard({ href, imageSrc, title, category, logo, ind
       whileHover={{ rotate: -2, scale: 1.03 }}
       className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-xl group cursor-none"
     >
-      {/* Link cubriendo todo */}
-      <Link href={href} className="absolute inset-0 z-10 cursor-none" />
+      {/* Link cubriendo */}
+      <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />
 
       {/* Imagen */}
       <Image
@@ -64,12 +74,18 @@ export default function ProjectCard({ href, imageSrc, title, category, logo, ind
             transition={{ duration: 0.3 }}
             className="w-24 h-24 flex items-center justify-center"
           >
-            <Image src={logo} alt={`${title} logo`} width={96} height={96} className="object-contain" />
+            <Image
+              src={logo}
+              alt={`${title} logo`}
+              width={96}
+              height={96}
+              className="object-contain"
+            />
           </motion.div>
         )}
       </div>
 
-      {/* Cursor custom */}
+      {/* Cursor */}
       {isHovered && (
         <motion.div
           className="absolute z-50 w-16 h-16 bg-white/25 backdrop-blur-md border border-black/10 rounded-full flex items-center justify-center shadow-xl pointer-events-none"
