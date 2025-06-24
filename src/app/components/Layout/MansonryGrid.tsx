@@ -1,7 +1,6 @@
 "use client";
 
-
-import { Project } from "../../../../data/projects";
+import { Project } from "../../../../data/types";
 import MasonryProjectCard from "../../project/MansoryProjectCard";
 
 interface MasonryGridProps {
@@ -17,18 +16,16 @@ export default function MasonryGrid({ projects }: MasonryGridProps) {
         lg:columns-3
         gap-4
         w-full
-        space-y-4
       "
     >
-      {projects.map((project, index) => (
-        <div key={index} className="break-inside-avoid w-full">
+      {projects.map((project) => (
+        <div key={project.slug} className="break-inside-avoid mb-4">
           <MasonryProjectCard
             slug={project.slug}
             imageSrc={project.imageSrc}
             title={project.title}
             category={project.category}
             logo={project.logo}
-            index={index}
           />
         </div>
       ))}
