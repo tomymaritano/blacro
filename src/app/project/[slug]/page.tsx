@@ -11,8 +11,10 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+// ✅ Marcamos el componente como async y await params
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) return <div className="p-8">Not found</div>;
 
@@ -21,13 +23,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <Header title={project.title} />
 
       <main className="grid grid-cols-12 gap-8 text-black">
-        {/* Gallery */}
         <section className="col-span-12 lg:col-span-8 order-2 lg:order-1">
           <ProjectGallery project={project} />
         </section>
 
-        {/* Sidebar */}
-        <aside className="col-span-12 lg:col-span-4 flex flex-col space-y-6 sticky top-24 self-start order-1 lg:order-2 z-10 bg-white p-4 rounded-xl">
+        <aside className="col-span-12 lg:col-span-4 flex flex-col space-y-6 sticky top-24 self-start order-1 lg:order-2 z-[-1]">
           <ProjectMetaInfo project={project} />
           <ProjectDescription project={project} />
           <ProjectContentBlocks project={project} />
