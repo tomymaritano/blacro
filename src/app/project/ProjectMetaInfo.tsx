@@ -1,5 +1,6 @@
 // components/project/ProjectMetaInfo.tsx
-import { Project } from "../../../data/projects";
+import { Project } from "../../../data/types";
+import ProjectMetaItem from "./ProjectMetaItem";
 
 interface ProjectMetaInfoProps {
   project: Project;
@@ -7,28 +8,27 @@ interface ProjectMetaInfoProps {
 
 export default function ProjectMetaInfo({ project }: ProjectMetaInfoProps) {
   return (
-    <div className="space-y-6 sticky top-24 self-start">
+    <aside className="space-y-6 top-24 self-start bg-white">
+      {/* Ubicación y año */}
       <div className="grid grid-cols-2 gap-8 text-sm opacity-80">
         {project.location && (
-          <div>
-            <span className="font-semibold uppercase">(Ubication)</span>
-            <p>{project.location}</p>
-          </div>
+          <ProjectMetaItem label="Location">
+            {project.location}
+          </ProjectMetaItem>
         )}
         {project.year && (
-          <div>
-            <span className="font-semibold uppercase">(Year)</span>
-            <p>{project.year}</p>
-          </div>
+          <ProjectMetaItem label="Year">
+            {project.year}
+          </ProjectMetaItem>
         )}
       </div>
 
+      {/* Servicios */}
       {project.services && project.services.length > 0 && (
-        <div className="text-sm opacity-80">
-          <span className="font-semibold uppercase">(Services)</span>
-          <p>{project.services.join(", ")}</p>
-        </div>
+        <ProjectMetaItem label="Services">
+          {project.services.join(", ")}
+        </ProjectMetaItem>
       )}
-    </div>
+    </aside>
   );
 }

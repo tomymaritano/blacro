@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
     "framer-motion": "^12.19.1",
     "image-size": "^2.0.2",
     "lucide-react": "^0.522.0",

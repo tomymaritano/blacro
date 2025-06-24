@@ -1,16 +1,15 @@
 // app/page.tsx
-
 import HeroSection from './components/Hero/HeroSection';
 import ProjectGrid from './project/ProjectGrid';
 import WhatWeDoSection from './components/WhatWeDo';
 
-import { projects } from '../../data/projects';
+import { featuredProjects } from '../../data/projects';
 
 export default function Home() {
   return (
     <>
       <HeroSection
-      marginTopClass='mt-20'
+        marginTopClass='mt-20'
         subtitle="(Based in Buenos Aires, Working Worldwide)"
         lines={[
           "SOMOS UN ESTUDIO CREATIVO INTEGRAL.",
@@ -18,9 +17,11 @@ export default function Home() {
           "ESPACIOS Y EXPERIENCIAS."
         ]}
       />
-      <ProjectGrid projects={projects} />
+
+      <ProjectGrid projects={featuredProjects} />
+
+
       <WhatWeDoSection />
-      {/* Podés seguir sumando secciones */}
     </>
   );
 }

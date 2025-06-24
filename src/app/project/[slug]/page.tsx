@@ -1,4 +1,3 @@
-// app/project/[slug]/page.tsx
 import Header from '../../components/Layout/Header';
 import { projects } from '../../../../data/projects';
 import ProjectGallery from '../ProjectGallery';
@@ -11,7 +10,6 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-// ✅ Marcamos el componente como async y await params
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
@@ -22,12 +20,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <>
       <Header title={project.title} />
 
+      {/* Grid con altura full solo en desktop */}
       <main className="grid grid-cols-12 gap-8 text-black">
-        <section className="col-span-12 lg:col-span-8 order-2 lg:order-1">
+        {/* Galería scrolleable */}
+        <section className="col-span-12 lg:col-span-8 order-2 lg:order-1 h-screen overflow-y-auto pr-2 space-y-6">
           <ProjectGallery project={project} />
         </section>
 
-        <aside className="col-span-12 lg:col-span-4 flex flex-col space-y-6 sticky top-24 self-start order-1 lg:order-2 z-[-1]">
+        {/* Sidebar sticky */}
+        <aside className="col-span-12 lg:col-span-4 order-1 lg:order-2 sticky top-24 self-start bg-white">
           <ProjectMetaInfo project={project} />
           <ProjectDescription project={project} />
           <ProjectContentBlocks project={project} />

@@ -1,5 +1,5 @@
 // app/portfolio/page.tsx
-import { fullProjects } from '../../../data/projects';
+import { fullProjects } from '../../../data/fullProjects';
 import HeroSection from '../components/Hero/HeroSection';
 import Header from '../components/Layout/Header';
 import MasonryGrid from '../components/Layout/MansonryGrid';

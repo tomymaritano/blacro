@@ -1,6 +1,9 @@
 // components/project/ProjectContentBlocks.tsx
+"use client";
+
 import Image from "next/image";
-import { Project } from "../../../data/projects";
+import ExpandableText from "./ExpandableText";
+import { Project, ProjectContentBlock } from "../../../data/types";
 
 interface ProjectContentBlocksProps {
   project: Project;
@@ -9,17 +12,20 @@ interface ProjectContentBlocksProps {
 export default function ProjectContentBlocks({ project }: ProjectContentBlocksProps) {
   if (!project.content || project.content.length === 0) return null;
 
+  // Unir solo los bloques tipo "text"
+  const fullText = project.content
+    .filter((block: ProjectContentBlock) => block.type === "text")
+    .map((block) => block.content)
+    .join("\n\n"); // 👈 doble salto entre párrafos
+
   return (
-    <div className="flex flex-col space-y-4 mt-4">
-      {project.content.map((block, i) => {
-        switch (block.type) {
-          case "text":
-            return (
-              <p key={i} className="leading-relaxed opacity-80">
-                {block.content}
-              </p>
-            );
-          case "image":
+    <div className="flex flex-col space-y-4 mt-20 bg-white">
+      {fullText && <ExpandableText content={fullText} />}
+
+      {project.content
+        .filter((block: ProjectContentBlock) => block.type !== "text")
+        .map((block: ProjectContentBlock, i: number) => {
+          if (block.type === "image") {
             return (
               <Image
                 key={i}
@@ -30,19 +36,21 @@ export default function ProjectContentBlocks({ project }: ProjectContentBlocksPr
                 className="w-full h-auto object-cover rounded-xl"
               />
             );
-          case "quote":
+          }
+
+          if (block.type === "quote") {
             return (
               <blockquote
                 key={i}
-                className="border-l-4 border-black pl-4 italic opacity-80"
+                className="border-l-4 border-black pl-4 italic opacity-80 font-inter"
               >
                 {block.content}
               </blockquote>
             );
-          default:
-            return null;
-        }
-      })}
+          }
+
+          return null;
+        })}
     </div>
   );
 }
