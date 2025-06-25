@@ -1,4 +1,3 @@
-// src/app/project/[slug]/page.tsx
 import { projects } from "../../../../data/projects";
 import Header from "../../components/Layout/Header";
 import ProjectGallery from "../ProjectGallery";
@@ -11,7 +10,6 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-// Sin tipar a mano PageProps:
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
