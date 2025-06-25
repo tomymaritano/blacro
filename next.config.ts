@@ -9,7 +9,12 @@ const bundleAnalyzer = withBundleAnalyzer({
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["https://www.blacro.com"],
+     remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'blacro.com',
+    },
+  ],
   },
   // otras configuraciones que quieras
 };
