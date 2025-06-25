@@ -1,22 +1,7 @@
-// next.config.ts
-import { NextConfig } from "next";
-import withBundleAnalyzer from "@next/bundle-analyzer";
-
-const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  images: {
-     remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: 'blacro.com',
-    },
-  ],
-  },
-  // otras configuraciones que quieras
+  /* config options here */
 };
 
-export default bundleAnalyzer(nextConfig);
+export default nextConfig;
