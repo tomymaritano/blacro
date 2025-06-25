@@ -36,7 +36,7 @@ export default function ProjectCard({ slug, imageSrc, title, category, logo, ind
         mouseY.set(e.clientY - rect.top);
       }}
       whileHover={{ rotate: -2, scale: 1.03 }}
-      className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-xl group cursor-none"
+      className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-md group cursor-none"
     >
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />
       <ProjectCardImage imageSrc={imageSrc} title={title} />

@@ -1,6 +1,6 @@
 // app/layout.tsx
 import "./globals.css";
-import { Familjen_Grotesk, Darker_Grotesque } from "next/font/google";
+import { Familjen_Grotesk, Darker_Grotesque, Inter } from "next/font/google";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import GridWrapper from "./components/Layout/GridWrapper";
@@ -13,6 +13,11 @@ const familjenGrotesk = Familjen_Grotesk({
 
 const darkerGrotesque = Darker_Grotesque({ 
   variable: "--font-darker-grotesque",
+  subsets: ["latin"] 
+});
+
+const inter = Inter({ 
+  variable: "--font-inter",
   subsets: ["latin"] 
 });
 
@@ -53,7 +58,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} antialiased bg-[#fffcf7] text-black`}>
+      <body className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable} antialiased bg-[#fffcf7] text-black`}>
         <Navbar />
         <GridWrapper className="py-8">
           <main className="col-span-12 flex flex-col gap-8">{children}</main>

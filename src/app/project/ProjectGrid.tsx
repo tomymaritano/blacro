@@ -25,7 +25,7 @@ export default function ProjectGrid({
         className={`
           grid gap-4 sm:gap-6
           grid-cols-1 sm:grid-cols-${cols}
-          ${variant === "featured" ? "bg-black/5 p-4 rounded-xl" : ""}
+          ${variant === "featured" ? "bg-black/5 p-4 rounded-sm" : ""}
         `}
       >
         {projects.map((project, index) => (
