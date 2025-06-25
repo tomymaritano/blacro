@@ -1,9 +1,9 @@
 // app/page.tsx
 import HeroSection from './components/Hero/HeroSection';
-import ProjectGrid from './project/ProjectGrid';
 import WhatWeDoSection from './components/WhatWeDo';
 
 import { featuredProjects } from '../../data/projects';
+import HomeProjectGrid from './project/HomeProjectGrid';
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         ]}
       />
 
-      <ProjectGrid projects={featuredProjects} />
+      <HomeProjectGrid projects={featuredProjects} />
 
 
       <WhatWeDoSection />

@@ -37,7 +37,7 @@ export default function MasonryProjectCard({
         mouseX.set(e.clientX - rect.left);
         mouseY.set(e.clientY - rect.top);
       }}
-      className="relative w-full overflow-hidden rounded-xl group cursor-none"
+      className="relative w-full overflow-hidden rounded-sm group cursor-none"
     >
       {/* Link */}
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />

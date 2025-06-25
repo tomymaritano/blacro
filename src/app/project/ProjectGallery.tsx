@@ -24,7 +24,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                 alt={project.title}
                 width={1200}
                 height={800}
-                className="w-full h-auto object-cover rounded-xl mb-6"
+                className="w-full h-auto object-cover rounded-none mb-6"
             />
 
             {/* Imagenes secundarias */}
@@ -37,7 +37,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             alt={`${project.title} image ${i + 1}`}
                             width={1200}
                             height={342}
-                            className="w-full h-auto object-cover rounded-xl max-h-[342px]"
+                            className="w-full h-auto object-cover rounded-none max-h-[707px]"
                         />
                     ))}
                 </div>

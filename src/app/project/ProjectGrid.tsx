@@ -24,7 +24,7 @@ export default function ProjectGrid({
       <div
         className={`
           grid gap-4 sm:gap-6
-          grid-cols-1 sm:grid-cols-${cols}
+          grid-cols- sm:grid-cols-${cols}
           ${variant === "featured" ? "bg-black/5 p-4 rounded-sm" : ""}
         `}
       >
