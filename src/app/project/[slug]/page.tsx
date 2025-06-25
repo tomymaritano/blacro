@@ -1,3 +1,4 @@
+// app/project/[slug]/page.tsx
 import { projects } from "../../../../data/projects";
 import Header from "../../components/Layout/Header";
 import ProjectGallery from "../ProjectGallery";
@@ -6,14 +7,22 @@ import ProjectDescription from "../ProjectDescription";
 import ProjectContentBlocks from "../ProjectContentBlocks";
 import Image from "next/image";
 
+interface PageProps {
+  params: { slug: string };
+}
+
+// Genera las rutas automáticamente
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+// Componente de la página
+export default async function ProjectPage({ params }: PageProps) {
   const project = projects.find((p) => p.slug === params.slug);
 
-  if (!project) return <div className="p-8">Not found</div>;
+  if (!project) {
+    return <div className="p-8">Not found</div>;
+  }
 
   return (
     <>
