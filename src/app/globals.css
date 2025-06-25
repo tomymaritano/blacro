@@ -117,3 +117,20 @@ body {
 .custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
 }
+
+.logo-draw {
+  width: 100%;
+  height: auto;
+}
+
+.logo-path {
+  stroke-dasharray: 1000; /* depende del largo del path */
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

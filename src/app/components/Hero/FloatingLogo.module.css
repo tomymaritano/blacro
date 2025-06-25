@@ -2,7 +2,6 @@
 
 .logo {
   position: fixed;
-  left: 2rem;
   top: 4rem;             /* Más arriba en desktop */
   transform-origin: top left;
   z-index: 50;
@@ -40,3 +39,4 @@
     transform: scale(0.35);
   }
 }
+
