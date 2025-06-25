@@ -11,10 +11,9 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-// ¡No le pases tipo a params si no querés errores!
+// Sin tipar a mano PageProps:
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) return <div className="p-8">Not found</div>;
 
