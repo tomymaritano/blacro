@@ -10,11 +10,10 @@ export default function ProjectCardImage({ imageSrc, title }: ProjectCardImagePr
   return (
     <Image
       src={imageSrc}
-      alt={title}
+      alt={`Cover image for the project "${title}"`}
       fill
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       className="object-cover transition-transform duration-500 ease-in-out group-hover:md:blur-md"
-      priority
     />
   );
 }
