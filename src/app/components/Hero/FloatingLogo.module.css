@@ -11,6 +11,8 @@
   width: 500px;          /* Desktop */
   height: auto;
   transform: scale(1);   /* tamaño inicial en home */
+    transition: all 0.3s ease;
+
 }
 
 .logoScrolled {
