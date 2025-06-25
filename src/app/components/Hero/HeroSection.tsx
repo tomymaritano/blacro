@@ -1,26 +1,44 @@
+// HeroSection.tsx
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { usePathname } from "next/navigation";
 
-interface HeroSectionProps {
-  lines: string[];
-  subtitle?: string;
-  marginTopClass?: string;
-}
-
-export default function HeroSection({ lines, subtitle, marginTopClass }: HeroSectionProps) {
+export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopClass?: string }) {
+  const pathname = usePathname();
   const { scrollYProgress } = useScroll();
   const yOffset = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
+  let subtitle = "";
+  let lines: string[] = [];
+
+  if (pathname === "/") {
+    subtitle = "(Based in Buenos Aires, Working Worldwide)";
+    lines = [
+      "SOMOS UN ESTUDIO CREATIVO INTEGRAL.",
+      "CONVERTIMOS IDEAS EN MARCAS",
+      "ESPACIOS Y EXPERIENCIAS."
+    ];
+  } else if (pathname.startsWith("/portfolio")) {
+    lines = [
+      "Nos mueve la curiosidad,el deseo de jugar,",
+      "de experimentar,de ir más allá de lo predecible.",
+      "POR ESO CREAMOS PROYECTOS QUE SE ANIMAN A MAS"
+    ];
+  } else if (pathname.startsWith("/contact")) {
+    subtitle = "Get in touch";
+    lines = ["LET’S TALK"];
+  } else {
+    subtitle = "";
+    lines = ["Página"];
+  }
+
   return (
-    <section className={`relative w-full mb-10 grid grid-cols-12 overflow-hidden ${marginTopClass || ""}`}>
+    <section className={`relative w-full mb-10 grid grid-cols-12 overflow-hidden ${marginTopClass}`}>
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         style={{ y: yOffset }}
-        className=" col-span-12 lg:col-span-5 flex flex-col
-    items-start lg:items-end
-    text-left lg:text-right
-    space-y-2 "
+        className="col-span-12 lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right space-y-2"
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">
@@ -31,7 +49,7 @@ export default function HeroSection({ lines, subtitle, marginTopClass }: HeroSec
         {lines.map((line, i) => (
           <motion.h1
             key={i}
-            className="font-grotesk font-regular text-black text-[28px] sm:text-[28px] uppercase lg:text-[40px] leading-snug lg:whitespace-nowrap"
+            className="font-grotesk text-black text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}

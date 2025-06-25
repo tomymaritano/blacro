@@ -16,7 +16,7 @@ export default function ProjectCardCarousel({ slug, imageSrc, title, category, l
 
   return (
     <motion.div
-      className="relative flex-shrink-0 overflow-hidden rounded-xl group cursor-none
+      className="relative flex-shrink-0 overflow-hidden rounded-sm group cursor-none
            w-64 sm:w-80 md:w-96 lg:w-[42.5rem] aspect-video"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
