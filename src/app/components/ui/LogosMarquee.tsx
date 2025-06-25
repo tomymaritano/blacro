@@ -13,11 +13,12 @@ export default function LogosMarquee() {
       {/* Track que se mueve */}
       <div className="flex animate-marquee-left space-x-16 items-center">
         {[...logos, ...logos].map((logo, i) => (
-          <div key={i} className="relative w-28 h-12 flex-shrink-0"> {/* w-28 para que sean más grandes */}
+          <div key={i} className="flex-shrink-0 w-28 h-12 flex items-center justify-center">
             <Image
               src={logo}
               alt={`Logo ${i}`}
-              fill
+              width={112}
+              height={48}
               className="object-contain opacity-70 hover:opacity-100 transition"
               sizes="(max-width: 768px) 50vw, 112px"
               priority={i < logos.length}
