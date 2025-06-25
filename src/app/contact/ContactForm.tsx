@@ -63,7 +63,7 @@ export default function ContactForm() {
           id="name"
           {...register("name")}
           placeholder="Your full name"
-          className={`px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] ${
+          className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] ${
             errors.name ? "border-red-500" : "border-black/20"
           }`}
         />
