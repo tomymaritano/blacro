@@ -27,7 +27,7 @@ export default function AboutPage() {
                 </figure>
 
                 {/* Texto */}
-                <div className="col-span-12 lg:col-span-8 flex flex-col space-y-8 text-black/80 lg:pl-8 pr-2">
+                <div className="col-span-12 lg:col-span-6 flex flex-col space-y-8 text-black/80 lg:pl-16 pr-8">
                     {aboutParagraphs.map((paragraph, i) => {
                         const parts = paragraph.split(/\*\*(.*?)\*\*/);
                         return (
