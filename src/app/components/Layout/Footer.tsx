@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="grid grid-cols-12 items-center py-3 px-4 sm:px-4 md:px-6 lg:px-8 text-black ">
+    <footer className="grid grid-cols-12 items-center py-9 px-4 sm:px-4 md:px-6 lg:px-8 text-black ">
       {/* Contact & Social */}
       <div className="col-span-6 flex flex-col space-y-4 text-[20px] font-grotesk">
         <div>

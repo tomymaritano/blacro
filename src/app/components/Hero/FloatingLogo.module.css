@@ -1,0 +1,42 @@
+/* FloatingLogo.module.css */
+
+.logo {
+  position: fixed;
+  left: 2rem;
+  top: 4rem;             /* Más arriba en desktop */
+  transform-origin: top left;
+  z-index: 50;
+  pointer-events: none;
+  user-select: none;
+  transition: top 0.7s ease-in-out, transform 0.7s ease-in-out;
+  width: 500px;          /* Desktop */
+  height: auto;
+  transform: scale(1);   /* tamaño inicial en home */
+}
+
+.logoScrolled {
+  top: 0.5rem;
+  transform: scale(0.2); /* Al hacer scroll solo reduce un poco */
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 320px;      /* Tablet */
+    top: 2.5rem;       /* más arriba que antes */
+  }
+  .logoScrolled {
+    top: 0.5rem;
+    transform: scale(0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 200px;      /* Mobile */
+    top: 1.5rem;       /* más arriba también */
+  }
+  .logoScrolled {
+    top: 0.25rem;
+    transform: scale(0.35);
+  }
+}

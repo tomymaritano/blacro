@@ -7,45 +7,69 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import AnimatedLink from "../ui/AnimatedLink";
 import ButtonTalk from "../ui/ButtonTalk";
+import FloatingLogo from "../Hero/HeroLogo"; // solo home
+import { usePathname } from "next/navigation";
 
 const Navbar: React.FC = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Handle scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Check mobile
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full backdrop-blur-md z-50 transition ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
-        }`}
+      className={`fixed top-0 left-0 sm:py-3 w-full backdrop-blur-md z-50 transition ${
+        scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
+      }`}
     >
-      {/* Contenedor con padding responsive */}
-      <div className="grid grid-cols-12 items-center py-3 px-4 sm:px-4 md:px-6 lg:px-8">
+      <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="col-span-2 flex items-center relative w-24 h-16">
-          <motion.div
-            initial={{ scale: 1.3, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-full h-full"
-          >
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              fill
-              sizes="(max-width: 768px) 96px, 100px"
-              className="object-contain"
-              priority
-            />
-          </motion.div>
-        </Link>
+        <div className="col-span-2 flex items-center h-full">
+          {isHome ? (
+            isMobile ? (
+              <Link href="/">
+                <Image
+                  src="/logo.svg"
+                  alt="logo"
+                  width={125}
+                  height={50}
+                  className="object-contain"
+                />
+              </Link>
+            ) : (
+              <FloatingLogo />
+            )
+          ) : (
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="logo"
+                width={100}
+                height={60}
+                className="object-contain"
+              />
+            </Link>
+          )}
+        </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] font-grotesk">
+        <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] font-grotesk h-full">
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about">About</AnimatedLink>
           <ButtonTalk href="/contact" />
@@ -95,7 +119,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             {/* Logo */}
-            <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center space-x-2">
+            <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16">
               <Image src="/logo.svg" alt="logo" width={100} height={60} />
             </Link>
 

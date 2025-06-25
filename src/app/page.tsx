@@ -8,12 +8,8 @@ import HomeProjectGrid from './project/HomeProjectGrid';
 export default function Home() {
   return (
     <>
-      <HeroSection
-      />
-
+      <HeroSection marginTopClass="mt-70"/>
       <HomeProjectGrid projects={featuredProjects} />
-
-
       <WhatWeDoSection />
     </>
   );

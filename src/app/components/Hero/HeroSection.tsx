@@ -21,9 +21,9 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
     ];
   } else if (pathname.startsWith("/portfolio")) {
     lines = [
-      "Nos mueve la curiosidad,el deseo de jugar,",
-      "de experimentar,de ir más allá de lo predecible.",
-      "POR ESO CREAMOS PROYECTOS QUE SE ANIMAN A MAS"
+      "Nos mueve la curiosidad, el deseo de jugar,",
+      "de experimentar, de ir más allá de lo predecible.",
+      "POR ESO CREAMOS PROYECTOS QUE SE ANIMAN A MÁS"
     ];
   } else if (pathname.startsWith("/contact")) {
     subtitle = "Get in touch";
