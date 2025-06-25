@@ -1,16 +1,23 @@
 // app/layout.tsx
 import "./globals.css";
-import { Familjen_Grotesk } from "next/font/google";
+import { Familjen_Grotesk, Darker_Grotesque } from "next/font/google";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import GridWrapper from "./components/Layout/GridWrapper";
 import { Metadata, Viewport } from "next";
 
-const familjenGrotesk = Familjen_Grotesk({ variable: "--font-familjen-grotesk", subsets: ["latin"] });
+const familjenGrotesk = Familjen_Grotesk({ 
+  variable: "--font-familjen-grotesk",
+  subsets: ["latin"] 
+});
+
+const darkerGrotesque = Darker_Grotesque({ 
+  variable: "--font-darker-grotesque",
+  subsets: ["latin"] 
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blacro.com"),
-
   title: {
     default: "Blacro Studio",
     template: "%s | Blacro Studio",
@@ -18,8 +25,6 @@ export const metadata: Metadata = {
   description: "Creative studio specializing in branding, visual identity, and spatial design.",
   keywords: ["branding", "creative", "studio", "design"],
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-
-  // ✅ Quitamos themeColor de aquí
   openGraph: {
     type: "website",
     siteName: "Blacro Studio",
@@ -33,7 +38,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Blacro Studio",
@@ -42,7 +46,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ Lo movemos a viewport
 export const viewport: Viewport = {
   themeColor: "#000000",
 };
@@ -50,7 +53,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${familjenGrotesk.variable} antialiased bg-[#fffcf7] text-black`}>
+      <body className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} antialiased bg-[#fffcf7] text-black`}>
         <Navbar />
         <GridWrapper className="py-8">
           <main className="col-span-12 flex flex-col gap-8">{children}</main>
