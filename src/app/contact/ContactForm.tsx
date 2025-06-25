@@ -79,7 +79,7 @@ export default function ContactForm() {
           id="email"
           {...register("email")}
           placeholder="you@example.com"
-          className={`px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] ${
+          className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] ${
             errors.email ? "border-red-500" : "border-black/20"
           }`}
         />
@@ -96,7 +96,7 @@ export default function ContactForm() {
           {...register("message")}
           rows={5}
           placeholder="Tell us about your project or idea..."
-          className={`px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] ${
+          className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] ${
             errors.message ? "border-red-500" : "border-black/20"
           }`}
         ></textarea>
