@@ -1,16 +1,14 @@
 // app/layout.tsx
 import "./globals.css";
 import { Familjen_Grotesk } from "next/font/google";
-
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import GridWrapper from "./components/Layout/GridWrapper";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 const familjenGrotesk = Familjen_Grotesk({ variable: "--font-familjen-grotesk", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  // ✅ Base para que las URLs relativas sean absolutas automáticamente
   metadataBase: new URL("https://blacro.com"),
 
   title: {
@@ -20,13 +18,12 @@ export const metadata: Metadata = {
   description: "Creative studio specializing in branding, visual identity, and spatial design.",
   keywords: ["branding", "creative", "studio", "design"],
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-  themeColor: "#000000",
 
-  // ✅ OpenGraph para que cuando compartan tu web
+  // ✅ Quitamos themeColor de aquí
   openGraph: {
     type: "website",
     siteName: "Blacro Studio",
-    url: "/", // relativo, Next.js lo resuelve a https://blacro.com
+    url: "/",
     images: [
       {
         url: "/images/og-global.png",
@@ -37,13 +34,17 @@ export const metadata: Metadata = {
     ],
   },
 
-  // ✅ Twitter preview
   twitter: {
     card: "summary_large_image",
     title: "Blacro Studio",
     description: "Creative studio specializing in branding, visual identity, and spatial design.",
     images: ["/images/og-global.png"],
   },
+};
+
+// ✅ Lo movemos a viewport
+export const viewport: Viewport = {
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
