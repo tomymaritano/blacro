@@ -1,15 +1,16 @@
-import Header from '../../components/Layout/Header';
-import { projects } from '../../../../data/projects';
-import ProjectGallery from '../ProjectGallery';
-import ProjectMetaInfo from '../ProjectMetaInfo';
-import ProjectDescription from '../ProjectDescription';
-import ProjectContentBlocks from '../ProjectContentBlocks';
-import Image from 'next/image';
+import { projects } from "../../../../data/projects";
+import Header from "../../components/Layout/Header";
+import ProjectGallery from "../ProjectGallery";
+import ProjectMetaInfo from "../ProjectMetaInfo";
+import ProjectDescription from "../ProjectDescription";
+import ProjectContentBlocks from "../ProjectContentBlocks";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
+// Fijate que solo recibimos { params } sin tipo a mano.
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const project = projects.find((p) => p.slug === slug);
@@ -20,16 +21,12 @@ export default async function ProjectPage({ params }: { params: { slug: string }
     <>
       <Header title={project.title} />
 
-      {/* Grid con altura full solo en desktop */}
       <main className="grid grid-cols-12 gap-8 text-black">
-        {/* Galería scrolleable */}
         <section className="col-span-12 lg:col-span-8 order-2 lg:order-1 h-screen overflow-y-auto pr-2 space-y-6 custom-scrollbar">
           <ProjectGallery project={project} />
         </section>
 
-        {/* Sidebar sticky */}
         <aside className="col-span-12 lg:col-span-4 order-1 lg:order-2 bg-white lg:sticky lg:top-24 lg:self-start">
-
           <ProjectMetaInfo project={project} />
           <ProjectDescription project={project} />
           <ProjectContentBlocks project={project} />
