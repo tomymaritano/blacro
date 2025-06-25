@@ -38,7 +38,7 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         style={{ y: yOffset }}
-        className="col-span-12 lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right space-y-2"
+        className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right lg:text-right space-y-2"
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">
