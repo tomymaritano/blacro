@@ -5,7 +5,7 @@ import { unicoinCampaign } from "./unicoin-campaing";
 
 export const projects: Project[] = [
   myricaGin,
-  unicoinCampaign
+  unicoinCampaign,
   // otros proyectos
 ];
 

@@ -24,4 +24,6 @@ export interface Project {
   images?: ProjectImage[];
   content?: ProjectContentBlock[];
   featured?: boolean;
+  size?: "normal" | "large" | "tall"; // Nuevo campo opcional
+
 }

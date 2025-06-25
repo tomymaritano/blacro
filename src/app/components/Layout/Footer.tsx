@@ -32,6 +32,7 @@ export default function Footer() {
           alt="Blacro logo"
           width={100}
           height={40}
+          className="w-auto h-auto"
         />
         <p className="text-black/60">2025 BLACRO STUDIO ALL RIGHTS RESERVED</p>
       </div>

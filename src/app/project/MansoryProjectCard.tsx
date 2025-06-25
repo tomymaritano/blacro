@@ -29,7 +29,12 @@ export default function MasonryProjectCard({
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.1, duration: 0.7, ease: [0.25, 1, 0.5, 1], type: "spring" }}
+      transition={{
+        delay: index * 0.1,
+        duration: 0.7,
+        ease: [0.25, 1, 0.5, 1],
+        type: "spring",
+      }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onMouseMove={(e) => {
@@ -37,35 +42,41 @@ export default function MasonryProjectCard({
         mouseX.set(e.clientX - rect.left);
         mouseY.set(e.clientY - rect.top);
       }}
-      className="relative w-full overflow-hidden rounded-sm group cursor-none"
+      className="relative w-full overflow-hidden rounded-sm group"
     >
       {/* Link */}
-      <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />
+      <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
 
-      {/* Imagen */}
+      {/* Imagen del proyecto */}
       <Image
         src={imageSrc}
         alt={title}
-        width={800}
-        height={600}
+        width={1600}   // ancho base ficticio
+        height={900}   // alto base ficticio
         className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
+        sizes="100vw"  // le decimos que use el 100% del viewport para que optimice bien
+        priority={index < 2}
       />
 
-      {/* Overlay logo */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 flex items-center justify-center transition-opacity duration-500 ease-in-out z-20">
-        {logo && (
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: isHovered ? 1 : 0.8, opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-24 h-24 flex items-center justify-center"
-          >
-            <Image src={logo} alt={`${title} logo`} width={96} height={96} className="object-contain" />
-          </motion.div>
-        )}
-      </div>
+      {/* Overlay del logo */}
+      {logo && (
+        <motion.div
+          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 flex items-center justify-center transition-opacity duration-500 ease-in-out z-20"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            src={logo}
+            alt={`${title} logo`}
+            width={96}
+            height={96}
+            className="object-contain"
+          />
+        </motion.div>
+      )}
 
-      {/* Cursor */}
+      {/* Cursor animado */}
       {isHovered && (
         <motion.div
           className="absolute z-50 w-16 h-16 bg-white/25 backdrop-blur-md border border-black/10 rounded-full flex items-center justify-center shadow-xl pointer-events-none"
@@ -79,7 +90,7 @@ export default function MasonryProjectCard({
         </motion.div>
       )}
 
-      {/* Info */}
+      {/* Info del proyecto */}
       <div className="absolute bottom-3 left-3 z-30 text-xs sm:text-sm md:text-base space-y-1">
         {category && (
           <motion.span

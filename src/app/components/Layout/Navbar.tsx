@@ -26,13 +26,21 @@ const Navbar: React.FC = () => {
       {/* Contenedor con padding responsive */}
       <div className="grid grid-cols-12 items-center py-3 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="col-span-2 flex items-center">
+        <Link href="/" className="col-span-2 flex items-center relative w-24 h-16">
           <motion.div
             initial={{ scale: 1.3, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-full h-full"
           >
-            <Image src="/logo.svg" alt="logo" width={100} height={60} />
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              fill
+              sizes="(max-width: 768px) 96px, 100px"
+              className="object-contain"
+              priority
+            />
           </motion.div>
         </Link>
 
