@@ -4,7 +4,7 @@ import { Project } from "./types";
 export const myricaGin: Project = {
     slug: "myrica-gin",
     title: "Myrica Gin",
-    imageSrc: "/images/myrica/test8.jpg",
+    imageSrc: "/images/myrica/test9.jpg",
     category: "Branding & Packaging",
     client: "Myrica Distillery",
     location: "Buenos Aires",
