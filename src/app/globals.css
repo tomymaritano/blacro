@@ -23,15 +23,18 @@ body {
 
 .container {
   width: 100%;
-  max-width: calc(100% - 120px); /* márgenes laterales */
+  max-width: calc(100% - 120px);
+  /* márgenes laterales */
   margin-left: auto;
   margin-right: auto;
 }
 
 /* globals.css */
 .custom-scrollbar {
-  scrollbar-width:auto; /* Firefox */
-  scrollbar-color: #000000 #f5f5f5; /* Firefox */
+  scrollbar-width: auto;
+  /* Firefox */
+  scrollbar-color: #000000 #f5f5f5;
+  /* Firefox */
 }
 
 /* Para navegadores basados en WebKit (Chrome, Safari, Edge) */
@@ -58,23 +61,28 @@ body {
   from {
     transform: translateX(0%);
   }
+
   to {
-    transform: translateX(-50%); /* cuando dupliques el contenido */
+    transform: translateX(-50%);
+    /* cuando dupliques el contenido */
   }
 }
 
 @keyframes marquee-right {
   from {
-    transform: translateX(0%);
-  }
-  to {
     transform: translateX(-50%);
   }
+
+  to {
+    transform: translateX(0%);
+  }
 }
+
 @keyframes marquee-infinite {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -84,6 +92,7 @@ body {
   animation: marquee-infinite 40s linear infinite;
   will-change: transform;
 }
+
 /* Usa estas clases para izquierda o derecha */
 .animate-marquee-left {
   animation: marquee-left 30s linear infinite;
@@ -93,6 +102,10 @@ body {
 .animate-marquee-right {
   animation: marquee-right 40s linear infinite;
   will-change: transform;
+}
+
+.animate-marquee-right:hover {
+  animation-play-state: paused;
 }
 
 /* Estilo minimal para el scrollbar del texto en desktop */
@@ -105,15 +118,19 @@ body {
 .custom-scrollbar-thin::-webkit-scrollbar {
   width: 8px;
 }
+
 .custom-scrollbar-thin::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .custom-scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2); 
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 9999px;
-  border: 2px solid transparent; /* Espaciado entre thumb y track */
+  border: 2px solid transparent;
+  /* Espaciado entre thumb y track */
   background-clip: content-box;
 }
+
 .custom-scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
 }
@@ -124,7 +141,8 @@ body {
 }
 
 .logo-path {
-  stroke-dasharray: 1000; /* depende del largo del path */
+  stroke-dasharray: 1000;
+  /* depende del largo del path */
   stroke-dashoffset: 1000;
   animation: draw 2s ease forwards;
 }
