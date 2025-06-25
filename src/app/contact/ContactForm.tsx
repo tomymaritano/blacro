@@ -53,7 +53,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full max-w-2xl sm:max-w-full md:max-w-full lg:max-w-xl text-black/80">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full max-w-sm sm:max-w-full md:max-w-full lg:max-w-xl text-black/80 px-2">
       {/* Nombre */}
       <div className="flex flex-col">
         <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80">
