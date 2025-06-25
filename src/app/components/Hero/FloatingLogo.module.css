@@ -42,3 +42,14 @@
   }
 }
 
+/* Mobile muy pequeño (ej. menos de 480px) */
+@media (max-width: 480px) {
+  .logo {
+    width: 180px;
+    top: 0.5rem;
+  }
+  .logoScrolled {
+    top: 0.6rem;
+    transform: scale(0.4); /* Un poco menos reducido para que sea visible */
+  }
+}

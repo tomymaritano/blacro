@@ -15,6 +15,7 @@ const Navbar: React.FC = () => {
   const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobile, setIsMobile] = useState(false);
 
   // Handle scroll
@@ -40,33 +41,21 @@ const Navbar: React.FC = () => {
     >
       <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <div className="col-span-2 flex items-center h-full">
-          {isHome ? (
-            isMobile ? (
-              <Link href="/">
-                <Image
-                  src="/logo.svg"
-                  alt="logo"
-                  width={125}
-                  height={50}
-                  className="object-contain"
-                />
-              </Link>
-            ) : (
-              <FloatingLogo />
-            )
-          ) : (
-            <Link href="/">
-              <Image
-                src="/logo.svg"
-                alt="logo"
-                width={100}
-                height={60}
-                className="object-contain"
-              />
-            </Link>
-          )}
-        </div>
+<div className="col-span-2 flex items-center h-full">
+  {isHome ? (
+    <FloatingLogo />
+  ) : (
+    <Link href="/">
+      <Image
+        src="/logo.svg"
+        alt="logo"
+        width={100}
+        height={60}
+        className="object-contain"
+      />
+    </Link>
+  )}
+</div>
 
         {/* Desktop links */}
         <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] font-grotesk h-full">
