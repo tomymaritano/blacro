@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
 
-// 1. Esquema para los campos esperados
+// Valida los campos del formulario
 const ContactSchema = z.object({
   name: z.string().min(2, "El nombre es demasiado corto."),
   email: z.string().email("Email inválido."),
@@ -12,11 +12,15 @@ const ContactSchema = z.object({
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-
-    // 2. Validar los campos contra el esquema
     const { name, email, message } = ContactSchema.parse(data);
 
-    // 3. Configuración del transporter
+    // Loguear envs para depuración
+    console.log('SMTP_HOST:', process.env.SMTP_HOST);
+    console.log('SMTP_PORT:', process.env.SMTP_PORT);
+    console.log('SMTP_SECURE:', process.env.SMTP_SECURE);
+    console.log('SMTP_USER:', process.env.SMTP_USER);
+
+    // Configuración del transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -27,7 +31,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // 4. Enviar el mail
+    // Enviar mail
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: "hola@blacro.com",
@@ -41,9 +45,12 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ message: "Message sent successfully" }, { status: 200 });
-  } catch (error) {
-    // 5. Manejo de errores
+    return NextResponse.json(
+      { message: "Message sent successfully" },
+      { status: 200 }
+    );
+
+  } catch (error: unknown) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: error.errors.map((e) => e.message).join(", ") },
@@ -51,9 +58,16 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error("[CONTACT_API_ERROR]:", error);
+    if (error instanceof Error) {
+      console.error("[CONTACT_API_ERROR]:", error.message, error.stack);
+      return NextResponse.json(
+        { error: error.message || "Internal Server Error" },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Unknown error occurred" },
       { status: 500 }
     );
   }
