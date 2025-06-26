@@ -21,7 +21,7 @@ export default function AboutPage() {
                         alt="Blacro founders"
                         width={500}
                         height={750}
-                        className="rounded-xl object-cover object-center w-full h-auto"
+                        className="rounded-xl object-cover object-center w-full h-auto pr-2"
                         priority
                     />
                 </figure>

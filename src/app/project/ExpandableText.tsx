@@ -51,7 +51,7 @@ export default function ExpandableText({
                 ) : (
                     <button
                         onClick={toggle}
-                        className="mt-4 inline-block px-6 py-2 border border-black/50 rounded-full bg-white text-black/80 text-sm font-medium hover:bg-black hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+                        className="mt-4 inline-block px-6 py-2 border border-black/50 rounded-full text-black/80 text-sm font-medium hover:bg-black hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
                     >
                         {expanded ? collapseText : expandText}
                     </button>

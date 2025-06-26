@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export default function Footer() {
   return (
-    <footer className="grid grid-cols-12 items-center py-9 px-4 sm:px-4 md:px-6 lg:px-8 text-black ">
+    <footer className={`grid grid-cols-12 items-center py-9 px-4 sm:px-4 md:px-6 lg:px-8 text-black ${inter.className}`}>
       {/* Contact & Social */}
-      <div className="col-span-6 flex flex-col space-y-4 text-[20px] font-grotesk">
+      <div className="col-span-6 flex flex-col space-y-4 text-[20px]">
         <div>
           <p className="font-bold uppercase">LET’S TALK!</p>
           <Link href="mailto:hola@blacro.com" className="hover:underline">
@@ -15,7 +18,6 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Línea separadora */}
         <hr className="border-black/90 border-1 w-38" />
 
         <div className="flex flex-col space-y-2">
@@ -26,7 +28,7 @@ export default function Footer() {
       </div>
 
       {/* Logo & Rights */}
-      <div className="col-span-6 flex flex-col justify-between h-full items-end text-right text-sm font-grotesk">
+      <div className="col-span-6 flex flex-col justify-between h-full items-end text-right text-sm">
         <Image
           src="/logo.svg"
           alt="Blacro logo"
@@ -34,7 +36,7 @@ export default function Footer() {
           height={40}
           className="w-auto h-auto"
         />
-        <p className="text-black/60">2025 BLACRO STUDIO ALL RIGHTS RESERVED</p>
+        <p className="text-black font-medium">2025 BLACRO STUDIO ALL RIGHTS RESERVED</p>
       </div>
     </footer>
   );

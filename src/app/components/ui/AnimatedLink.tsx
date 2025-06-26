@@ -21,7 +21,7 @@ export default function AnimatedLink({ href, children, className, onClick }: Ani
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`relative inline-block ${className}`}
+      className={`relative  inline-block ${className}`}
     >
       <span className="relative z-10 transition-colors duration-200">{children}</span>
       <motion.span

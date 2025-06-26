@@ -19,7 +19,7 @@ export default function ProjectContentBlocks({ project }: ProjectContentBlocksPr
     .join("\n\n"); // 👈 doble salto entre párrafos
 
   return (
-    <div className="flex flex-col space-y-4 mt-20 bg-white">
+    <div className="flex flex-col space-y-4 mt-20">
       {fullText && <ExpandableText content={fullText} />}
 
       {project.content

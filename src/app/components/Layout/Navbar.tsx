@@ -35,30 +35,29 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 sm:py-3 w-full backdrop-blur-md z-50 transition ${
-        scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
-      }`}
+      className={`fixed top-0 left-0 sm:py-3 w-full backdrop-blur-md z-50 transition ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"
+        }`}
     >
       <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
-<div className="col-span-2 flex items-center h-full">
-  {isHome ? (
-    <FloatingLogo />
-  ) : (
-    <Link href="/">
-      <Image
-        src="/logo.svg"
-        alt="logo"
-        width={100}
-        height={60}
-        className="object-contain"
-      />
-    </Link>
-  )}
-</div>
+        <div className="col-span-2 flex items-center h-full">
+          {isHome ? (
+            <FloatingLogo />
+          ) : (
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="logo"
+                width={100}
+                height={60}
+                className="object-contain"
+              />
+            </Link>
+          )}
+        </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] font-grotesk h-full">
+        <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] h-full">
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about">About</AnimatedLink>
           <ButtonTalk href="/contact" />
