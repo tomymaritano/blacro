@@ -4,6 +4,7 @@ import { Familjen_Grotesk, Darker_Grotesque, Inter } from "next/font/google";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import GridWrapper from "./components/Layout/GridWrapper";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { Metadata, Viewport } from "next";
 
 const familjenGrotesk = Familjen_Grotesk({ 
@@ -59,11 +60,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable} antialiased bg-[#fffcf7] text-black`}>
-        <Navbar />
-        <GridWrapper className="py-8">
-          <main className="col-span-12 flex flex-col gap-8">{children}</main>
-        </GridWrapper>
-        <Footer />
+        <ErrorBoundary>
+          <Navbar />
+          <GridWrapper className="py-8">
+            <main className="col-span-12 flex flex-col gap-8">{children}</main>
+          </GridWrapper>
+          <Footer />
+        </ErrorBoundary>
       </body>
     </html>
   );

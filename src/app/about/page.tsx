@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Layout/Header";
 import LogosMarquee from "../components/ui/LogosMarquee";
 import ProjectCarouselRow from "../project/ProjectCardCarouselRow";
-import { aboutParagraphs } from '@/data/aboutParagraphs'
+import { aboutParagraphs } from '../../../data/aboutParagraphs'
 
 export default function AboutPage() {
     return (

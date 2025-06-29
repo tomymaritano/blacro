@@ -2,9 +2,9 @@
 import { z } from "zod";
 
 export const contactSchema = z.object({
-  name: z.string().min(2, "Nombre es requerido (mínimo 2 letras)"),
-  email: z.string().email("Correo inválido"),
-  message: z.string().min(10, "Mensaje debe tener al menos 10 caracteres"),
+  name: z.string().min(2, "Name is too short.").max(100, "Name is too long."),
+  email: z.string().email("Invalid email address.").max(255, "Email is too long."),
+  message: z.string().min(10, "Message is too short.").max(2000, "Message is too long."),
 });
 
 export type ContactSchema = z.infer<typeof contactSchema>;

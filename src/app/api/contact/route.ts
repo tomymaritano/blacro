@@ -1,53 +1,83 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
-
-// Valida los campos del formulario
-const ContactSchema = z.object({
-  name: z.string().min(2, "El nombre es demasiado corto."),
-  email: z.string().email("Email inválido."),
-  message: z.string().min(10, "El mensaje es demasiado corto."),
-});
+import { validateEnv } from "@/app/lib/env";
+import { sanitizeText, sanitizeEmailHeader, checkRateLimit, getClientIP } from "@/app/lib/security";
+import { contactSchema } from "@/app/lib/schemas/contactSchema";
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting check
+    const clientIP = getClientIP(request);
+    const rateLimitResult = checkRateLimit(clientIP, 5, 15 * 60 * 1000); // 5 requests per 15 minutes
+    
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { 
+          error: "Too many requests. Please try again later.",
+          resetTime: rateLimitResult.resetTime 
+        },
+        { 
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': '5',
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
+          }
+        }
+      );
+    }
+
     const data = await request.json();
-    const { name, email, message } = ContactSchema.parse(data);
+    const { name, email, message } = contactSchema.parse(data);
 
-    // Loguear envs para depuración
-    console.log('SMTP_HOST:', process.env.SMTP_HOST);
-    console.log('SMTP_PORT:', process.env.SMTP_PORT);
-    console.log('SMTP_SECURE:', process.env.SMTP_SECURE);
-    console.log('SMTP_USER:', process.env.SMTP_USER);
+    // Validate environment variables
+    const env = validateEnv();
 
-    // Configuración del transporter
+    // SMTP transporter configuration
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE === "true",
+      host: env.SMTP_HOST,
+      port: Number(env.SMTP_PORT),
+      secure: env.SMTP_SECURE === "true",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user: env.SMTP_USER,
+        pass: env.SMTP_PASSWORD,
       },
     });
 
-    // Enviar mail
+    // Sanitize all inputs to prevent injection attacks
+    const sanitizedName = sanitizeEmailHeader(name);
+    const sanitizedEmail = sanitizeEmailHeader(email);
+    const sanitizedMessage = sanitizeText(message);
+    const sanitizedSubject = sanitizeEmailHeader(`New contact from ${name}`);
+
+    // Send email with sanitized content
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
+      from: `"${sanitizedName}" <${process.env.SMTP_USER}>`, // Use authenticated sender
+      replyTo: sanitizedEmail, // Set reply-to to user's email
       to: "hola@blacro.com",
-      subject: `New contact from ${name}`,
-      text: message,
+      subject: sanitizedSubject,
+      text: sanitizedMessage,
       html: `
         <h2>New contact message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong><br>${message}</p>
+        <p><strong>Name:</strong> ${sanitizedName}</p>
+        <p><strong>Email:</strong> ${sanitizedEmail}</p>
+        <p><strong>Message:</strong><br>${sanitizedMessage.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>This message was sent from the Blacro Studio contact form.</small></p>
       `,
     });
 
     return NextResponse.json(
       { message: "Message sent successfully" },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'X-RateLimit-Limit': '5',
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
+        }
+      }
     );
 
   } catch (error: unknown) {

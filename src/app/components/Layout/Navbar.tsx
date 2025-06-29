@@ -9,17 +9,12 @@ import AnimatedLink from "../ui/AnimatedLink";
 import ButtonTalk from "../ui/ButtonTalk";
 import FloatingLogo from "../Hero/HeroLogo"; // solo home
 import { usePathname } from "next/navigation";
-import { Familjen_Grotesk } from "next/font/google";
-
-const familjenGrotesk = Familjen_Grotesk({ subsets: ['latin'], variable: '--font-familjen-grotesk' });
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isMobile, setIsMobile] = useState(false);
 
   // Handle scroll
   useEffect(() => {
@@ -28,17 +23,10 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Check mobile
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 sm:py-3 font-semibold w-full backdrop-blur-md z-50 transition ${familjenGrotesk.className} ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"}`}
+      className={`fixed top-0 left-0 sm:py-3 font-semibold w-full backdrop-blur-md z-50 transition font-familjen ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"}`}
     >
       <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}

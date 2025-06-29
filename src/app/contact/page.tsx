@@ -1,6 +1,7 @@
 // app/contact/page.tsx
 import { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import FormErrorBoundary from "../components/FormErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <FormErrorBoundary>
       <ContactClient />
-    </>
+    </FormErrorBoundary>
   );
 }

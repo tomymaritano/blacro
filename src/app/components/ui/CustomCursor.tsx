@@ -1,36 +1,84 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 
 export default function CustomCursor() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [active, setActive] = useState(false); // sólo activo sobre ProjectCard
+  const [active, setActive] = useState(false);
+  const elementsRef = useRef<Element[]>([]);
   
+  // Memoized event handlers to prevent recreation on every render
+  const move = useCallback((e: MouseEvent) => {
+    setPos({ x: e.clientX, y: e.clientY });
+  }, []);
+  
+  const enter = useCallback(() => setActive(true), []);
+  const leave = useCallback(() => setActive(false), []);
+
   useEffect(() => {
-    const move = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    const enter = () => setActive(true);
-    const leave = () => setActive(false);
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined') return;
+    
+    // Store original cursor style to restore later
+    const originalCursor = document.documentElement.style.cursor;
+    
+    // Add mouse move listener
+    window.addEventListener("mousemove", move, { passive: true });
 
-    window.addEventListener("mousemove", move);
-
-    // Ocultamos cursor por defecto
+    // Hide default cursor
     document.documentElement.style.cursor = "none";
 
-    document.querySelectorAll(".group").forEach((el) => {
-      el.addEventListener("mouseenter", enter);
-      el.addEventListener("mouseleave", leave);
-    });
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      document.documentElement.style.cursor = "auto"; // restaurar
-      document.querySelectorAll(".group").forEach((el) => {
+    // Use MutationObserver to handle dynamically added elements
+    const observer = new MutationObserver(() => {
+      // Remove old listeners
+      elementsRef.current.forEach((el) => {
         el.removeEventListener("mouseenter", enter);
         el.removeEventListener("mouseleave", leave);
       });
+      
+      // Get current elements and add listeners
+      const elements = Array.from(document.querySelectorAll(".group"));
+      elements.forEach((el) => {
+        el.addEventListener("mouseenter", enter, { passive: true });
+        el.addEventListener("mouseleave", leave, { passive: true });
+      });
+      
+      elementsRef.current = elements;
+    });
+
+    // Start observing
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // Initial setup
+    const initialElements = Array.from(document.querySelectorAll(".group"));
+    initialElements.forEach((el) => {
+      el.addEventListener("mouseenter", enter, { passive: true });
+      el.addEventListener("mouseleave", leave, { passive: true });
+    });
+    elementsRef.current = initialElements;
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("mousemove", move);
+      document.documentElement.style.cursor = originalCursor || "auto";
+      
+      // Remove all element listeners
+      elementsRef.current.forEach((el) => {
+        el.removeEventListener("mouseenter", enter);
+        el.removeEventListener("mouseleave", leave);
+      });
+      
+      // Disconnect observer
+      observer.disconnect();
+      
+      // Clear refs
+      elementsRef.current = [];
     };
-  }, []);
+  }, [move, enter, leave]);
 
   return (
     <motion.div
