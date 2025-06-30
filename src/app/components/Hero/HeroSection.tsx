@@ -19,12 +19,12 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
       "CONVERTIMOS IDEAS EN MARCAS",
       "ESPACIOS Y EXPERIENCIAS."
     ];
-  } else if (pathname.startsWith("/portfolio")) {
-    lines = [
-      "Nos mueve la curiosidad, el deseo de jugar,",
-      "de experimentar, de ir más allá de lo predecible.",
-      "POR ESO CREAMOS PROYECTOS QUE SE ANIMAN A MÁS"
-    ];
+  // } else if (pathname.startsWith("/portfolio")) {
+  //   lines = [
+  //     "Nos mueve la curiosidad, el deseo de jugar,",
+  //     "de experimentar, de ir más allá de lo predecible.",
+  //     "POR ESO CREAMOS PROYECTOS QUE SE ANIMAN A MÁS"
+  //   ];
   } else if (pathname.startsWith("/contact")) {
     subtitle = "Get in touch";
     lines = ["LET’S TALK"];
