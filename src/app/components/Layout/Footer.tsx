@@ -62,7 +62,6 @@ export default function Footer() {
       initial="hidden"
       animate="visible"
       className={`w-full px-4 sm:px-6 lg:px-8 py-6 text-sm font-darker text-black backdrop-blur-md bg-white/50 border-t border-black/10 ${inter.className}`}
-      style={{ fontFamily: "Darker Grotesque, sans-serif" }}
     >
       <motion.div
         className="w-full flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-3 md:gap-0"
