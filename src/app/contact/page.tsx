@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 import { Metadata } from "next";
-import ContactClient from "./ContactClient";
-import FormErrorBoundary from "../components/FormErrorBoundary";
+import ContactClient from "@/components/forms/ContactClient";
+import FormErrorBoundary from "@/components/common/FormErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Contact",

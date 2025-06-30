@@ -1,7 +1,7 @@
 // app/portfolio/page.tsx
 import { projects } from '../../../data/projects';
-import Header from '../components/Layout/Header';
-import MasonryGrid from '../components/Layout/MansonryGrid';
+import Header from '@/components/layout/Header';
+import MasonryGrid from '@/components/layout/MansonryGrid';
 
 export default function Portfolio() {
     return (

@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
-import { Project } from "../../../data/types";
-import ProjectCardImage from "./ProjectCardImage";
-import ProjectCardLogoOverlay from "./ProjectCardLogoOverlay";
-import ProjectCardCursor from "./ProjectCardCursor";
-import ProjectCardInfo from "./ProjectCardInfo";
+import { Project } from "../../../../data/types";
+import ProjectCardImage from "../cards/ProjectCardImage";
+import ProjectCardLogoOverlay from "../cards/ProjectCardLogoOverlay";
+import ProjectCardCursor from "../cards/ProjectCardCursor";
+import ProjectCardInfo from "../cards/ProjectCardInfo";
 
 export default function ProjectCardCarousel({ slug, imageSrc, title, category, logo }: Project) {
   const [isHovered, setIsHovered] = useState(false);

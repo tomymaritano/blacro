@@ -1,7 +1,7 @@
 "use client";
 
-import { Project } from "../../../../data/types";
-import MasonryProjectCard from "../../project/MansoryProjectCard";
+import { Project } from "../../../data/types";
+import MasonryProjectCard from "../project/cards/MansoryProjectCard";
 
 interface MasonryGridProps {
   projects: Project[];

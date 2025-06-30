@@ -1,7 +1,7 @@
 "use client";
 
-import ProjectCard from "./ProjectCard";
-import { Project } from "../../../data/types";
+import ProjectCard from "../cards/ProjectCard";
+import { Project } from "../../../../data/types";
 
 interface HomeProjectGridProps {
   projects: Project[];

@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Header from "../components/Layout/Header";
-import LogosMarquee from "../components/ui/LogosMarquee";
-import ProjectCarouselRow from "../project/ProjectCardCarouselRow";
+import Header from "@/components/layout/Header";
+import LogosMarquee from "@/components/ui/navigation/LogosMarquee";
+import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
 import { aboutParagraphs } from '../../../data/aboutParagraphs';
 import { ANIMATIONS } from "@/constants/design-tokens";
 import { aboutStructuredData } from "./structured-data";

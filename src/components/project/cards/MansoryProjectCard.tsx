@@ -6,9 +6,13 @@ import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Project } from "../../../data/types";
 
-interface MasonryProjectCardProps extends Project {
+interface MasonryProjectCardProps {
+  slug: string;
+  imageSrc: string;
+  title: string;
+  category?: string;
+  logo?: string;
   index?: number;
 }
 

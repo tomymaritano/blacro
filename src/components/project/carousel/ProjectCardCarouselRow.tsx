@@ -1,6 +1,6 @@
 "use client";
 
-import { featuredProjects } from "../../../data/projects";
+import { featuredProjects } from "../../../../data/projects";
 import ProjectCardCarousel from "./ProjectCardCarousel";
 
 export default function ProjectCarouselRow() {

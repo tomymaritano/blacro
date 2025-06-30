@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import AnimatedLink from "../ui/AnimatedLink";
-import ButtonTalk from "../ui/ButtonTalk";
-import FloatingLogo from "../Hero/HeroLogo"; // solo home
+import AnimatedLink from "../common/AnimatedLink";
+import ButtonTalk from "../ui/buttons/ButtonTalk";
+import FloatingLogo from "../hero/HeroLogo"; // solo home
 import { usePathname } from "next/navigation";
 
 /**

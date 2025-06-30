@@ -60,24 +60,20 @@ jest.mock('next/image', () => {
   return function MockImage({ 
     src, 
     alt, 
-    width, 
-    height, 
     className 
   }: { 
     src: string; 
     alt: string; 
-    width: number; 
-    height: number; 
+    width?: number; 
+    height?: number; 
     className?: string; 
   }) {
     return (
-      <img 
-        src={src} 
-        alt={alt} 
-        width={width} 
-        height={height} 
-        className={className} 
+      <div 
         data-testid="navbar-logo-image"
+        data-src={src} 
+        aria-label={alt}
+        className={className}
       />
     )
   }

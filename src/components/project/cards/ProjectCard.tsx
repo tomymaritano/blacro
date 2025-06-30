@@ -7,7 +7,7 @@ import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardLogoOverlay from "./ProjectCardLogoOverlay";
 import ProjectCardCursor from "./ProjectCardCursor";
 import ProjectCardInfo from "./ProjectCardInfo";
-import { Project } from "../../../data/types";
+import { Project } from "../../../../data/types";
 
 /**
  * Props for the ProjectCard component

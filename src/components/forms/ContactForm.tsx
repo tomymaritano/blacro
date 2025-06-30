@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getData } from "country-list";
-import { contactSchema, ContactSchema } from "../lib/schemas/contactSchema";
+import { contactSchema, ContactSchema } from "../../app/lib/schemas/contactSchema";
 
 
 /**

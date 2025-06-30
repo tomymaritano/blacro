@@ -219,7 +219,7 @@ export const META = {
   SITE_NAME: 'Blacro Studio',
   SITE_URL: 'https://blacro.com',
   DESCRIPTION: 'Creative studio specializing in branding, visual identity, and spatial design.',
-  KEYWORDS: ['branding', 'creative', 'studio', 'design'],
+  KEYWORDS: ['branding', 'creative', 'studio', 'design'] as string[],
   OG_IMAGE_WIDTH: 1200,
   OG_IMAGE_HEIGHT: 630,
 } as const;

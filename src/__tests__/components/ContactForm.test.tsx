@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ContactForm from '../../app/contact/ContactForm'
 
@@ -148,7 +148,7 @@ describe('ContactForm', () => {
     const user = userEvent.setup()
     
     // Mock fetch to return a pending promise
-    let resolvePromise: (value: any) => void
+    let resolvePromise: (value: Response) => void
     const pendingPromise = new Promise((resolve) => {
       resolvePromise = resolve
     })

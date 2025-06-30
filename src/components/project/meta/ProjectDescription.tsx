@@ -1,5 +1,5 @@
 // components/project/ProjectDescription.tsx
-import { Project } from "../../../data/types";
+import { Project } from "../../../../data/types";
 
 interface ProjectDescriptionProps {
   project: Project;

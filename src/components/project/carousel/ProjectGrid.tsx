@@ -1,8 +1,8 @@
 // components/project/ProjectGrid.tsx
 "use client";
 
-import ProjectCard from "./ProjectCard";
-import { Project } from "../../../data/types";
+import ProjectCard from "../cards/ProjectCard";
+import { Project } from "../../../../data/types";
 
 interface ProjectGridProps {
   projects: Project[];

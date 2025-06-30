@@ -1,10 +1,10 @@
 // app/layout.tsx
 import "./globals.css";
 import { Familjen_Grotesk, Darker_Grotesque, Inter } from "next/font/google";
-import Navbar from "./components/Layout/Navbar";
-import Footer from "./components/Layout/Footer";
-import GridWrapper from "./components/Layout/GridWrapper";
-import ErrorBoundary from "./components/ErrorBoundary";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import GridWrapper from "@/components/layout/GridWrapper";
+import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 

@@ -2,8 +2,8 @@
 "use client";
 
 import Image from "next/image";
-import ExpandableText from "./ExpandableText";
-import { Project, ProjectContentBlock } from "../../../data/types";
+import ExpandableText from "../meta/ExpandableText";
+import { Project, ProjectContentBlock } from "../../../../data/types";
 
 interface ProjectContentBlocksProps {
   project: Project;

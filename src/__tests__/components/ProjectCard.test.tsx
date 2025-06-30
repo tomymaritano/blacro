@@ -1,8 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 import ProjectCard from '../../app/project/ProjectCard'
 import { Project } from '../../../data/types'
 
@@ -132,7 +131,6 @@ describe('ProjectCard', () => {
   })
 
   it('handles hover state correctly', async () => {
-    const user = userEvent.setup()
     render(<ProjectCard {...mockProject} />)
     
     const logo = screen.getByTestId('project-card-logo')

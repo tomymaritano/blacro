@@ -1,9 +1,9 @@
-import Header from '../../components/Layout/Header';
+import Header from '@/components/layout/Header';
 import { projects } from '../../../../data/projects';
-import ProjectGallery from '../ProjectGallery';
-import ProjectMetaInfo from '../ProjectMetaInfo';
-import ProjectDescription from '../ProjectDescription';
-import ProjectContentBlocks from '../ProjectContentBlocks';
+import ProjectGallery from '@/components/project/gallery/ProjectGallery';
+import ProjectMetaInfo from '@/components/project/meta/ProjectMetaInfo';
+import ProjectDescription from '@/components/project/meta/ProjectDescription';
+import ProjectContentBlocks from '@/components/project/gallery/ProjectContentBlocks';
 import Image from 'next/image';
 
 export async function generateStaticParams() {

@@ -1,6 +1,6 @@
 // components/project/ProjectGallery.tsx
 import Image from "next/image";
-import { Project } from "../../../data/types";
+import { Project } from "../../../../data/types";
 
 interface ProjectGalleryProps {
     project: Project;
