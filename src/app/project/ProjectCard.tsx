@@ -9,10 +9,47 @@ import ProjectCardCursor from "./ProjectCardCursor";
 import ProjectCardInfo from "./ProjectCardInfo";
 import { Project } from "../../../data/types";
 
+/**
+ * Props for the ProjectCard component
+ * @interface ProjectCardProps
+ * @extends {Project}
+ */
 interface ProjectCardProps extends Project {
+  /** Optional index for staggered animations (0-based) */
   index?: number;
 }
 
+/**
+ * ProjectCard - An interactive card component for displaying project previews
+ * 
+ * Features:
+ * - Smooth animations with Framer Motion
+ * - Hover effects with custom cursor
+ * - Staggered entrance animations based on index
+ * - Responsive design for mobile and desktop
+ * - Logo overlay and project information display
+ * 
+ * @component
+ * @param {ProjectCardProps} props - The component props
+ * @param {string} props.slug - Project slug for routing
+ * @param {string} props.imageSrc - Main project image source
+ * @param {string} props.title - Project title
+ * @param {string} [props.category] - Project category
+ * @param {string} [props.logo] - Project logo source
+ * @param {number} [props.index=0] - Index for staggered animations
+ * @returns {React.JSX.Element} The rendered project card
+ * 
+ * @example
+ * ```tsx
+ * <ProjectCard
+ *   slug="my-project"
+ *   imageSrc="/images/project.jpg"
+ *   title="My Project"
+ *   category="Web Design"
+ *   index={0}
+ * />
+ * ```
+ */
 const ProjectCard = memo<ProjectCardProps>(function ProjectCard({ 
   slug, 
   imageSrc, 

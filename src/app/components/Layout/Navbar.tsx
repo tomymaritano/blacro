@@ -10,6 +10,31 @@ import ButtonTalk from "../ui/ButtonTalk";
 import FloatingLogo from "../Hero/HeroLogo"; // solo home
 import { usePathname } from "next/navigation";
 
+/**
+ * Navbar - Main navigation component with responsive design and scroll effects
+ * 
+ * Features:
+ * - Responsive design with mobile hamburger menu
+ * - Scroll-based background blur and styling
+ * - Conditional logo display (floating on home, static elsewhere)
+ * - Smooth animations with Framer Motion
+ * - Mobile fullscreen menu with staggered animations
+ * - Keyboard navigation support
+ * 
+ * @component
+ * @returns {React.JSX.Element} The rendered navigation component
+ * 
+ * @example
+ * ```tsx
+ * <Navbar />
+ * ```
+ * 
+ * Styling:
+ * - Uses Tailwind CSS for responsive design
+ * - Fixed positioning with backdrop blur
+ * - Dynamic background opacity based on scroll
+ * - Mobile-first approach with md: breakpoints
+ */
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -47,7 +72,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] h-full">
+        <div className="col-span-10 hidden md:flex uppercase items-center justify-end space-x-8 text-black text-[22px] h-full">
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about" className="pr-16">About</AnimatedLink>
           <ButtonTalk href="/contact" />
