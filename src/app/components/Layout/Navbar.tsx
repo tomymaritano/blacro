@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile toggle */}
         <motion.button
-          className="col-span-10 flex justify-end md:hidden p-2"
+          className="col-span-10 flex justify-end md:hidden p-2 font-grotesque"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
@@ -116,11 +116,12 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed top-0 left-0 w-full h-screen bg-[#FFFDF9] backdrop-blur-3xl flex flex-col items-center justify-center space-y-8 text-black text-3xl font-grotesk z-50"
+            className="fixed top-0 left-0 w-full h-screen bg-[#FFFDF9] font-darker font-semibold backdrop-blur-3xl flex flex-col items-center justify-center space-y-8 text-black text-3xl font-grotesk z-50"
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ fontFamily: "Darker Grotesque, sans-serif" }}
           >
             {/* Logo */}
             <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16">
