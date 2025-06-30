@@ -56,13 +56,13 @@ export default function ContactClient() {
           
           {/* Subtitle Text */}
           <motion.p 
-            className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mt-6 mb-8"
+            className="text-[40px] tracking-wide text-black/60 font-familjen uppercase mt-6 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
-            Cada <span className="uppercase font-bold">PROYECTO</span> es el punto de partida para crear soluciones a medida, con identidad propia.
+            CADA <span className="font-bold">PROYECTO</span> ES EL PUNTO DE PARTIDA PARA CREAR SOLUCIONES A MEDIDA, CON IDENTIDAD PROPIA.
           </motion.p>
 
           {/* Social Media Links */}

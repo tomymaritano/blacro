@@ -114,7 +114,7 @@ export default function ContactForm() {
             id="name"
             {...register("name")}
             placeholder="Tu nombre completo"
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.name ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -130,7 +130,7 @@ export default function ContactForm() {
             type="email"
             {...register("email")}
             placeholder="tu@email.com"
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.email ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -148,7 +148,7 @@ export default function ContactForm() {
             id="company"
             {...register("company")}
             placeholder="Nombre de tu compañía"
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.company ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -163,7 +163,7 @@ export default function ContactForm() {
             id="websiteSocial"
             {...register("websiteSocial")}
             placeholder="https://tusitio.com o @tuusuario"
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.websiteSocial ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -182,7 +182,7 @@ export default function ContactForm() {
             type="tel"
             {...register("phone")}
             placeholder="+54 (11) 1234-5678"
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.phone ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -196,7 +196,7 @@ export default function ContactForm() {
           <select
             id="country"
             {...register("country")}
-            className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
               errors.country ? "border-red-500" : "border-black/20"
             }`}
           >
@@ -237,7 +237,7 @@ export default function ContactForm() {
           {...register("projectDescription")}
           rows={6}
           placeholder="Describe tu proyecto, objetivos, cronograma y cualquier requerimiento específico..."
-          className={`px-4 py-3 w-full border rounded-sm focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] font-darker-grotesque ${
+          className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] font-darker-grotesque ${
             errors.projectDescription ? "border-red-500" : "border-black/20"
           }`}
         ></textarea>
@@ -248,7 +248,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className={`w-full flex items-center justify-center px-6 py-4 bg-black text-white font-medium rounded-full transition-colors text-lg font-darker-grotesque ${
+        className={`w-full flex items-center justify-center px-6 py-4 bg-black text-white font-medium rounded-3xl transition-colors text-lg font-darker-grotesque ${
           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-black/80"
         }`}
       >
