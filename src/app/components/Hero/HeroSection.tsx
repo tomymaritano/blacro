@@ -37,8 +37,8 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
     <section className={`relative w-full mb-10 grid grid-cols-12 overflow-hidden ${marginTopClass}`}>
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
-        style={{ y: yOffset }}
         className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right lg:text-right space-y-2"
+        style={{ fontFamily: "Darker Grotesque, sans-serif", y: yOffset }}
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">

@@ -107,7 +107,7 @@ export default function ContactForm() {
       {/* Row 1: Name and Email */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col">
-          <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80 uppercase font-darker-grotesque">
+          <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80 uppercase">
             NOMBRE *
           </label>
           <input
@@ -118,7 +118,7 @@ export default function ContactForm() {
               errors.name ? "border-red-500" : "border-black/20"
             }`}
           />
-          {errors.name && <span className="text-xs text-red-500 mt-1 font-darker-grotesque">{errors.name.message}</span>}
+          {errors.name && <span className="text-xs text-red-500 mt-1 font-darker">{errors.name.message}</span>}
         </div>
 
         <div className="flex flex-col">

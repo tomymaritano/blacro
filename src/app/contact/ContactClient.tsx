@@ -56,22 +56,23 @@ export default function ContactClient() {
           
           {/* Subtitle Text */}
           <motion.p 
-            className="text-[40px] tracking-wide text-black/60 font-familjen uppercase mt-6 mb-8"
+            className="text-[40px] tracking-wide text-black/80 font-familjen uppercase py-10 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
-            CADA <span className="font-bold">PROYECTO</span> ES EL PUNTO DE PARTIDA PARA CREAR SOLUCIONES A MEDIDA, CON IDENTIDAD PROPIA.
+            CADA PROYECTO ES EL PUNTO DE PARTIDA PARA CREAR SOLUCIONES A MEDIDA, CON IDENTIDAD PROPIA.
           </motion.p>
 
           {/* Social Media Links */}
           <motion.div
-            className="flex items-center gap-4 flex-wrap text-[14px] font-medium"
+            className="flex items-center gap-4 flex-wrap text-[22px] font-regular font-grotesk"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+            style={{ fontFamily: "Darker Grotesque, sans-serif" }}
           >
             <HoverLink href="https://instagram.com/blacro.studio" text="INSTAGRAM" />
             <span>|</span>

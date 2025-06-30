@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 sm:py-3 font-semibold w-full backdrop-blur-md z-50 transition font-familjen ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"}`}
+      className={`fixed top-0 left-0 sm:py-3  w-full backdrop-blur-md z-50 transition font-grotesk ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"}`}
     >
       <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
@@ -72,9 +72,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex uppercase items-center justify-end space-x-8 text-black text-[22px] h-full">
+        <div className="col-span-10 hidden md:flex uppercase items-center font-darker font-semibold justify-end space-x-8 text-black text-[22px] h-full"
+        style={{ fontFamily: "Darker Grotesque, sans-serif" }}>
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
-          <AnimatedLink href="/about" className="pr-16">About</AnimatedLink>
+          <AnimatedLink href="/about" className="mr-24">About</AnimatedLink>
           <ButtonTalk href="/contact" />
         </div>
 

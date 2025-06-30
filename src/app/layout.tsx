@@ -58,8 +58,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable} antialiased bg-[#fffcf7] text-black`}>
+    <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
+      <body>
         <ErrorBoundary>
           <Navbar />
           <GridWrapper className="py-8">
