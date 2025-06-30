@@ -22,6 +22,10 @@ body {
   font-family: 'Familjen Grotesk', 'Darker Grotesque', 'Inter' sans-serif;
 }
 
+p {
+  font-family: 'Inter', sans-serif;
+}
+
 .container {
   width: 100%;
   max-width: calc(100% - 120px);
