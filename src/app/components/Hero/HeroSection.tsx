@@ -38,10 +38,10 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right lg:text-right space-y-2"
-        style={{ fontFamily: "Darker Grotesque, sans-serif", y: yOffset }}
+        style={{ fontFamily: "Familjien, sans-serif", y: yOffset }}
       >
         {subtitle && (
-          <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mb-2">
+          <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-familjien mb-2">
             {subtitle}
           </p>
         )}
@@ -49,11 +49,12 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
         {lines.map((line, i) => (
           <motion.h1
             key={i}
-            className="font-grotesk text-black text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
+            className="font-familjien text-black/80 text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
+            style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
           >
             {line}
           </motion.h1>
