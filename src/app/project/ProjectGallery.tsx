@@ -37,7 +37,9 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             alt={`${project.title} image ${i + 1}`}
                             width={1200}
                             height={342}
-                            className="w-full h-auto object-cover rounded-none max-h-[707px]"
+                            className={`w-full h-auto object-cover rounded-none max-h-[707px] ${
+                                img.size === "large" ? "col-span-full" : ""
+                            }`}
                         />
                     ))}
                 </div>
