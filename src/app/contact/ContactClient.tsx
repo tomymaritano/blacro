@@ -4,6 +4,8 @@ import Header from "../components/Layout/Header";
 import { motion } from "framer-motion";
 import ProjectCarouselRow from "../project/ProjectCardCarouselRow";
 import ContactForm from "./ContactForm";
+import Link from "next/link";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -12,6 +14,31 @@ const fadeUp = {
     y: 0,
     transition: { duration: 0.7, ease: "easeOut" as const },
   },
+};
+
+const HoverLink = ({ href, text }: { href: string; text: string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      href={href}
+      className="relative inline-block"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className="relative z-10">{text}</span>
+      <motion.span
+        layoutId={`underline-${text}`}
+        className="absolute left-0 bottom-0 h-[1px] w-full bg-black"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        style={{ transformOrigin: "left" }}
+      />
+    </Link>
+  );
 };
 
 export default function ContactClient() {
@@ -26,6 +53,32 @@ export default function ContactClient() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <Header title="Let's Talk" className="!mt-0 !mb-0" />
+          
+          {/* Subtitle Text */}
+          <motion.p 
+            className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-grotesk mt-6 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          >
+            Cada <span className="uppercase font-bold">PROYECTO</span> es el punto de partida para crear soluciones a medida, con identidad propia.
+          </motion.p>
+
+          {/* Social Media Links */}
+          <motion.div
+            className="flex items-center gap-4 flex-wrap text-[14px] font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+          >
+            <HoverLink href="https://instagram.com/blacro.studio" text="INSTAGRAM" />
+            <span>|</span>
+            <HoverLink href="https://linkedin.com/company/blacro-studio" text="LINKEDIN" />
+            <span>|</span>
+            <HoverLink href="https://behance.net/blacrostudio" text="BEHANCE" />
+          </motion.div>
         </motion.div>
 
         <motion.div
