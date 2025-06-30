@@ -28,6 +28,7 @@ export default function FloatingLogo() {
         height={100}            // NUMÉRICO
         alt="logo"
         priority
+        sizes="(max-width: 480px) 180px, (max-width: 768px) 200px, (max-width: 1024px) 320px, 500px"
         className={styles.logo} // usa el CSS para el width responsivo
         style={{ width: "100%", height: "auto" }}
       />

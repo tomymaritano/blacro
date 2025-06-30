@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 
     // Send email with sanitized content
     await transporter.sendMail({
-      from: `"${sanitizedName}" <${process.env.SMTP_USER}>`, // Use authenticated sender
+      from: `"${sanitizedName}" <${env.SMTP_USER}>`, // Use authenticated sender
       replyTo: sanitizedEmail, // Set reply-to to user's email
       to: "hola@blacro.com",
       subject: sanitizedSubject,

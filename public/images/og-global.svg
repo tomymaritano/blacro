@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FFFDF9"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="280" font-family="Familjen Grotesk, sans-serif" font-size="72" font-weight="700" text-anchor="middle" fill="#171717">
+    BLACRO STUDIO
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="24" text-anchor="middle" fill="#171717" opacity="0.8">
+    Creative studio specializing in branding, visual identity, and spatial design
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="420" font-family="Familjen Grotesk, sans-serif" font-size="32" font-weight="500" text-anchor="middle" fill="#171717" opacity="0.6">
+    SOMOS UN ESTUDIO CREATIVO INTEGRAL
+  </text>
+  
+  <!-- Decorative line -->
+  <line x1="400" y1="450" x2="800" y2="450" stroke="#171717" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Website -->
+  <text x="600" y="500" font-family="Inter, sans-serif" font-size="18" text-anchor="middle" fill="#171717" opacity="0.6">
+    blacro.com
+  </text>
+</svg>

@@ -65,6 +65,7 @@ const Navbar: React.FC = () => {
                 alt="logo"
                 width={100}
                 height={60}
+                sizes="100px"
                 className="object-contain"
               />
             </Link>
@@ -125,7 +126,7 @@ const Navbar: React.FC = () => {
           >
             {/* Logo */}
             <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16">
-              <Image src="/logo.svg" alt="logo" width={100} height={60} />
+              <Image src="/logo.svg" alt="logo" width={100} height={60} sizes="100px" />
             </Link>
 
             {/* Close */}

@@ -19,7 +19,7 @@ export default function Header({ title, className = "" }: HeaderProps) {
     >
       <h1
         className={`
-          uppercase font-bold text-black tracking-tight
+          uppercase font-bold text-black/80 tracking-tight
           font-grotesk
           text-[14vw] sm:text-[12vw] md:text-[128px]
           leading-none

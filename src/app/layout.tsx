@@ -6,49 +6,59 @@ import Footer from "./components/Layout/Footer";
 import GridWrapper from "./components/Layout/GridWrapper";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Metadata, Viewport } from "next";
+import { META } from "@/constants/design-tokens";
 
 const familjenGrotesk = Familjen_Grotesk({ 
   variable: "--font-familjen-grotesk",
-  subsets: ["latin"] 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"]
 });
 
 const darkerGrotesque = Darker_Grotesque({ 
   variable: "--font-darker-grotesque",
-  subsets: ["latin"] 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  weight: ["300", "400", "500", "600", "700", "800", "900"]
 });
 
 const inter = Inter({ 
   variable: "--font-inter",
-  subsets: ["latin"] 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blacro.com"),
+  metadataBase: new URL(META.SITE_URL),
   title: {
-    default: "Blacro Studio",
-    template: "%s | Blacro Studio",
+    default: META.SITE_NAME,
+    template: `%s | ${META.SITE_NAME}`,
   },
-  description: "Creative studio specializing in branding, visual identity, and spatial design.",
-  keywords: ["branding", "creative", "studio", "design"],
+  description: META.DESCRIPTION,
+  keywords: META.KEYWORDS,
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   openGraph: {
     type: "website",
-    siteName: "Blacro Studio",
+    siteName: META.SITE_NAME,
     url: "/",
     images: [
       {
-        url: "/images/og-global.png",
-        width: 1200,
-        height: 630,
-        alt: "Blacro Studio",
+        url: "/images/og-global.svg",
+        width: META.OG_IMAGE_WIDTH,
+        height: META.OG_IMAGE_HEIGHT,
+        alt: META.SITE_NAME,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blacro Studio",
-    description: "Creative studio specializing in branding, visual identity, and spatial design.",
-    images: ["/images/og-global.png"],
+    title: META.SITE_NAME,
+    description: META.DESCRIPTION,
+    images: ["/images/og-global.svg"],
   },
 };
 

@@ -24,6 +24,8 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                 alt={project.title}
                 width={1200}
                 height={800}
+                priority
+                sizes="(max-width: 1024px) 100vw, 66vw"
                 className="w-full h-auto object-cover rounded-none mb-6"
             />
 
@@ -37,6 +39,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             alt={`${project.title} image ${i + 1}`}
                             width={1200}
                             height={342}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className={`w-full h-auto object-cover rounded-none max-h-[707px] ${
                                 img.size === "large" ? "col-span-full" : ""
                             }`}

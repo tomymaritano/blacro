@@ -2,29 +2,10 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getData } from "country-list";
+import { contactSchema, ContactSchema } from "../lib/schemas/contactSchema";
 
-/**
- * Zod schema for contact form validation
- * @constant
- */
-const contactSchema = z.object({
-  name: z.string().min(2, "Tu nombre es muy corto"),
-  email: z.string().email("Email inválido"),
-  company: z.string().min(2, "El nombre de la compañía es muy corto"),
-  websiteSocial: z.string().optional(),
-  phone: z.string().min(10, "El número de teléfono es muy corto"),
-  country: z.string().min(2, "Por favor selecciona un país"),
-  projectDescription: z.string().min(20, "Por favor proporciona más detalles sobre tu proyecto"),
-});
-
-/**
- * Type definition for contact form data
- * @typedef {Object} ContactFormData
- */
-type ContactFormData = z.infer<typeof contactSchema>;
 
 /**
  * ContactForm - A comprehensive contact form component with validation and submission
@@ -64,7 +45,7 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<ContactFormData>({
+  } = useForm<ContactSchema>({
     resolver: zodResolver(contactSchema),
   });
 
@@ -73,7 +54,7 @@ export default function ContactForm() {
    * 
    * @async
    * @function onSubmit
-   * @param {ContactFormData} data - The validated form data
+   * @param {ContactSchema} data - The validated form data
    * @description 
    * - Sets loading state during submission
    * - Makes POST request to /api/contact
@@ -81,7 +62,7 @@ export default function ContactForm() {
    * - Resets form on success
    * - Displays appropriate status messages
    */
-  async function onSubmit(data: ContactFormData) {
+  async function onSubmit(data: ContactSchema) {
     setLoading(true);
     setStatus(null);
 
@@ -111,18 +92,18 @@ export default function ContactForm() {
       {/* Row 1: Name and Email */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col">
-          <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80 uppercase">
+          <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80 uppercase font-darker-grotesque">
             NOMBRE *
           </label>
           <input
             id="name"
             {...register("name")}
             placeholder="Tu nombre completo"
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.name ? "border-red-500" : "border-black/20"
             }`}
           />
-          {errors.name && <span className="text-xs text-red-500 mt-1 font-darker">{errors.name.message}</span>}
+          {errors.name && <span className="text-xs text-red-500 mt-1 font-darker-grotesque">{errors.name.message}</span>}
         </div>
 
         <div className="flex flex-col">
@@ -134,7 +115,7 @@ export default function ContactForm() {
             type="email"
             {...register("email")}
             placeholder="tu@email.com"
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.email ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -152,7 +133,7 @@ export default function ContactForm() {
             id="company"
             {...register("company")}
             placeholder="Nombre de tu compañía"
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.company ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -167,7 +148,7 @@ export default function ContactForm() {
             id="websiteSocial"
             {...register("websiteSocial")}
             placeholder="https://tusitio.com o @tuusuario"
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.websiteSocial ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -186,7 +167,7 @@ export default function ContactForm() {
             type="tel"
             {...register("phone")}
             placeholder="+54 (11) 1234-5678"
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.phone ? "border-red-500" : "border-black/20"
             }`}
           />
@@ -200,7 +181,7 @@ export default function ContactForm() {
           <select
             id="country"
             {...register("country")}
-            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-darker-grotesque ${
+            className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 bg-[#F8F8F8] font-sans ${
               errors.country ? "border-red-500" : "border-black/20"
             }`}
           >

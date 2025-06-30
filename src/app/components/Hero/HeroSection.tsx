@@ -49,7 +49,7 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
         {lines.map((line, i) => (
           <motion.h1
             key={i}
-            className="font-familjien text-black/80 text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
+            className="font-familjen text-black/80 text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
