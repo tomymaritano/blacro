@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { motion, easeOut, Variants } from "framer-motion";
-import { Inter } from "next/font/google";
 import { useState } from "react";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -61,7 +59,7 @@ export default function Footer() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className={`w-full px-4 sm:px-6 lg:px-8 py-6 text-sm font-darker text-black backdrop-blur-md bg-white/50 border-t border-black/10 ${inter.className}`}
+      className="w-full px-4 sm:px-6 lg:px-8 py-6 text-sm font-darker text-black backdrop-blur-md bg-white/50 border-t border-black/10"
       style={{ fontFamily: "Darker Grotesque, sans-serif" }}
     >
       <motion.div

@@ -102,7 +102,7 @@ export default function MasonryProjectCard({
             {category}
           </motion.span>
         )}
-        <h3 className="font-medium text-white">{title}</h3>
+        <h3 className="font-medium text-white font-sans">{title}</h3>
       </div>
     </motion.div>
   );

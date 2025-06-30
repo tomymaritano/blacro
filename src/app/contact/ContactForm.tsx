@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { getData } from "country-list";
 
 /**
  * Zod schema for contact form validation
@@ -53,6 +54,9 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function ContactForm() {
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  
+  // Get all countries from country-list library
+  const countries = getData();
 
   // react-hook-form setup
   const {
@@ -201,26 +205,11 @@ export default function ContactForm() {
             }`}
           >
             <option value="">Selecciona tu país</option>
-            <option value="AR">Argentina</option>
-            <option value="US">Estados Unidos</option>
-            <option value="CA">Canadá</option>
-            <option value="GB">Reino Unido</option>
-            <option value="DE">Alemania</option>
-            <option value="FR">Francia</option>
-            <option value="ES">España</option>
-            <option value="IT">Italia</option>
-            <option value="BR">Brasil</option>
-            <option value="MX">México</option>
-            <option value="CO">Colombia</option>
-            <option value="CL">Chile</option>
-            <option value="PE">Perú</option>
-            <option value="UY">Uruguay</option>
-            <option value="AU">Australia</option>
-            <option value="JP">Japón</option>
-            <option value="KR">Corea del Sur</option>
-            <option value="IN">India</option>
-            <option value="CN">China</option>
-            <option value="OTHER">Otro</option>
+            {countries.map((country) => (
+              <option key={country.code} value={country.code}>
+                {country.name}
+              </option>
+            ))}
           </select>
           {errors.country && <span className="text-xs text-red-500 mt-1 font-darker-grotesque">{errors.country.message}</span>}
         </div>

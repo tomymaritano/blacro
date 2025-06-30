@@ -8,7 +8,7 @@ interface ProjectDescriptionProps {
 export default function ProjectDescription({ project }: ProjectDescriptionProps) {
   if (!project.description) return null;
   return (
-    <p className="leading-relaxed opacity-80 whitespace-pre-line">
+    <p className="leading-relaxed opacity-80 whitespace-pre-line font-sans">
       {project.description}
     </p>
   );

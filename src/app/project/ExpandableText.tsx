@@ -40,7 +40,7 @@ export default function ExpandableText({
     const toggle = () => setExpanded(!expanded);
 
     return (
-        <div className="text-black opacity-80 leading-relaxed space-y-4">
+        <div className="text-black opacity-80 leading-relaxed space-y-4 font-sans">
             {displayedParagraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
             ))}

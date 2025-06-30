@@ -38,10 +38,10 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right lg:text-right space-y-2"
-        style={{ fontFamily: "Familjien, sans-serif", y: yOffset }}
+        style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
       >
         {subtitle && (
-          <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-familjien mb-2">
+          <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-sans mb-2">
             {subtitle}
           </p>
         )}
