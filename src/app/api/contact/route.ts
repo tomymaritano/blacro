@@ -33,8 +33,7 @@ export async function POST(request: Request) {
       name, 
       email, 
       company, 
-      website, 
-      socialMedia, 
+      websiteSocial, 
       phone, 
       country, 
       projectDescription 
@@ -58,8 +57,7 @@ export async function POST(request: Request) {
     const sanitizedName = sanitizeEmailHeader(name);
     const sanitizedEmail = sanitizeEmailHeader(email);
     const sanitizedCompany = sanitizeEmailHeader(company);
-    const sanitizedWebsite = website ? sanitizeText(website) : "";
-    const sanitizedSocialMedia = socialMedia ? sanitizeText(socialMedia) : "";
+    const sanitizedWebsiteSocial = websiteSocial ? sanitizeText(websiteSocial) : "";
     const sanitizedPhone = sanitizeText(phone);
     const sanitizedCountry = sanitizeText(country);
     const sanitizedProjectDescription = sanitizeText(projectDescription);
@@ -82,8 +80,7 @@ Contact Information:
 - Country: ${sanitizedCountry}
 
 Additional Information:
-- Website: ${sanitizedWebsite || 'Not provided'}
-- Social Media: ${sanitizedSocialMedia || 'Not provided'}
+- Website/Social Media: ${sanitizedWebsiteSocial || 'Not provided'}
 
 Project Description:
 ${sanitizedProjectDescription}
@@ -106,8 +103,11 @@ This message was sent from the Blacro Studio contact form.
 
           <div style="background-color: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 5px;">
             <h3 style="color: #333; margin-top: 0;">Additional Information</h3>
-            <p><strong>Website:</strong> ${sanitizedWebsite ? `<a href="${sanitizedWebsite}" target="_blank">${sanitizedWebsite}</a>` : 'Not provided'}</p>
-            <p><strong>Social Media:</strong> ${sanitizedSocialMedia || 'Not provided'}</p>
+            <p><strong>Website/Social Media:</strong> ${sanitizedWebsiteSocial ? 
+              (sanitizedWebsiteSocial.startsWith('http') ? 
+                `<a href="${sanitizedWebsiteSocial}" target="_blank">${sanitizedWebsiteSocial}</a>` : 
+                sanitizedWebsiteSocial) : 
+              'Not provided'}</p>
           </div>
 
           <div style="background-color: #fff; padding: 20px; margin: 20px 0; border: 1px solid #ddd; border-radius: 5px;">
