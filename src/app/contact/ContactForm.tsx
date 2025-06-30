@@ -207,7 +207,7 @@ export default function ContactForm() {
           {...register("projectDescription")}
           rows={6}
           placeholder="Describe tu proyecto, objetivos, cronograma y cualquier requerimiento específico..."
-          className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] font-darker-grotesque ${
+          className={`px-4 py-3 w-full border rounded-none focus:outline-none focus:ring-2 focus:ring-black/30 resize-none bg-[#F8F8F8] font-sans ${
             errors.projectDescription ? "border-red-500" : "border-black/20"
           }`}
         ></textarea>
@@ -218,7 +218,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className={`w-full flex items-center justify-center px-6 py-4 bg-black text-white font-medium rounded-3xl transition-colors text-lg font-darker-grotesque ${
+        className={`w-full flex items-center justify-center px-6 py-4 bg-black text-white rounded-3xl transition-colors text-lg font-sans font-semibold ${
           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-black/80"
         }`}
       >
