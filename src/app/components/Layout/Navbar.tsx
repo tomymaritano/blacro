@@ -72,8 +72,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex uppercase items-center font-darker font-semibold justify-end space-x-8 text-black text-[22px] h-full"
-        style={{ fontFamily: "Darker Grotesque, sans-serif" }}>
+        <div className="col-span-10 hidden md:flex uppercase items-center font-darker font-semibold justify-end space-x-8 text-black text-[22px] h-full">
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about" className="mr-24">About</AnimatedLink>
           <ButtonTalk href="/contact" />
@@ -121,7 +120,6 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            style={{ fontFamily: "Darker Grotesque, sans-serif" }}
           >
             {/* Logo */}
             <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16">
