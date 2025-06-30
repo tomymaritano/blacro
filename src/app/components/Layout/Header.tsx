@@ -24,7 +24,7 @@ export default function Header({ title, className = "" }: HeaderProps) {
           text-[14vw] sm:text-[12vw] md:text-[128px]
           leading-none
         `}
-        style={{ fontFamily: "Darker Grotesque, sans-serif" }}
+        
       >
         {title}
       </h1>
