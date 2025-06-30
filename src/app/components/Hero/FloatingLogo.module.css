@@ -34,11 +34,11 @@
 @media (max-width: 768px) {
   .logo {
     width: 200px;      /* Mobile */
-    top: 1.5rem;       /* más arriba también */
+    top: 2.5rem;       /* más arriba también */
   }
   .logoScrolled {
-    top: 0.25rem;
-    transform: scale(0.35);
+    top: 0.5rem;
+    transform: scale(0.4);
   }
 }
 

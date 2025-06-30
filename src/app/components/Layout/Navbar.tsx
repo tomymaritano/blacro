@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
         {/* Desktop links */}
         <div className="col-span-10 hidden md:flex items-center justify-end space-x-8 text-black text-[22px] h-full">
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
-          <AnimatedLink href="/about">About</AnimatedLink>
+          <AnimatedLink href="/about" className="pr-16">About</AnimatedLink>
           <ButtonTalk href="/contact" />
         </div>
 
