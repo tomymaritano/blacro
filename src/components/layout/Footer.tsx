@@ -69,7 +69,7 @@ export default function Footer() {
         {/* Left */}
         <motion.div
           variants={itemVariants}
-          className="text-[22px] font-medium flex items-center gap-2 flex-wrap justify-center md:justify-start"
+          className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center md:justify-start"
         >
           <span className="uppercase font-bold">LET’S TALK!</span>
           <HoverLink href="mailto:hola@blacro.com" text="HOLA@BLACRO.COM" />
@@ -78,7 +78,7 @@ export default function Footer() {
         {/* Center: socials */}
         <motion.div
           variants={itemVariants}
-          className="text-[22px] font-medium flex items-center gap-4 flex-wrap justify-center"
+          className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center"
         >
           <HoverLink href="https://instagram.com" text="INSTAGRAM" />
           <span>|</span>

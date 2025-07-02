@@ -2,21 +2,22 @@
 import { Project } from "./types";
 
 export const unicoinCampaign: Project = {
-    slug: "unicoin-campaign",
-    title: "THE NEXT GEN OF CRYPTO",
-    imageSrc: "/images/unicoin/campaign-01.jpg",
-    category: "Creative Campaign",
+    slug: "unicoin-campaign-old",
+    title: "The Next Gen of Crypto",
+    imageSrc: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-01.jpg",
+    category: "Campaña & Direccion de arte",
     client: "Unicoin Inc.",
-    location: "New York, United States",
+    location: "New York, United State",
     year: 2024,
     services: ["Creative Campaign", "Art Direction"],
     images: [
-        { src: "/images/unicoin/campaign-01.jpg", size: "large" },
-        { src: "/images/unicoin/campaign-02.jpg", size: "large" },
-        { src: "/images/unicoin/campaign-03.jpg", size: "large" },
-        { src: "/images/unicoin/campaign-04.jpg", size: "large" },
-        { src: "/images/unicoin/campaign-05.jpg", size: "large" },
-        { src: "/images/unicoin/campaign-06.jpg", size: "large" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-01.jpg", size: "large" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-02.jpg", size: "large" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-03.jpg", size: "medium" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-04.jpg", size: "large" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-05.jpg", size: "medium" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-06.jpg", size: "large" },
+        { src: "/images/unicoin/thenextgenofcrypto/unicoin-nextgen-07.jpg", size: "large" },
     ],
     content: [
         {

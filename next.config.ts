@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
         pathname: '/images/**',
       },
     ],
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000,
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],

@@ -90,7 +90,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full max-w-sm sm:max-w-full md:max-w-full lg:max-w-2xl text-black/80 pr-2">
       {/* Row 1: Name and Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="flex flex-col">
           <label htmlFor="name" className="mb-2 text-sm font-medium text-black/80 uppercase font-darker-grotesque">
             NOMBRE *
@@ -124,7 +124,7 @@ export default function ContactForm() {
       </div>
 
       {/* Row 2: Company and Website/Social Media */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="flex flex-col">
           <label htmlFor="company" className="mb-2 text-sm font-medium text-black/80 uppercase font-darker-grotesque">
             COMPAÑÍA *
@@ -157,7 +157,7 @@ export default function ContactForm() {
       </div>
 
       {/* Row 3: Phone and Country */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="flex flex-col">
           <label htmlFor="phone" className="mb-2 text-sm font-medium text-black/80 uppercase font-darker-grotesque">
             TELÉFONO *

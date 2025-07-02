@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ErrorBoundary>
           <Navbar />
           <GridWrapper className="py-8">
-            <main className="col-span-12 flex flex-col gap-8">{children}</main>
+            <main className="col-span-12 flex flex-col gap-3">{children}</main>
           </GridWrapper>
           <Footer />
         </ErrorBoundary>

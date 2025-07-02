@@ -9,7 +9,7 @@ interface MasonryGridProps {
 
 export default function MasonryGrid({ projects }: MasonryGridProps) {
   return (
-    <div className="w-full max-w-screen-full mx-auto columns-1 sm:columns-2 lg:columns-3 gap-6">
+    <div className="w-full max-w-screen-full mx-auto columns-1 sm:columns-2 lg:columns-3 gap-3">
       {projects.map((project) => (
         <div key={project.slug} className="mb-6 break-inside-avoid">
           <MasonryProjectCard

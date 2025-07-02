@@ -51,7 +51,7 @@ export default function AboutPage(): React.JSX.Element {
 
             {/* Hero Section - Company founders and story */}
             <section 
-                className="grid grid-cols-12 gap-8 lg:gap-x-16 items-start w-full"
+                className="grid grid-cols-12 gap-3 lg:gap-x-16 items-start w-full"
                 aria-labelledby="about-section"
             >
                 {/* Hero Image */}

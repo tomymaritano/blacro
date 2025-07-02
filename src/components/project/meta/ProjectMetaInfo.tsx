@@ -10,7 +10,7 @@ export default function ProjectMetaInfo({ project }: ProjectMetaInfoProps) {
   return (
     <aside className="space-y-6 top-24 self-start">
       {/* Grid para todos los campos */}
-      <div className="grid grid-cols-2 gap-8 text-sm opacity-80 font-sans">
+      <div className="grid grid-cols-2 gap-3 text-sm opacity-80 font-sans">
         {project.location && (
           <ProjectMetaItem label="Location">
             {project.location}

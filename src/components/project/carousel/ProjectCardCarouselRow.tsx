@@ -11,7 +11,7 @@ export default function ProjectCarouselRow() {
       <div className="pointer-events-none absolute right-0 top-0 h-full w-16 sm:w-24 bg-gradient-to-l from-white z-10"></div>
 
       {/* Track con contenido duplicado */}
-      <div className="flex animate-marquee-right space-x-4 sm:space-x-8 w-[200%]">
+      <div className="flex animate-marquee-right space-x-3 sm:space-x-3 w-[200%]">
         {featuredProjects.concat(featuredProjects).map((project, index) => (
           <ProjectCardCarousel key={index} {...project} />
         ))}

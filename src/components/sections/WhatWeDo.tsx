@@ -29,7 +29,7 @@ export default function WhatWeDoSection() {
         BLACRÓ HABITA EL PUNTO EXACTO DONDE LO VISUAL Y LO CONCEPTUAL SE ENCUENTRAN.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-6xl">
         {columns.map((col, index) => (
           <motion.div
             key={index}

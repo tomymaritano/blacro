@@ -44,7 +44,7 @@ const HoverLink = ({ href, text }: { href: string; text: string }) => {
 export default function ContactClient() {
   return (
     <>
-      <section className="grid grid-cols-12 w-full items-start gap-8 lg:gap-12 mt-8 md:mt-12 lg:mt-20 mb-6 md:mb-30">
+      <section className="grid grid-cols-12 w-full items-start gap-3 lg:gap-3 mt-8 md:mt-12 lg:mt-20 mb-6 md:mb-30">
         <motion.div
           className="col-span-12 lg:col-span-6 flex flex-col"
           variants={fadeUp}

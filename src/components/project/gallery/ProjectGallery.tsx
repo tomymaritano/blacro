@@ -7,15 +7,6 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ project }: ProjectGalleryProps) {
-    // Detectar tipo de imagen para determinar el grid general
-    const hasSmall = project.images?.some(img => img.size === "small");
-    const hasMedium = project.images?.some(img => img.size === "medium");
-    const layoutClass = hasSmall
-        ? "grid-cols-2"
-        : hasMedium
-            ? "grid-cols-2"
-            : "grid-cols-1";
-
     return (
         <section className="col-span-12 lg:col-span-8 max-h-screen lg:max-h-none overflow-y-auto lg:overflow-y-visible pr-2">
             {/* Imagen principal */}
@@ -31,7 +22,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
 
             {/* Imagenes secundarias */}
             {project.images && project.images.length > 0 && (
-                <div className={`grid ${layoutClass} gap-4`}>
+                <div className="grid grid-cols-6 gap-3">
                     {project.images.map((img, i) => (
                         <Image
                             key={i}
@@ -41,7 +32,9 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             height={342}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className={`w-full h-auto object-cover rounded-none max-h-[707px] ${
-                                img.size === "large" ? "col-span-full" : ""
+                                img.size === "large" ? "col-span-6" : 
+                                img.size === "medium" ? "col-span-3" : 
+                                "col-span-2"
                             }`}
                         />
                     ))}
