@@ -1,10 +1,10 @@
-const imagemin = require('imagemin');
-const imageminWebp = require('imagemin-webp');
-const imageminAvif = require('imagemin-avif');
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const imageminPngquant = require('imagemin-pngquant');
-const fs = require('fs');
-const path = require('path');
+import imagemin from 'imagemin';
+import imageminWebp from 'imagemin-webp';
+import imageminAvif from 'imagemin-avif';
+import imageminMozjpeg from 'imagemin-mozjpeg';
+import imageminPngquant from 'imagemin-pngquant';
+import fs from 'fs';
+import path from 'path';
 
 async function optimizeImages() {
   const inputDir = 'public/images';

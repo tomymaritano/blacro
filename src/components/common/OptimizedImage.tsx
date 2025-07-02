@@ -35,6 +35,7 @@ export default function OptimizedImage({
   blurDataURL,
   style,
 }: OptimizedImageProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [useCloudinary, setUseCloudinary] = useState(
     process.env.NODE_ENV === 'production' && 
     process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
@@ -67,7 +68,6 @@ export default function OptimizedImage({
         crop="fill"
         gravity="center"
         format="auto"
-        fetchFormat="auto"
         onError={() => setImageError(true)}
         placeholder={placeholder}
         blurDataURL={blurDataURL || defaultBlurDataURL}
