@@ -35,17 +35,8 @@ export default function SimpleCloudinaryImage({
     // Remove /images/ prefix and file extension
     const pathWithoutImages = imageSrc.replace('/images/', '').replace(/\.[^/.]+$/, '');
     
-    // Map specific main images to available ones in Cloudinary
-    const imageMap: { [key: string]: string } = {
-      'myrica/myricacover': 'test/myricacover',
-      'unicoin/campaign-01': 'test/campaign-01',
-      'londonfashionweek/london-fashion-week-01': 'test/london-fashion-week-01',
-      'unicoin/thenextgenofcrypto/unicoin-nextgen-01': 'test/campaign-01', // fallback
-      'unicoin/unicoineverywhere/unicoin-everywhere-01': 'test/campaign-01', // fallback
-    };
-    
-    // Use mapped image if available, otherwise try blacro-portfolio path
-    const cloudinaryId = imageMap[pathWithoutImages] || `blacro-portfolio/${pathWithoutImages}`;
+    // All images are now uploaded to blacro-portfolio folder in Cloudinary
+    const cloudinaryId = `blacro-portfolio/${pathWithoutImages}`;
     
     // Return the full Cloudinary URL
     return `https://res.cloudinary.com/dm9driroe/image/upload/v1/${cloudinaryId}`;
