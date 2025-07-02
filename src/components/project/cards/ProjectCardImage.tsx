@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import OptimizedImage from "../../common/OptimizedImage";
 
 interface ProjectCardImageProps {
   imageSrc: string;
@@ -8,7 +8,7 @@ interface ProjectCardImageProps {
 
 export default function ProjectCardImage({ imageSrc, title }: ProjectCardImageProps) {
   return (
-    <Image
+    <OptimizedImage
       src={imageSrc}
       alt={`Cover image for the project "${title}"`}
       fill

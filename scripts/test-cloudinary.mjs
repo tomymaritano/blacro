@@ -17,8 +17,13 @@ async function testCloudinary() {
     console.log('📊 Account status:', result);
     
     // Try to list some resources
-    const resources = await cloudinary.api.resources({ max_results: 5 });
+    const resources = await cloudinary.api.resources({ max_results: 100 });
     console.log('📁 Available resources:', resources.resources.length);
+    
+    console.log('\n🔍 Available images:');
+    resources.resources.forEach(resource => {
+      console.log(`  - ${resource.public_id} (${resource.format})`);
+    });
     
   } catch (error) {
     console.error('❌ Cloudinary connection failed:', error.message);
