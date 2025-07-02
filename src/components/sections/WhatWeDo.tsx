@@ -20,9 +20,9 @@ export default function WhatWeDoSection() {
 
   return (
     <section className="w-full px-4 sm:px-8 py-12 text-black flex flex-col items-center space-y-8">
-      <span className="text-xs uppercase border border-black rounded-full px-4 py-1 tracking-wide font-sans">
+      <h2 className="text-xs uppercase border border-black rounded-full px-4 py-1 tracking-wide font-sans">
         What we do
-      </span>
+      </h2>
 
       <p className="text-center max-w-3xl text-base sm:text-lg leading-relaxed tracking-wide font-sans">
         NACIDO DE LA UNIÓN ENTRE DIRECCIÓN DE ARTE, DISEÑO ESPACIAL Y ESTRATEGIA CREATIVA,

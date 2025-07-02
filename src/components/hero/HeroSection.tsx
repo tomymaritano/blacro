@@ -46,19 +46,22 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
           </p>
         )}
 
-        {lines.map((line, i) => (
-          <motion.h1
-            key={i}
-            className="font-familjen text-black/80 text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
-            style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
-          >
-            {line}
-          </motion.h1>
-        ))}
+        {lines.map((line, i) => {
+          const Tag = i === 0 ? motion.h1 : motion.h2;
+          return (
+            <Tag
+              key={i}
+              className="font-familjen text-black/80 text-[28px] sm:text-[28px] lg:text-[40px] uppercase leading-snug lg:whitespace-nowrap"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
+              style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
+            >
+              {line}
+            </Tag>
+          );
+        })}
       </motion.div>
     </section>
   );

@@ -89,7 +89,11 @@ const ProjectCard = memo<ProjectCardProps>(function ProjectCard({
       whileHover={{ rotate: -2, scale: 1.03 }}
       className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group cursor-none"
     >
-      <Link href={`/project/${slug}`} className="absolute inset-0 z-10 cursor-none" />
+      <Link 
+        href={`/project/${slug}`} 
+        className="absolute inset-0 z-10 cursor-none" 
+        aria-label={`View ${title} project details`}
+      />
       <ProjectCardImage imageSrc={imageSrc} title={title} />
       <ProjectCardLogoOverlay logo={logo} isHovered={isHovered} title={title} />
       <ProjectCardCursor isHovered={isHovered} mouseX={mouseX} mouseY={mouseY} />

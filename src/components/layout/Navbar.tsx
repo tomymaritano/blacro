@@ -59,10 +59,10 @@ const Navbar: React.FC = () => {
           {isHome ? (
             <FloatingLogo />
           ) : (
-            <Link href="/">
+            <Link href="/" aria-label="Go to homepage">
               <Image
                 src="/logo.svg"
-                alt="logo"
+                alt="Blacro logo"
                 width={100}
                 height={60}
                 sizes="100px"
@@ -125,8 +125,8 @@ const Navbar: React.FC = () => {
             style={{ fontFamily: "Darker Grotesque, sans-serif" }}
           >
             {/* Logo */}
-            <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16">
-              <Image src="/logo.svg" alt="logo" width={100} height={60} sizes="100px" />
+            <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16" aria-label="Go to homepage">
+              <Image src="/logo.svg" alt="Blacro logo" width={100} height={60} sizes="100px" />
             </Link>
 
             {/* Close */}

@@ -30,7 +30,7 @@ const itemVariants: Variants = {
   },
 };
 
-const HoverLink = ({ href, text }: { href: string; text: string }) => {
+const HoverLink = ({ href, text, ariaLabel }: { href: string; text: string; ariaLabel?: string }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -39,6 +39,7 @@ const HoverLink = ({ href, text }: { href: string; text: string }) => {
       className="relative inline-block"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      aria-label={ariaLabel || text}
     >
       <span className="relative z-10">{text}</span>
       <motion.span
@@ -72,7 +73,7 @@ export default function Footer() {
           className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center md:justify-start"
         >
           <span className="uppercase font-bold">LET’S TALK!</span>
-          <HoverLink href="mailto:hola@blacro.com" text="HOLA@BLACRO.COM" />
+          <HoverLink href="mailto:hola@blacro.com" text="HOLA@BLACRO.COM" ariaLabel="Send email to hola@blacro.com" />
         </motion.div>
 
         {/* Center: socials */}
@@ -80,11 +81,11 @@ export default function Footer() {
           variants={itemVariants}
           className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center"
         >
-          <HoverLink href="https://instagram.com" text="INSTAGRAM" />
+          <HoverLink href="https://instagram.com/blacrostudio" text="INSTAGRAM" ariaLabel="Visit Blacro Studio on Instagram" />
           <span>|</span>
-          <HoverLink href="https://linkedin.com" text="LINKEDIN" />
+          <HoverLink href="https://linkedin.com/company/blacro" text="LINKEDIN" ariaLabel="Visit Blacro Studio on LinkedIn" />
           <span>|</span>
-          <HoverLink href="https://behance.net" text="BEHANCE" />
+          <HoverLink href="https://behance.net/blacro" text="BEHANCE" ariaLabel="Visit Blacro Studio on Behance" />
         </motion.div>
 
         {/* Right */}
