@@ -85,17 +85,14 @@ export default function OptimizedImage({
         loading={loading}
         sizes={sizes}
         fill={fill}
-        quality={quality}
+        quality={quality || 80}
         style={style}
         crop="fill"
         gravity="center"
-        format="auto"
         onError={(error) => {
           console.error('Cloudinary image failed to load:', cloudinaryId, error);
           setImageError(true);
         }}
-        placeholder={placeholder}
-        blurDataURL={blurDataURL || defaultBlurDataURL}
       />
     );
   }
