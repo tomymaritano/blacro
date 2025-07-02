@@ -43,7 +43,6 @@ export default function SmartImage({
   const getOptimizedSources = (imageSrc: string) => {
     const basePath = imageSrc.replace('/images/', '');
     const pathWithoutExt = basePath.replace(/\.[^/.]+$/, '');
-    const ext = basePath.split('.').pop()?.toLowerCase();
     
     return {
       avif: `/images-optimized/avif/${pathWithoutExt}.avif`,
