@@ -1,5 +1,5 @@
 // components/project/ProjectGallery.tsx
-import Image from "next/image";
+import SimpleCloudinaryImage from "../../common/SimpleCloudinaryImage";
 import { Project } from "../../../../data/types";
 
 interface ProjectGalleryProps {
@@ -10,7 +10,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
     return (
         <section className="col-span-12 lg:col-span-8 max-h-screen lg:max-h-none overflow-y-auto lg:overflow-y-visible pr-2">
             {/* Imagen principal */}
-            <Image
+            <SimpleCloudinaryImage
                 src={project.imageSrc}
                 alt={project.title}
                 width={1200}
@@ -24,7 +24,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
             {project.images && project.images.length > 0 && (
                 <div className="grid grid-cols-6 gap-3">
                     {project.images.map((img, i) => (
-                        <Image
+                        <SimpleCloudinaryImage
                             key={i}
                             src={img.src}
                             alt={`${project.title} image ${i + 1}`}

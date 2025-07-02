@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import SimpleCloudinaryImage from "../../common/SimpleCloudinaryImage";
 
 interface ProjectCardImageProps {
   imageSrc: string;
@@ -8,7 +8,7 @@ interface ProjectCardImageProps {
 
 export default function ProjectCardImage({ imageSrc, title }: ProjectCardImageProps) {
   return (
-    <Image
+    <SimpleCloudinaryImage
       src={imageSrc}
       alt={`Cover image for the project "${title}"`}
       fill
