@@ -1,7 +1,7 @@
 // app/components/project/MasonryProjectCard.tsx
 "use client";
 
-import Image from "next/image";
+import SimpleCloudinaryImage from "../../common/SimpleCloudinaryImage";
 import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function MasonryProjectCard({
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
 
       {/* Imagen del proyecto */}
-      <Image
+      <SimpleCloudinaryImage
         src={imageSrc}
         alt={title}
         width={1600}
@@ -61,8 +61,6 @@ export default function MasonryProjectCard({
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
         priority={index < 3}
         loading={index < 3 ? "eager" : "lazy"}
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Doi2KdPhBBaiiig="
       />
 
       {/* Overlay del logo */}
@@ -73,7 +71,7 @@ export default function MasonryProjectCard({
           animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
         >
-          <Image
+          <SimpleCloudinaryImage
             src={logo}
             alt={`${title} logo`}
             width={96}

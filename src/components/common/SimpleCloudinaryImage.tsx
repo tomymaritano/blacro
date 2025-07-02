@@ -42,8 +42,8 @@ export default function SimpleCloudinaryImage({
     return `https://res.cloudinary.com/dm9driroe/image/upload/v1/${cloudinaryId}`;
   };
 
-  // Only use Cloudinary if NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is set
-  const useCloudinary = !!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  // Always use Cloudinary for now
+  const useCloudinary = true;
   
   const imageSrc = useCloudinary ? getCloudinaryUrl(src) : src;
 
@@ -58,7 +58,7 @@ export default function SimpleCloudinaryImage({
         height={height}
         className={className}
         priority={priority}
-        loading={loading}
+        loading={priority ? undefined : loading}
         sizes={sizes}
         fill={fill}
         style={style}
@@ -74,7 +74,7 @@ export default function SimpleCloudinaryImage({
       height={height}
       className={className}
       priority={priority}
-      loading={loading}
+      loading={priority ? undefined : loading}
       sizes={sizes}
       fill={fill}
       style={style}
@@ -83,9 +83,7 @@ export default function SimpleCloudinaryImage({
         setImageError(true);
       }}
       onLoad={() => {
-        if (useCloudinary) {
-          console.log('Cloudinary image loaded successfully:', imageSrc);
-        }
+        // Image loaded successfully
       }}
     />
   );
