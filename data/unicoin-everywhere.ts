@@ -26,15 +26,15 @@ export const unicoinEverywhere: Project = {
     content: [  
         {
             type: "text",
-            content: "El cliente nos convocó para desarrollar una campaña con el objetivo de posicionar su criptomoneda como la más confiable y reconocida a nivel global. Bajo el concepto \"Unicoin is Everywhere\", trabajamos una identidad con visión de futuro: una marca que pertenece a todos y está en todas partes."
+            content: "El cliente nos convocó para desarrollar una campaña con el objetivo de posicionar su criptomoneda como la más confiable y reconocida a nivel global. Bajo el concepto “Unicoin is Everywhere”, trabajamos una visual con visión de futuro: una marca que pertenece a todos y está en todas partes."
         },
         {
             type: "text",
-            content: "En colaboración con el creativo Lautaro [apellido], desarrollamos una campaña 360° de vía pública que tomó las calles de ciudades clave como Nueva York, Miami, Sídney y Manila. A través de una estrategia visual audaz —basada en afiches, empapelados, buses, taxis y pantallas flotantes— la marca se integró al paisaje urbano de manera natural pero contundente, respetando el lenguaje visual de cada ciudad sin perder su impronta."
+            content: "En colaboración con el creativo Lautaro Cayarga, desarrollamos una campaña 360° de vía pública que tomó las calles de ciudades clave como Nueva York, Miami, Monterrey, Cancun y Merida. A través de una estrategia visual audaz —basada en afiches, empapelados, buses, taxis y pantallas flotantes. La estrategia apuntó a visibilizar su expansión global y democratizar el acceso al mundo cripto, llevando el mensaje de Unicoin a las calles, los medios y la conversación pública."
         },
         {
             type: "text",
-            content: "\"Unicoin is Everywhere\" no solo fue un claim, sino una experiencia: una intervención gráfica directa, global y memorable, que convirtió a Unicoin en una presencia visible, cotidiana y parte del entorno."
+            content: "\"Unicoin is Everywhere\"  fue la expresión visual de una marca en movimiento, que crece sin fronteras. Una campaña pensada para respaldar su posicionamiento como lo que realmente es: The Unicorn of Crypto."
         }
     ],
     featured: true,

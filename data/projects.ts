@@ -5,8 +5,10 @@ import { unicoinNextgen } from "./unicoin-nextgen";
 import { unicoinEverywhere } from "./unicoin-everywhere";
 import { londonFashionWeek } from "./london-fashion-week";
 import { isolla } from "./isolla";
+import { youtubeCDMX } from "./youtube-cdmx";
 
 export const projects: Project[] = [
+  youtubeCDMX,
   myricaGin,
   londonFashionWeek,
   unicoinNextgen,
