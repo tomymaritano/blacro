@@ -9,7 +9,7 @@ export const youtubeCDMX: Project = {
   location: "CDMX, México",
   year: 2025,
   services: ["Dirección de Arte", "Eventos", "Diseño Escenográfico", "Señalética"],
-  description: "Fuimos convocadas por Ninch para colaborar en la dirección de arte y desarrollo de originales del evento YouTube Connect, un encuentro creado para creadores de contenido. El objetivo: acercar herramientas, tendencias y experiencias para potenciar su crecimiento dentro de la plataforma.",
+  
   images: [
     { src: "/images/youtube/youtube-01.jpg", size: "medium" },
     { src: "/images/youtube/youtube-02.jpg", size: "medium" },
