@@ -56,7 +56,7 @@ export default function ContactClient() {
           
           {/* Subtitle Text */}
           <motion.p 
-            className="text-[40px] tracking-wide text-black/80 uppercase py-10 mb-8"
+            className="text-[28px] sm:text-[32px] lg:text-[40px] tracking-wide text-black/80 uppercase py-10 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
