@@ -67,10 +67,10 @@ export default function GlobalCursor() {
     <motion.div
       className="fixed z-[9999] pointer-events-none"
       style={{
-        left: mousePosition.x - 40, // 80/2
-        top: mousePosition.y - 40,  // 80/2
-        width: "80px",
-        height: "80px",
+        left: mousePosition.x - 25, // 50/2
+        top: mousePosition.y - 30,  // 60/2
+        width: "50px",
+        height: "60px",
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ 
@@ -86,12 +86,21 @@ export default function GlobalCursor() {
         damping: 20
       }}
     >
+      {/* Background circular */}
+      <div 
+        className="absolute inset-0 rounded-full"
+        style={{
+          backgroundColor: "#D9D9D9",
+          opacity: 0.2
+        }}
+      />
+      {/* SVG cursor */}
       <Image
         src={isClicked ? "/click.svg" : "/no click.svg"}
         alt={isClicked ? "Click cursor" : "No click cursor"}
-        width={80}
-        height={80}
-        className="w-full h-full object-contain filter drop-shadow-lg"
+        width={50}
+        height={60}
+        className="relative z-10 w-full h-full object-contain"
         priority
         quality={100}
         unoptimized
