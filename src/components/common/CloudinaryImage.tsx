@@ -31,7 +31,7 @@ export default function CloudinaryImage({
   style,
   quality = "auto:best",
   crop = "fill",
-  gravity = "center",
+  gravity = "auto",
 }: CloudinaryImageProps) {
   // Extract image path from src for Cloudinary
   const getCloudinaryPublicId = (imageSrc: string) => {
@@ -48,11 +48,11 @@ export default function CloudinaryImage({
   const imageProps = fill 
     ? {
         fill: true,
-        sizes: sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes: sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
       }
     : {
-        width: width || 1200,
-        height: height || 800,
+        width: width || 1920,
+        height: height || 1280,
         sizes: sizes
       };
 
@@ -69,15 +69,18 @@ export default function CloudinaryImage({
       {...loadingProps}
       className={className}
       quality={quality}
-      crop={crop}
-      gravity={gravity}
+      // Use object syntax to apply transformations to source image (prevents two-stage cropping)
+      crop={{
+        type: crop,
+        source: true,
+        gravity: gravity
+      }}
       style={style}
-      // Preserve animation for GIFs
-      flags={src.toLowerCase().includes('.gif') ? 'awebp' : undefined}
       // Use auto format for optimal delivery, but preserve GIF animation
       format={src.toLowerCase().includes('.gif') ? 'gif' : 'auto'}
       // Enhance image quality  
       dpr="auto"
+      // Remove flags - handled by format auto
     />
   );
 }

@@ -28,9 +28,14 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             key={i}
                             src={img.src}
                             alt={`${project.title} image ${i + 1}`}
-                            width={1200}
-                            height={342}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            width={img.size === "large" ? 1920 : img.size === "medium" ? 1280 : 800}
+                            height={img.size === "large" ? 542 : img.size === "medium" ? 707 : 466}
+                            sizes={
+                                img.size === "large" ? "(max-width: 768px) 100vw, 100vw" :
+                                img.size === "medium" ? "(max-width: 768px) 100vw, 50vw" :
+                                "(max-width: 768px) 50vw, 33vw"
+                            }
+                            priority={i < 2}
                             className={`w-full object-cover rounded-none ${
                                 img.size === "large" ? "col-span-2 md:col-span-6 h-[300px] md:h-[542px]" : 
                                 img.size === "medium" ? "col-span-2 md:col-span-3 h-[250px] md:h-[707px]" : 
