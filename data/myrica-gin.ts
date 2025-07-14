@@ -4,7 +4,7 @@ import { Project } from "./types";
 export const myricaGin: Project = {
     slug: "myrica-gin",
     title: "Myrica Gin",
-    imageSrc: "/images/myrica/myricacover.png",
+    imageSrc: "/images/myrica/myrica-3.gif",
     category: "Identidad Visual. Diseño de Producto",
     client: "Ruma Marketing",
     location: "Argentina",
@@ -13,9 +13,9 @@ export const myricaGin: Project = {
     images: [
         { src: "/images/myrica/myrica-gin-branding-04.png", size: "large" },
         { src: "/images/myrica/myrica.png", size: "large" },
-        { src: "/images/myrica/myrica-gin-branding-01.jpg", size: "large" },
+        { src: "/images/myrica/myrica-2.gif", size: "large" },
         { src: "/images/myrica/myricagif.png", size: "large" },
-        { src: "/images/myrica/myrica-gin-branding-02.png", size: "large" },
+        { src: "/images/myrica/myrica-1.gif", size: "large" },
         { src: "/images/myrica/myrica-gin-bottle-02.jpg", size: "medium" },
         { src: "/images/myrica/myrica-gin-bottle-03.jpg", size: "medium" },
         { src: "/images/myrica/myrica-gin-branding-03.jpg", size: "large" },

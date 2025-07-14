@@ -29,7 +29,7 @@ async function uploadToCloudinary() {
         if (item.isDirectory()) {
           const newFolderPrefix = folderPrefix ? `${folderPrefix}/${item.name}` : item.name;
           await uploadFromDirectory(itemPath, newFolderPrefix);
-        } else if (item.isFile() && (item.name.endsWith('.jpg') || item.name.endsWith('.png') || item.name.endsWith('.jpeg'))) {
+        } else if (item.isFile() && (item.name.endsWith('.jpg') || item.name.endsWith('.png') || item.name.endsWith('.jpeg') || item.name.endsWith('.gif'))) {
           try {
             // Create public_id (remove extension)
             const nameWithoutExt = item.name.replace(/\.[^/.]+$/, '');
@@ -40,8 +40,9 @@ async function uploadToCloudinary() {
             const result = await cloudinary.uploader.upload(itemPath, {
               public_id: publicId,
               folder: 'blacro-portfolio',
-              resource_type: 'image',
+              resource_type: 'auto', // Auto-detect resource type (handles GIFs properly)
               quality: 'auto:good'
+              // Remove format parameter to preserve original format (especially for GIFs)
             });
             
             uploadCount++;

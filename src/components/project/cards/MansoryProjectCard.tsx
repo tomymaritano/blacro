@@ -1,7 +1,7 @@
 // app/components/project/MasonryProjectCard.tsx
 "use client";
 
-import SimpleCloudinaryImage from "../../common/SimpleCloudinaryImage";
+import CloudinaryImage from "../../common/CloudinaryImage";
 import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function MasonryProjectCard({
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
 
       {/* Imagen del proyecto */}
-      <SimpleCloudinaryImage
+      <CloudinaryImage
         src={imageSrc}
         alt={title}
         width={1600}
@@ -71,7 +71,7 @@ export default function MasonryProjectCard({
           animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
         >
-          <SimpleCloudinaryImage
+          <CloudinaryImage
             src={logo}
             alt={`${title} logo`}
             width={96}

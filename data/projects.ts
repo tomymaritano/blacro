@@ -6,8 +6,10 @@ import { unicoinEverywhere } from "./unicoin-everywhere";
 import { londonFashionWeek } from "./london-fashion-week";
 import { isolla } from "./isolla";
 import { youtubeCDMX } from "./youtube-cdmx";
+import { privateLimo } from "./private-limo";
 
 export const projects: Project[] = [
+  privateLimo,
   youtubeCDMX,
   myricaGin,
   londonFashionWeek,

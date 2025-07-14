@@ -4,7 +4,6 @@ import Header from "@/components/layout/Header";
 import { motion } from "framer-motion";
 import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
 import ContactForm from "./ContactForm";
-import Link from "next/link";
 import HoverLink from "@/components/ui/interactive/HoverLink";
 
 const fadeUp = {

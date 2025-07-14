@@ -5,16 +5,15 @@ import { motion } from "framer-motion";
 export default function WhatWeDoSection() {
   const columns = [
     {
-      title: "MARKETING & EXPERIENCIAS",
-      items: ["ESTRATEGIA & CAMPAÑA", "EXPERIENCIAS DE MARCA", "ACTIVACIONES", "EVENTOS Y SET DESIGN"],
+      title: "MARKETING & ESTRATEGIA",
+      items: ["CAMPAÑAS", "BRAND STORYTELLING", "CONSULTORIA DE MARCA", "ESTRATEGIA DE CONTENIDOS"],
     },
     {
-      title: "DISEÑO DE MARCA Y PRODUCTO",
-      items: ["BRANDING E IDENTIDAD", "PACKAGING", "GESTIÓN DE IMPRESIÓN Y COLOR"],
-    },
+      title: "BRANDING Y DISEÑO",
+      items: ["BRANDING E IDENTIDAD VISUAL", "PRODUCTO & PACKAGING", "DISEÑO WEB & REDES", "DIRECCIÓN DE ARTE"]},
     {
-      title: "DIRECCIÓN DE ARTE",
-      items: ["CONTENIDO", "DISEÑO WEB", "FOTOGRAFÍA"],
+      title: "EXPERIENCIAS",
+      items: ["SERVICE DESIGN", "BRAND EXPERIENCE", "EVENTOS", "ACTIVACIONES DE MARCA"],
     },
   ];
 
