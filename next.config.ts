@@ -26,7 +26,11 @@ const nextConfig: NextConfig = {
   // Modern JavaScript compilation
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    reactRemoveProperties: process.env.NODE_ENV === 'production' ? { properties: ['^data-testid$'] } : false,
   },
+  
+  // Performance optimizations
+  poweredByHeader: false,
   
   // Target modern browsers to reduce polyfills
   transpilePackages: [],

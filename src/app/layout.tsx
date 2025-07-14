@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
+import CriticalCSS from "@/components/optimization/CriticalCSS";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
@@ -14,7 +15,8 @@ const familjenGrotesk = Familjen_Grotesk({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "600", "700"] // Reduced for performance
+  weight: ["400", "600", "700"], // Reduced for performance
+  fallback: ['system-ui', 'arial']
 });
 
 const darkerGrotesque = Darker_Grotesque({ 
@@ -22,7 +24,8 @@ const darkerGrotesque = Darker_Grotesque({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "600", "700"] // Reduced for performance
+  weight: ["400", "600", "700"], // Reduced for performance
+  fallback: ['system-ui', 'arial']
 });
 
 const inter = Inter({ 
@@ -30,7 +33,8 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "500", "600"] // Reduced for performance
+  weight: ["400", "500", "600"], // Reduced for performance
+  fallback: ['system-ui', 'arial']
 });
 
 export const metadata: Metadata = {
@@ -70,6 +74,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
+      <head>
+        <CriticalCSS />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+      </head>
       <body className="cursor-none">
         <ErrorBoundary>
           <GlobalCursorWrapper />

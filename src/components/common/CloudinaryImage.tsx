@@ -59,7 +59,7 @@ export default function CloudinaryImage({
   const cloudinaryId = getCloudinaryPublicId(src);
 
   // Mobile-optimized quality and sizes
-  const optimizedQuality = isMobile ? "auto:good" : quality;
+  const optimizedQuality = isMobile ? "auto:eco" : quality; // Even more aggressive compression for mobile
   const optimizedSizes = sizes || (isMobile 
     ? "(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
     : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
@@ -78,9 +78,10 @@ export default function CloudinaryImage({
       };
 
   // Handle priority vs loading conflict - priority takes precedence
+  // More aggressive loading for mobile
   const loadingProps = priority 
-    ? { priority: true }
-    : { loading: loading };
+    ? { priority: true, fetchPriority: "high" as const }
+    : { loading: loading, fetchPriority: "low" as const };
 
   return (
     <CldImage
