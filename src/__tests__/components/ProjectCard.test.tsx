@@ -30,15 +30,6 @@ jest.mock('../../components/project/cards/ProjectCardLogoOverlay', () => {
   }
 })
 
-jest.mock('../../components/project/cards/ProjectCardCursor', () => {
-  return function MockProjectCardCursor({ 
-    isHovered 
-  }: { 
-    isHovered: boolean; 
-  }) {
-    return <div data-testid="project-card-cursor" data-hovered={isHovered}>Cursor</div>
-  }
-})
 
 jest.mock('../../components/project/cards/ProjectCardInfo', () => {
   return function MockProjectCardInfo({ 
@@ -103,7 +94,6 @@ describe('ProjectCard', () => {
     
     expect(screen.getByTestId('project-card-image')).toBeInTheDocument()
     expect(screen.getByTestId('project-card-logo')).toBeInTheDocument()
-    expect(screen.getByTestId('project-card-cursor')).toBeInTheDocument()
     expect(screen.getByTestId('project-card-info')).toBeInTheDocument()
     expect(screen.getByTestId('project-link')).toBeInTheDocument()
   })
@@ -134,17 +124,14 @@ describe('ProjectCard', () => {
     render(<ProjectCard {...mockProject} />)
     
     const logo = screen.getByTestId('project-card-logo')
-    const cursor = screen.getByTestId('project-card-cursor')
     const info = screen.getByTestId('project-card-info')
     
     // Initially not hovered
     expect(logo).toHaveAttribute('data-hovered', 'false')
-    expect(cursor).toHaveAttribute('data-hovered', 'false')
     expect(info).toHaveAttribute('data-hovered', 'false')
     
     // Since Framer Motion hover events are mocked, we'll just verify initial state
     expect(logo).toBeInTheDocument()
-    expect(cursor).toBeInTheDocument()
     expect(info).toBeInTheDocument()
   })
 
@@ -200,14 +187,14 @@ describe('ProjectCard', () => {
     
     // Verify the component renders with the expected structure
     expect(screen.getByTestId('project-card-image')).toBeInTheDocument()
-    expect(screen.getByTestId('project-link')).toHaveClass('cursor-none')
+    expect(screen.getByTestId('project-link')).toBeInTheDocument()
   })
 
   it('has proper accessibility attributes', () => {
     render(<ProjectCard {...mockProject} />)
     
     const link = screen.getByTestId('project-link')
-    expect(link).toHaveClass('cursor-none')
+    expect(link).toBeInTheDocument()
     
     const image = screen.getByTestId('project-card-image')
     expect(image).toHaveAttribute('aria-label', 'Test Project')

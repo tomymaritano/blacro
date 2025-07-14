@@ -40,10 +40,10 @@ export default function GlobalCursor() {
 
   return (
     <motion.div
-      className="fixed z-[9999] w-8 h-8 pointer-events-none mix-blend-difference"
+      className="fixed z-[9999] w-6 h-6 pointer-events-none"
       style={{
-        left: mousePosition.x - 16,
-        top: mousePosition.y - 16,
+        left: mousePosition.x - 12,
+        top: mousePosition.y - 12,
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
@@ -53,9 +53,9 @@ export default function GlobalCursor() {
       <Image
         src={isClicked ? "/click.svg" : "/no click.svg"}
         alt={isClicked ? "Click cursor" : "No click cursor"}
-        width={32}
-        height={32}
-        className="w-full h-full object-contain"
+        width={24}
+        height={24}
+        className="w-full h-full object-contain filter drop-shadow-lg"
         priority
       />
     </motion.div>

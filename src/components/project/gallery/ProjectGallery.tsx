@@ -22,7 +22,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
 
             {/* Imagenes secundarias */}
             {project.images && project.images.length > 0 && (
-                <div className="grid grid-cols-6 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
                     {project.images.map((img, i) => (
                         <CloudinaryImage
                             key={i}
@@ -31,10 +31,10 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                             width={1200}
                             height={342}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className={`w-full h-auto object-cover rounded-none max-h-[707px] ${
-                                img.size === "large" ? "col-span-6" : 
-                                img.size === "medium" ? "col-span-3" : 
-                                "col-span-2"
+                            className={`w-full object-cover rounded-none ${
+                                img.size === "large" ? "col-span-2 md:col-span-6 h-[300px] md:h-[542px]" : 
+                                img.size === "medium" ? "col-span-2 md:col-span-3 h-[250px] md:h-[707px]" : 
+                                "col-span-1 md:col-span-2 h-[200px] md:h-[466px]"
                             }`}
                         />
                     ))}
