@@ -17,13 +17,21 @@ export default function GlobalCursor() {
 
     const handleMouseDown = () => setIsClicked(true);
     const handleMouseUp = () => setIsClicked(false);
+    const handleClick = () => {
+      setIsClicked(true);
+      setTimeout(() => setIsClicked(false), 150);
+    };
     
-    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseLeave = () => {
+      setIsVisible(false);
+      setIsClicked(false);
+    };
     const handleMouseEnter = () => setIsVisible(true);
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("click", handleClick);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
 
@@ -31,6 +39,7 @@ export default function GlobalCursor() {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("click", handleClick);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
@@ -40,22 +49,24 @@ export default function GlobalCursor() {
 
   return (
     <motion.div
-      className="fixed z-[9999] w-6 h-6 pointer-events-none"
+      className="fixed z-[9999] pointer-events-none"
       style={{
-        left: mousePosition.x - 12,
-        top: mousePosition.y - 12,
+        left: mousePosition.x - 122.5, // 245/2
+        top: mousePosition.y - 160,    // 320/2
+        width: "245px",
+        height: "320px",
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0, opacity: 0 }}
-      transition={{ duration: 0.1 }}
+      transition={{ duration: 0.15 }}
     >
       <Image
         src={isClicked ? "/click.svg" : "/no click.svg"}
         alt={isClicked ? "Click cursor" : "No click cursor"}
-        width={24}
-        height={24}
-        className="w-full h-full object-contain filter drop-shadow-lg"
+        width={245}
+        height={320}
+        className="w-full h-full object-contain filter drop-shadow-2xl"
         priority
       />
     </motion.div>
