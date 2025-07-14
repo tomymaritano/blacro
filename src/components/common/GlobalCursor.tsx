@@ -113,6 +113,7 @@ export default function GlobalCursor() {
           width={50}
           height={60}
           className="object-contain"
+          style={{ width: "auto", height: "auto" }}
           priority
           quality={100}
           unoptimized

@@ -1,13 +1,13 @@
 // app/portfolio/page.tsx
 import { projects } from '../../../data/projects';
 import Header from '@/components/layout/Header';
-import MasonryGrid from '@/components/layout/MasonryGrid';
+import CustomProjectGrid from '@/components/project/CustomProjectGrid';
 
 export default function Portfolio() {
     return (
         <>
             <Header title='Our portfolio' />
-            <MasonryGrid projects={projects} />
+            <CustomProjectGrid projects={projects} />
         </>
     );
 }

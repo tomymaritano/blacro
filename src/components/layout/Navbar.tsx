@@ -67,6 +67,7 @@ const Navbar: React.FC = () => {
                 height={60}
                 sizes="100px"
                 className="object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
           )}
@@ -126,7 +127,7 @@ const Navbar: React.FC = () => {
           >
             {/* Logo */}
             <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16" aria-label="Go to homepage">
-              <Image src="/logo.svg" alt="Blacro logo" width={100} height={60} sizes="100px" />
+              <Image src="/logo.svg" alt="Blacro logo" width={100} height={60} sizes="100px" style={{ width: "auto", height: "auto" }} />
             </Link>
 
             {/* Close */}
