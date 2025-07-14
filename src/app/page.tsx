@@ -2,7 +2,7 @@
 import HeroSection from '@/components/hero/HeroSection';
 import WhatWeDoSection from '@/components/sections/WhatWeDo';
 
-import { featuredProjects } from '../../data/projects';
+import { featuredProjects } from '@/data/projects';
 import HomeProjectGrid from '@/components/project/carousel/HomeProjectGrid';
 
 export default function Home() {

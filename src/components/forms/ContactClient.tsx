@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
 import ContactForm from "./ContactForm";
 import Link from "next/link";
-import { useState } from "react";
+import HoverLink from "@/components/ui/interactive/HoverLink";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -14,31 +14,6 @@ const fadeUp = {
     y: 0,
     transition: { duration: 0.7, ease: "easeOut" as const },
   },
-};
-
-const HoverLink = ({ href, text }: { href: string; text: string }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <Link
-      href={href}
-      className="relative inline-block"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className="relative z-10">{text}</span>
-      <motion.span
-        layoutId={`underline-${text}`}
-        className="absolute left-0 bottom-0 h-[1px] w-full bg-black"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        style={{ transformOrigin: "left" }}
-      />
-    </Link>
-  );
 };
 
 export default function ContactClient() {
@@ -75,11 +50,11 @@ export default function ContactClient() {
             transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
             style={{ fontFamily: "Darker Grotesque, sans-serif" }}
           >
-            <HoverLink href="https://instagram.com/blacro.studio" text="INSTAGRAM" />
+            <HoverLink href="https://instagram.com/blacro.studio" text="INSTAGRAM" target="_blank" rel="noopener noreferrer" />
             <span>|</span>
-            <HoverLink href="https://linkedin.com/company/blacro-studio" text="LINKEDIN" />
+            <HoverLink href="https://linkedin.com/company/blacro-studio" text="LINKEDIN" target="_blank" rel="noopener noreferrer" />
             <span>|</span>
-            <HoverLink href="https://behance.net/blacrostudio" text="BEHANCE" />
+            <HoverLink href="https://behance.net/blacrostudio" text="BEHANCE" target="_blank" rel="noopener noreferrer" />
           </motion.div>
         </motion.div>
 

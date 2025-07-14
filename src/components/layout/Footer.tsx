@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion, easeOut, Variants } from "framer-motion";
-import { useState } from "react";
+import HoverLink from "@/components/ui/interactive/HoverLink";
 
 
 const containerVariants: Variants = {
@@ -30,29 +29,6 @@ const itemVariants: Variants = {
   },
 };
 
-const HoverLink = ({ href, text, ariaLabel }: { href: string; text: string; ariaLabel?: string }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <Link
-      href={href}
-      className="relative inline-block"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      aria-label={ariaLabel || text}
-    >
-      <span className="relative z-10">{text}</span>
-      <motion.span
-        layoutId="underline"
-        className="absolute left-0 bottom-0 h-[1px] w-full bg-black"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: easeOut }}
-        style={{ transformOrigin: "left" }}
-      />
-    </Link>
-  );
-};
 
 export default function Footer() {
   return (

@@ -224,25 +224,3 @@ export const META = {
   OG_IMAGE_HEIGHT: 630,
 } as const;
 
-// === HELPER FUNCTIONS ===
-
-/**
- * Convert pixel value to rem
- */
-export const pxToRem = (px: number): string => `${px / 16}rem`;
-
-/**
- * Get responsive font size classes
- */
-export const getResponsiveFontSize = (sm: number, md: number, lg: number): string => 
-  `text-[${sm}px] sm:text-[${md}px] lg:text-[${lg}px]`;
-
-/**
- * Get opacity class for colors
- */
-export const getOpacityClass = (opacity: number): string => `opacity-${Math.round(opacity * 100)}`;
-
-/**
- * Convert milliseconds to seconds for CSS animations
- */
-export const msToSeconds = (ms: number): number => ms / 1000;

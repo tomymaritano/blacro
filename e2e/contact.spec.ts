@@ -6,55 +6,75 @@ test.describe('Contact Page', () => {
   });
 
   test('displays contact form correctly', async ({ page }) => {
-    await expect(page.getByLabel('Name')).toBeVisible();
-    await expect(page.getByLabel('Email')).toBeVisible();
-    await expect(page.getByLabel('Your Message')).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible();
+    await expect(page.getByLabel('NOMBRE *')).toBeVisible();
+    await expect(page.getByLabel('EMAIL *')).toBeVisible();
+    await expect(page.getByLabel('COMPAÑÍA *')).toBeVisible();
+    await expect(page.getByLabel('WEBSITE - SOCIAL MEDIA')).toBeVisible();
+    await expect(page.getByLabel('TELÉFONO *')).toBeVisible();
+    await expect(page.getByLabel('PAÍS *')).toBeVisible();
+    await expect(page.getByLabel('CONTANOS SOBRE TU PROYECTO *')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Enviar Mensaje' })).toBeVisible();
   });
 
   test('shows validation errors for empty form', async ({ page }) => {
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
-    await expect(page.getByText('Your name is too short')).toBeVisible();
-    await expect(page.getByText('Invalid email address')).toBeVisible();
-    await expect(page.getByText('Your message is too short')).toBeVisible();
+    // Wait for validation errors to appear
+    await expect(page.locator('text=Tu nombre debe tener al menos')).toBeVisible();
+    await expect(page.locator('text=El email es requerido')).toBeVisible();
+    await expect(page.locator('text=La compañía es requerida')).toBeVisible();
+    await expect(page.locator('text=El teléfono es requerido')).toBeVisible();
+    await expect(page.locator('text=El país es requerido')).toBeVisible();
+    await expect(page.locator('text=La descripción del proyecto es requerida')).toBeVisible();
   });
 
   test('shows validation error for invalid email', async ({ page }) => {
-    await page.getByLabel('Name').fill('John Doe');
-    await page.getByLabel('Email').fill('invalid-email');
-    await page.getByLabel('Your Message').fill('This is a test message.');
+    await page.getByLabel('NOMBRE *').fill('Juan Pérez');
+    await page.getByLabel('EMAIL *').fill('invalid-email');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Este es un mensaje de prueba.');
     
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
-    await expect(page.getByText('Invalid email address')).toBeVisible();
+    await expect(page.locator('text=El email debe tener un formato válido')).toBeVisible();
   });
 
   test('shows validation error for short name', async ({ page }) => {
-    await page.getByLabel('Name').fill('A');
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Your Message').fill('This is a test message.');
+    await page.getByLabel('NOMBRE *').fill('A');
+    await page.getByLabel('EMAIL *').fill('test@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Este es un mensaje de prueba.');
     
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
-    await expect(page.getByText('Your name is too short')).toBeVisible();
+    await expect(page.locator('text=Tu nombre debe tener al menos')).toBeVisible();
   });
 
-  test('shows validation error for short message', async ({ page }) => {
-    await page.getByLabel('Name').fill('John Doe');
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Your Message').fill('Short');
+  test('shows validation error for short project description', async ({ page }) => {
+    await page.getByLabel('NOMBRE *').fill('Juan Pérez');
+    await page.getByLabel('EMAIL *').fill('test@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Corto');
     
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
-    await expect(page.getByText('Your message is too short')).toBeVisible();
+    await expect(page.locator('text=La descripción debe tener al menos')).toBeVisible();
   });
 
   test('form submission shows loading state', async ({ page }) => {
     // Fill form with valid data
-    await page.getByLabel('Name').fill('John Doe');
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Your Message').fill('This is a test message for the contact form.');
+    await page.getByLabel('NOMBRE *').fill('Juan Pérez');
+    await page.getByLabel('EMAIL *').fill('test@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Este es un mensaje de prueba para el formulario de contacto.');
     
     // Intercept the API call to control timing
     await page.route('/api/contact', async route => {
@@ -68,21 +88,24 @@ test.describe('Contact Page', () => {
     });
     
     // Submit form
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
     // Check loading state
-    await expect(page.getByText('Sending...')).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Sending...' })).toBeDisabled();
+    await expect(page.getByText('Enviando...')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Enviando...' })).toBeDisabled();
     
     // Wait for success message
-    await expect(page.getByText('Message sent successfully!')).toBeVisible();
+    await expect(page.getByText('¡Mensaje enviado exitosamente!')).toBeVisible();
   });
 
   test('handles API error gracefully', async ({ page }) => {
     // Fill form with valid data
-    await page.getByLabel('Name').fill('John Doe');
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Your Message').fill('This is a test message for the contact form.');
+    await page.getByLabel('NOMBRE *').fill('Juan Pérez');
+    await page.getByLabel('EMAIL *').fill('test@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Este es un mensaje de prueba para el formulario de contacto.');
     
     // Intercept the API call to return error
     await page.route('/api/contact', async route => {
@@ -94,7 +117,7 @@ test.describe('Contact Page', () => {
     });
     
     // Submit form
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
     // Check error message
     await expect(page.getByText('Rate limit exceeded')).toBeVisible();
@@ -102,9 +125,12 @@ test.describe('Contact Page', () => {
 
   test('form clears after successful submission', async ({ page }) => {
     // Fill form with valid data
-    await page.getByLabel('Name').fill('John Doe');
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Your Message').fill('This is a test message for the contact form.');
+    await page.getByLabel('NOMBRE *').fill('Juan Pérez');
+    await page.getByLabel('EMAIL *').fill('test@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Mi Empresa');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Este es un mensaje de prueba para el formulario de contacto.');
     
     // Intercept the API call to return success
     await page.route('/api/contact', async route => {
@@ -116,35 +142,44 @@ test.describe('Contact Page', () => {
     });
     
     // Submit form
-    await page.getByRole('button', { name: 'Send' }).click();
+    await page.getByRole('button', { name: 'Enviar Mensaje' }).click();
     
     // Wait for success message
-    await expect(page.getByText('Message sent successfully!')).toBeVisible();
+    await expect(page.getByText('¡Mensaje enviado exitosamente!')).toBeVisible();
     
     // Check that form is cleared
-    await expect(page.getByLabel('Name')).toHaveValue('');
-    await expect(page.getByLabel('Email')).toHaveValue('');
-    await expect(page.getByLabel('Your Message')).toHaveValue('');
+    await expect(page.getByLabel('NOMBRE *')).toHaveValue('');
+    await expect(page.getByLabel('EMAIL *')).toHaveValue('');
+    await expect(page.getByLabel('COMPAÑÍA *')).toHaveValue('');
+    await expect(page.getByLabel('TELÉFONO *')).toHaveValue('');
+    await expect(page.getByLabel('PAÍS *')).toHaveValue('');
+    await expect(page.getByLabel('CONTANOS SOBRE TU PROYECTO *')).toHaveValue('');
   });
 
   test('form is accessible', async ({ page }) => {
     // Check that form fields have proper labels
-    const nameInput = page.getByLabel('Name');
-    const emailInput = page.getByLabel('Email');
-    const messageInput = page.getByLabel('Your Message');
+    const nameInput = page.getByLabel('NOMBRE *');
+    const emailInput = page.getByLabel('EMAIL *');
+    const companyInput = page.getByLabel('COMPAÑÍA *');
+    const phoneInput = page.getByLabel('TELÉFONO *');
+    const countryInput = page.getByLabel('PAÍS *');
+    const projectInput = page.getByLabel('CONTANOS SOBRE TU PROYECTO *');
     
     await expect(nameInput).toHaveAttribute('id', 'name');
     await expect(emailInput).toHaveAttribute('id', 'email');
-    await expect(messageInput).toHaveAttribute('id', 'message');
+    await expect(companyInput).toHaveAttribute('id', 'company');
+    await expect(phoneInput).toHaveAttribute('id', 'phone');
+    await expect(countryInput).toHaveAttribute('id', 'country');
+    await expect(projectInput).toHaveAttribute('id', 'projectDescription');
     
     // Check that labels are properly associated
     const nameLabel = page.locator('label[for="name"]');
     const emailLabel = page.locator('label[for="email"]');
-    const messageLabel = page.locator('label[for="message"]');
+    const companyLabel = page.locator('label[for="company"]');
     
     await expect(nameLabel).toBeVisible();
     await expect(emailLabel).toBeVisible();
-    await expect(messageLabel).toBeVisible();
+    await expect(companyLabel).toBeVisible();
     
     // Check tab navigation
     await nameInput.focus();
@@ -152,10 +187,14 @@ test.describe('Contact Page', () => {
     await expect(emailInput).toBeFocused();
     
     await page.keyboard.press('Tab');
-    await expect(messageInput).toBeFocused();
+    await expect(companyInput).toBeFocused();
     
+    // Skip to submit button (tab order varies)
     await page.keyboard.press('Tab');
-    await expect(page.getByRole('button', { name: 'Send' })).toBeFocused();
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Enviar Mensaje' })).toBeFocused();
   });
 
   test('contact page loads without errors', async ({ page }) => {
@@ -188,14 +227,17 @@ test.describe('Contact Page', () => {
     await page.setViewportSize({ width: 375, height: 667 });
     
     // Check that form is visible and usable on mobile
-    await expect(page.getByLabel('Name')).toBeVisible();
-    await expect(page.getByLabel('Email')).toBeVisible();
-    await expect(page.getByLabel('Your Message')).toBeVisible();
+    await expect(page.getByLabel('NOMBRE *')).toBeVisible();
+    await expect(page.getByLabel('EMAIL *')).toBeVisible();
+    await expect(page.getByLabel('CONTANOS SOBRE TU PROYECTO *')).toBeVisible();
     
     // Fill and submit form on mobile
-    await page.getByLabel('Name').fill('Mobile User');
-    await page.getByLabel('Email').fill('mobile@example.com');
-    await page.getByLabel('Your Message').fill('Testing mobile contact form.');
+    await page.getByLabel('NOMBRE *').fill('Usuario Móvil');
+    await page.getByLabel('EMAIL *').fill('mobile@example.com');
+    await page.getByLabel('COMPAÑÍA *').fill('Empresa Móvil');
+    await page.getByLabel('TELÉFONO *').fill('+54 11 1234-5678');
+    await page.getByLabel('PAÍS *').selectOption('AR');
+    await page.getByLabel('CONTANOS SOBRE TU PROYECTO *').fill('Probando formulario de contacto móvil.');
     
     // Intercept API call
     await page.route('/api/contact', async route => {

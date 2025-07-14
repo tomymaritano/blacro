@@ -17,19 +17,18 @@ export default function FloatingLogo() {
     return scrollY.onChange((latest) => setInNavbar(latest > 100));
   }, [isHome, scrollY]);
 
-  // En otras páginas que no sean home, siempre es como scrolleado
   const isScrolled = isHome ? inNavbar : true;
 
   return (
     <div className={`${styles.logo} ${isScrolled ? styles.logoScrolled : ""}`}>
       <Image
         src="/logo-scroll.svg"
-        width={400}             // NUMÉRICO
-        height={100}            // NUMÉRICO
+        width={400}
+        height={100}
         alt="logo"
         priority
         sizes="(max-width: 480px) 180px, (max-width: 768px) 200px, (max-width: 1024px) 320px, 500px"
-        className={styles.logo} // usa el CSS para el width responsivo
+        className={styles.logo}
         style={{ width: "100%", height: "auto" }}
       />
     </div>

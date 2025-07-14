@@ -3,10 +3,10 @@
  */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Navbar from '../../app/components/Layout/Navbar'
+import Navbar from '../../components/layout/Navbar'
 
 // Mock child components
-jest.mock('../../app/components/ui/AnimatedLink', () => {
+jest.mock('../../components/common/AnimatedLink', () => {
   return function MockAnimatedLink({ 
     href, 
     children, 
@@ -26,7 +26,7 @@ jest.mock('../../app/components/ui/AnimatedLink', () => {
   }
 })
 
-jest.mock('../../app/components/ui/ButtonTalk', () => {
+jest.mock('../../components/ui/buttons/ButtonTalk', () => {
   return function MockButtonTalk({ 
     href, 
     mobile, 

@@ -2,17 +2,17 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react'
-import ProjectCard from '../../app/project/ProjectCard'
+import ProjectCard from '../../components/project/cards/ProjectCard'
 import { Project } from '../../../data/types'
 
 // Mock child components
-jest.mock('../../app/project/ProjectCardImage', () => {
+jest.mock('../../components/project/cards/ProjectCardImage', () => {
   return function MockProjectCardImage({ imageSrc, title }: { imageSrc: string; title: string }) {
     return <div data-testid="project-card-image" aria-label={title}>Image: {imageSrc}</div>
   }
 })
 
-jest.mock('../../app/project/ProjectCardLogoOverlay', () => {
+jest.mock('../../components/project/cards/ProjectCardLogoOverlay', () => {
   return function MockProjectCardLogoOverlay({ 
     logo, 
     isHovered, 
@@ -30,7 +30,7 @@ jest.mock('../../app/project/ProjectCardLogoOverlay', () => {
   }
 })
 
-jest.mock('../../app/project/ProjectCardCursor', () => {
+jest.mock('../../components/project/cards/ProjectCardCursor', () => {
   return function MockProjectCardCursor({ 
     isHovered 
   }: { 
@@ -40,7 +40,7 @@ jest.mock('../../app/project/ProjectCardCursor', () => {
   }
 })
 
-jest.mock('../../app/project/ProjectCardInfo', () => {
+jest.mock('../../components/project/cards/ProjectCardInfo', () => {
   return function MockProjectCardInfo({ 
     category, 
     title, 
