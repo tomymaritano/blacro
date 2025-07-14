@@ -1,5 +1,5 @@
 // components/project/ProjectMetaInfo.tsx
-import { Project } from "../../../../data/types";
+import { Project } from "@/data/types";
 import ProjectMetaItem from "./ProjectMetaItem";
 
 interface ProjectMetaInfoProps {

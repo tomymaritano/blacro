@@ -6,7 +6,7 @@ import { useState, memo, useCallback, useMemo } from "react";
 import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardLogoOverlay from "./ProjectCardLogoOverlay";
 import ProjectCardInfo from "./ProjectCardInfo";
-import { Project } from "../../../../data/types";
+import { Project } from "@/data/types";
 
 /**
  * Props for the ProjectCard component

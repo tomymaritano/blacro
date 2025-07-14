@@ -1,6 +1,6 @@
 // components/project/ProjectGallery.tsx
 import CloudinaryImage from "../../common/CloudinaryImage";
-import { Project } from "../../../../data/types";
+import { Project } from "@/data/types";
 
 interface ProjectGalleryProps {
     project: Project;

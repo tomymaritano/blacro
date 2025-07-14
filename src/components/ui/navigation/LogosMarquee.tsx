@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { logos } from "../../../../data/Logos";
+import { logos } from "@/data/Logos";
 
 export default function LogosMarquee() {
   return (

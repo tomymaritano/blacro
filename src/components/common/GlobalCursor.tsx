@@ -23,14 +23,16 @@ export default function GlobalCursor() {
       setMousePosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
       
-      // Detectar si está sobre un elemento interactivo
+      // Detectar si está sobre un elemento interactivo - optimizado sin getComputedStyle
       const target = e.target as HTMLElement;
       const isInteractive = target.tagName === 'A' || 
                            target.tagName === 'BUTTON' || 
                            !!target.closest('a') || 
                            !!target.closest('button') ||
                            !!target.closest('[role="button"]') ||
-                           getComputedStyle(target).cursor === 'pointer';
+                           !!target.closest('[data-clickable]') ||
+                           target.style.cursor === 'pointer' ||
+                           target.classList.contains('cursor-pointer');
       setIsHovering(isInteractive);
     };
 

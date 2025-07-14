@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Project } from "../../../../data/types";
+import { Project } from "@/data/types";
 import ProjectCardImage from "../cards/ProjectCardImage";
 import ProjectCardLogoOverlay from "../cards/ProjectCardLogoOverlay";
 import ProjectCardInfo from "../cards/ProjectCardInfo";
