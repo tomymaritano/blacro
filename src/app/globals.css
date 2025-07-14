@@ -159,3 +159,18 @@ label {
   font-weight: 600;
   font-size: 20px;
 }
+
+/* Eliminar cursor predeterminado completamente */
+* {
+  cursor: none !important;
+}
+
+/* Específicamente para imágenes y elementos interactivos */
+img, a, button, [role="button"], input, textarea, select {
+  cursor: none !important;
+}
+
+/* Eliminar cursor de hover en elementos interactivos */
+a:hover, button:hover, [role="button"]:hover, img:hover {
+  cursor: none !important;
+}
