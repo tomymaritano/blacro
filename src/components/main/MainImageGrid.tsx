@@ -59,16 +59,16 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="w-32 h-32 flex items-center justify-center">
-            <CloudinaryImage
-              src={logoSrc}
-              alt={`${title} logo`}
-              width={128}
-              height={128}
-              crop="limit"
-              className="object-contain w-full h-full"
-            />
-          </div>
+          <CloudinaryImage
+            src={logoSrc}
+            alt={`${title} logo`}
+            crop="limit"
+            className="block max-w-full max-h-full object-contain"
+            style={{
+              width: 'auto',
+              height: 'auto'
+            }}
+          />
         </motion.div>
       )}
     </motion.div>
