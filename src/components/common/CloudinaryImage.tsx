@@ -29,7 +29,7 @@ export default function CloudinaryImage({
   sizes,
   fill = false,
   style,
-  quality = "auto:good",
+  quality = "auto:best",
   crop = "fill",
   gravity = "center",
 }: CloudinaryImageProps) {
@@ -76,6 +76,8 @@ export default function CloudinaryImage({
       flags={src.toLowerCase().includes('.gif') ? 'awebp' : undefined}
       // Use auto format for optimal delivery, but preserve GIF animation
       format={src.toLowerCase().includes('.gif') ? 'gif' : 'auto'}
+      // Enhance image quality  
+      dpr="auto"
     />
   );
 }

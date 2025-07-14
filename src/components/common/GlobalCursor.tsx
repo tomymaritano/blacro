@@ -26,11 +26,15 @@ export default function GlobalCursor() {
       setIsHovering(isInteractive);
     };
 
-    const handleMouseDown = () => setIsClicked(true);
-    const handleMouseUp = () => setIsClicked(false);
+    const handleMouseDown = () => {
+      setIsClicked(true);
+    };
+    const handleMouseUp = () => {
+      setIsClicked(false);
+    };
     const handleClick = () => {
       setIsClicked(true);
-      setTimeout(() => setIsClicked(false), 150);
+      setTimeout(() => setIsClicked(false), 200);
     };
     
     const handleMouseLeave = () => {
@@ -70,7 +74,7 @@ export default function GlobalCursor() {
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ 
-        scale: isHovering ? 1.2 : 1, 
+        scale: isClicked ? 0.9 : (isHovering ? 1.2 : 1), 
         opacity: 0.8,
         rotate: isHovering ? 5 : 0
       }}
@@ -89,6 +93,8 @@ export default function GlobalCursor() {
         height={80}
         className="w-full h-full object-contain filter drop-shadow-lg"
         priority
+        quality={100}
+        unoptimized
       />
     </motion.div>
   );
