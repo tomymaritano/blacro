@@ -1,5 +1,5 @@
 import Header from '@/components/layout/Header';
-import { projects } from '../../../../data/projects';
+import { projects } from '@/data/projects';
 import ProjectGallery from '@/components/project/gallery/ProjectGallery';
 import ProjectMetaInfo from '@/components/project/meta/ProjectMetaInfo';
 import ProjectDescription from '@/components/project/meta/ProjectDescription';

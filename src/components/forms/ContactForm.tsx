@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getData } from "country-list";
@@ -36,8 +36,8 @@ export default function ContactForm() {
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   
-  // Get all countries from country-list library
-  const countries = getData();
+  // Get all countries from country-list library - memoized to prevent recalculation on each render
+  const countries = useMemo(() => getData(), []);
 
   // react-hook-form setup
   const {

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue } from "framer-motion";
-import { useState, memo, useCallback } from "react";
+import { motion } from "framer-motion";
+import { useState, memo, useCallback, useMemo } from "react";
 import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardLogoOverlay from "./ProjectCardLogoOverlay";
 import ProjectCardInfo from "./ProjectCardInfo";
@@ -58,34 +58,27 @@ const ProjectCard = memo<ProjectCardProps>(function ProjectCard({
   index = 0 
 }: ProjectCardProps): React.JSX.Element {
   const [isHovered, setIsHovered] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
 
-  // Memoize calculations that depend on index
-  const rowIndex = Math.floor(index / 2);
-  const columnIndex = index % 2;
-  const delay = rowIndex * 0.2 + columnIndex * 0.1;
+  // Memoize delay calculation for staggered animations
+  const delay = useMemo(() => {
+    const row = Math.floor((index || 0) / 2);
+    const col = (index || 0) % 2;
+    return row * 0.15 + col * 0.05; // Reduced delay for faster animations
+  }, [index]);
 
-  // Memoize event handlers to prevent unnecessary re-renders
+  // Simplified event handlers without mouse tracking for better mobile performance
   const handleHoverStart = useCallback(() => setIsHovered(true), []);
   const handleHoverEnd = useCallback(() => setIsHovered(false), []);
-  
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  }, [mouseX, mouseY]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60, scale: 0.8, rotateX: 15 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ delay, duration: 0.8, ease: [0.25, 1, 0.5, 1], type: "spring", stiffness: 100 }}
+      transition={{ delay, duration: 0.4, ease: "easeOut" }}
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
-      onMouseMove={handleMouseMove}
-      whileHover={{ rotate: -2, scale: 1.03 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group"
     >
       <Link 

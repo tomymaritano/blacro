@@ -1,13 +1,12 @@
 // HeroSection.tsx
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopClass?: string }) {
   const pathname = usePathname();
-  const { scrollYProgress } = useScroll();
-  const yOffset = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  // Removed heavy scroll tracking (useScroll/useTransform) for better mobile performance
 
   let subtitle = "";
   let lines: string[] = [];
@@ -32,7 +31,7 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
       <div className="hidden lg:block col-span-7"></div>
       <motion.div
         className="col-span-12 lg:col-span-5 flex flex-col items-end lg:items-end text-right lg:text-right space-y-2"
-        style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
+        style={{ fontFamily: "Familjen Grotesk, sans-serif" }}
       >
         {subtitle && (
           <p className="text-[18px] sm:text-[22px] lg:text-[24px] tracking-wide text-black/60 font-sans mb-2">
@@ -50,7 +49,7 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
               transition={{ delay: i * 0.2, duration: 0.6, ease: "easeOut" }}
-              style={{ fontFamily: "Familjen Grotesk, sans-serif", y: yOffset }}
+              style={{ fontFamily: "Familjen Grotesk, sans-serif" }}
             >
               {line}
             </Tag>

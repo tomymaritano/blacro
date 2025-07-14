@@ -11,6 +11,14 @@ export default function GlobalCursor() {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
+    // Only enable custom cursor on desktop devices (non-touch)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
+    // Only enable on larger screens (desktop/laptop)
+    const isDesktop = window.innerWidth >= 1024;
+    if (!isDesktop) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
@@ -35,7 +43,7 @@ export default function GlobalCursor() {
     const handleClick = () => {
       // Extra click handler for better responsiveness
       setIsClicked(true);
-      setTimeout(() => setIsClicked(false), 300);
+      setTimeout(() => setIsClicked(false), 500);
     };
     
     const handleMouseLeave = () => {
@@ -108,12 +116,12 @@ export default function GlobalCursor() {
         }}
       >
         <Image
-          src={isClicked ? "/click.svg" : "/no click.svg"}
-          alt={isClicked ? "Click cursor" : "No click cursor"}
+          src={isHovering ? "/click.svg?v=1" : "/noclick.svg?v=1"}
+          alt={isHovering ? "Click cursor" : "No click cursor"}
           width={50}
           height={60}
           className="object-contain"
-          style={{ width: "auto", height: "auto" }}
+          style={{ width: "50px", height: "60px" }}
           priority
           quality={100}
           unoptimized

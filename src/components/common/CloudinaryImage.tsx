@@ -1,6 +1,7 @@
 "use client";
 
 import { CldImage } from 'next-cloudinary';
+import { useState, useEffect } from 'react';
 
 interface CloudinaryImageProps {
   src: string;
@@ -33,6 +34,19 @@ export default function CloudinaryImage({
   crop = "fill",
   gravity = "auto",
 }: CloudinaryImageProps) {
+  // Detect mobile device for optimized settings
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Extract image path from src for Cloudinary
   const getCloudinaryPublicId = (imageSrc: string) => {
     // Remove /images/ prefix and file extension
@@ -44,16 +58,23 @@ export default function CloudinaryImage({
 
   const cloudinaryId = getCloudinaryPublicId(src);
 
+  // Mobile-optimized quality and sizes
+  const optimizedQuality = isMobile ? "auto:good" : quality;
+  const optimizedSizes = sizes || (isMobile 
+    ? "(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
+    : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+  );
+
   // Conditional props based on fill usage
   const imageProps = fill 
     ? {
         fill: true,
-        sizes: sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+        sizes: optimizedSizes
       }
     : {
-        width: width || 1345,
-        height: height || 542,
-        sizes: sizes
+        width: width || (isMobile ? 640 : 1345),
+        height: height || (isMobile ? 480 : 542),
+        sizes: optimizedSizes
       };
 
   // Handle priority vs loading conflict - priority takes precedence
@@ -68,7 +89,7 @@ export default function CloudinaryImage({
       {...imageProps}
       {...loadingProps}
       className={className}
-      quality={quality}
+      quality={optimizedQuality}
       // Use object syntax to apply transformations to source image (prevents two-stage cropping)
       crop={{
         type: crop,

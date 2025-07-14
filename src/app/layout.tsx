@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
-import GlobalCursor from "@/components/common/GlobalCursor";
+import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
@@ -14,7 +14,7 @@ const familjenGrotesk = Familjen_Grotesk({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "500", "600", "700"]
+  weight: ["400", "600", "700"] // Reduced for performance
 });
 
 const darkerGrotesque = Darker_Grotesque({ 
@@ -22,7 +22,7 @@ const darkerGrotesque = Darker_Grotesque({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["300", "400", "500", "600", "700", "800", "900"]
+  weight: ["400", "600", "700"] // Reduced for performance
 });
 
 const inter = Inter({ 
@@ -30,7 +30,7 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "500", "600", "700"]
+  weight: ["400", "500", "600"] // Reduced for performance
 });
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
       <body className="cursor-none">
         <ErrorBoundary>
-          <GlobalCursor />
+          <GlobalCursorWrapper />
           <Navbar />
           <GridWrapper className="py-8">
             <main className="col-span-12 flex flex-col gap-3">{children}</main>

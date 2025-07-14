@@ -18,17 +18,15 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
       className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      initial={{ opacity: 0, y: 60, scale: 0.8, rotateX: 15 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ 
-        delay: index * 0.15, 
-        duration: 0.8, 
-        ease: [0.25, 1, 0.5, 1], 
-        type: "spring", 
-        stiffness: 100 
+        delay: index * 0.1, 
+        duration: 0.4, 
+        ease: "easeOut"
       }}
-      whileHover={{ rotate: -1, scale: 1.02 }}
+      whileHover={{ y: -4, scale: 1.01 }}
     >
       {/* Main Image */}
       <CloudinaryImage

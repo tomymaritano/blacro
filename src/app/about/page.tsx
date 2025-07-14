@@ -5,9 +5,22 @@ import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import LogosMarquee from "@/components/ui/navigation/LogosMarquee";
 import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
-import { aboutParagraphs } from '../../../data/aboutParagraphs';
+import { aboutParagraphs } from '@/data/aboutParagraphs';
 import { ANIMATIONS } from "@/constants/design-tokens";
 import { aboutStructuredData } from "./structured-data";
+
+// Animation variants for consistent motion - moved outside component to prevent re-creation
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+            duration: ANIMATIONS.DURATION.SLOW,
+            ease: ANIMATIONS.EASING.EASE_OUT
+        }
+    }
+};
 
 /**
  * AboutPage - Company information and team presentation
@@ -24,18 +37,6 @@ import { aboutStructuredData } from "./structured-data";
  * @returns {React.JSX.Element} The rendered about page
  */
 export default function AboutPage(): React.JSX.Element {
-    // Animation variants for consistent motion
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: {
-                duration: ANIMATIONS.DURATION.SLOW,
-                ease: ANIMATIONS.EASING.EASE_OUT
-            }
-        }
-    };
 
     return (
         <>

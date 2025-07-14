@@ -3,7 +3,7 @@
  */
 import { render, screen } from '@testing-library/react'
 import ProjectCard from '../../components/project/cards/ProjectCard'
-import { Project } from '../../../data/types'
+import { Project } from '@/data/types'
 
 // Mock child components
 jest.mock('../../components/project/cards/ProjectCardImage', () => {

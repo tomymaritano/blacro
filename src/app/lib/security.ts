@@ -1,32 +1,4 @@
-import DOMPurify from 'dompurify';
 
-// Create a DOMPurify instance for server-side use
-const createDOMPurify = () => {
-  if (typeof window !== 'undefined') {
-    // Browser environment
-    return DOMPurify;
-  } else {
-    // Server environment - simplified approach
-    // For server-side, we'll use basic text escaping instead of DOMPurify
-    return null;
-  }
-};
-
-/**
- * Sanitizes HTML content to prevent XSS attacks
- */
-export function sanitizeHtml(dirty: string): string {
-  const purify = createDOMPurify();
-  if (purify) {
-    return purify.sanitize(dirty, {
-      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'h1', 'h2', 'h3'],
-      ALLOWED_ATTR: [],
-    });
-  } else {
-    // Fallback to text sanitization for server-side
-    return sanitizeText(dirty);
-  }
-}
 
 /**
  * Sanitizes plain text content by escaping HTML entities
@@ -54,12 +26,24 @@ export function sanitizeEmailHeader(header: string): string {
 }
 
 /**
- * Rate limiting storage (in production, use Redis or similar)
+ * Rate limiting storage - IMPORTANT LIMITATION:
+ * This uses in-memory Map which has the following issues:
+ * - In serverless environments (Vercel, AWS Lambda): resets on each function execution
+ * - In multi-instance deployments: each instance has its own Map, defeating rate limiting
+ * - In production with clustering: not shared between workers
+ * 
+ * PRODUCTION SOLUTION:
+ * Replace with external storage like Redis, database, or use a service like:
+ * - Upstash Redis
+ * - Vercel Edge Config
+ * - AWS DynamoDB
+ * - Cloudflare KV
  */
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
 /**
  * Simple rate limiting implementation
+ * WARNING: Current implementation only works reliably in single-instance, long-running processes
  * In production, consider using a proper rate limiting service
  */
 export function checkRateLimit(
