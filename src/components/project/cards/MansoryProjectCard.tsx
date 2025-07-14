@@ -3,9 +3,8 @@
 
 import CloudinaryImage from "../../common/CloudinaryImage";
 import Link from "next/link";
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
-import Image from "next/image";
 
 interface MasonryProjectCardProps {
   slug: string;
@@ -25,9 +24,6 @@ export default function MasonryProjectCard({
   index = 0,
 }: MasonryProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
 
   return (
     <motion.div
@@ -42,13 +38,6 @@ export default function MasonryProjectCard({
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        mouseX.set(e.clientX - rect.left);
-        mouseY.set(e.clientY - rect.top);
-      }}
-      onMouseDown={() => setIsClicked(true)}
-      onMouseUp={() => setIsClicked(false)}
       className="relative w-full overflow-hidden rounded-sm group"
     >
       {/* Link */}
@@ -84,25 +73,6 @@ export default function MasonryProjectCard({
         </motion.div>
       )}
 
-      {/* Cursor animado */}
-      {isHovered && (
-        <motion.div
-          className="absolute z-50 w-16 h-16 flex items-center justify-center pointer-events-none"
-          style={{ top: mouseY, left: mouseX, translateX: "-50%", translateY: "-50%" }}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Image
-            src={isClicked ? "/click.svg" : "/no click.svg"}
-            alt={isClicked ? "Click cursor" : "No click cursor"}
-            width={64}
-            height={64}
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
-      )}
 
       {/* Info del proyecto */}
       <div className="absolute bottom-3 left-3 z-30 text-xs sm:text-sm md:text-base space-y-1">

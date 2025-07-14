@@ -5,7 +5,6 @@ import { motion, useMotionValue } from "framer-motion";
 import { useState, memo, useCallback } from "react";
 import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardLogoOverlay from "./ProjectCardLogoOverlay";
-import ProjectCardCursor from "./ProjectCardCursor";
 import ProjectCardInfo from "./ProjectCardInfo";
 import { Project } from "../../../../data/types";
 
@@ -87,16 +86,15 @@ const ProjectCard = memo<ProjectCardProps>(function ProjectCard({
       onHoverEnd={handleHoverEnd}
       onMouseMove={handleMouseMove}
       whileHover={{ rotate: -2, scale: 1.03 }}
-      className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group cursor-none"
+      className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group"
     >
       <Link 
         href={`/project/${slug}`} 
-        className="absolute inset-0 z-10 cursor-none" 
+        className="absolute inset-0 z-10" 
         aria-label={`View ${title} project details`}
       />
       <ProjectCardImage imageSrc={imageSrc} title={title} />
       <ProjectCardLogoOverlay logo={logo} isHovered={isHovered} title={title} />
-      <ProjectCardCursor isHovered={isHovered} mouseX={mouseX} mouseY={mouseY} />
       <ProjectCardInfo category={category} title={title} isHovered={isHovered} />
     </motion.div>
   );

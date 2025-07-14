@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
+import GlobalCursor from "@/components/common/GlobalCursor";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
@@ -69,8 +70,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
-      <body>
+      <body className="cursor-none">
         <ErrorBoundary>
+          <GlobalCursor />
           <Navbar />
           <GridWrapper className="py-8">
             <main className="col-span-12 flex flex-col gap-3">{children}</main>
