@@ -33,8 +33,9 @@ export default function GlobalCursor() {
       setIsClicked(false);
     };
     const handleClick = () => {
+      // Extra click handler for better responsiveness
       setIsClicked(true);
-      setTimeout(() => setIsClicked(false), 200);
+      setTimeout(() => setIsClicked(false), 300);
     };
     
     const handleMouseLeave = () => {
@@ -67,15 +68,15 @@ export default function GlobalCursor() {
     <motion.div
       className="fixed z-[9999] pointer-events-none"
       style={{
-        left: mousePosition.x - 25, // 50/2
-        top: mousePosition.y - 30,  // 60/2
-        width: "50px",
-        height: "60px",
+        left: mousePosition.x - 43, // 86/2
+        top: mousePosition.y - 43,  // 86/2
+        width: "86px",
+        height: "86px",
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ 
         scale: isClicked ? 0.9 : (isHovering ? 1.2 : 1), 
-        opacity: 0.8,
+        opacity: 1,
         rotate: isHovering ? 5 : 0
       }}
       exit={{ scale: 0, opacity: 0 }}
@@ -91,20 +92,32 @@ export default function GlobalCursor() {
         className="absolute inset-0 rounded-full"
         style={{
           backgroundColor: "#D9D9D9",
-          opacity: 0.2
+          opacity: 0.2,
+          width: "86px",
+          height: "86px"
         }}
       />
-      {/* SVG cursor */}
-      <Image
-        src={isClicked ? "/click.svg" : "/no click.svg"}
-        alt={isClicked ? "Click cursor" : "No click cursor"}
-        width={50}
-        height={60}
-        className="relative z-10 w-full h-full object-contain"
-        priority
-        quality={100}
-        unoptimized
-      />
+      {/* SVG cursor centrado */}
+      <div 
+        className="absolute flex items-center justify-center"
+        style={{
+          width: "86px",
+          height: "86px",
+          top: 0,
+          left: 0
+        }}
+      >
+        <Image
+          src={isClicked ? "/click.svg" : "/no click.svg"}
+          alt={isClicked ? "Click cursor" : "No click cursor"}
+          width={50}
+          height={60}
+          className="object-contain"
+          priority
+          quality={100}
+          unoptimized
+        />
+      </div>
     </motion.div>
   );
 }
