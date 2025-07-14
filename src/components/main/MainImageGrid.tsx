@@ -51,7 +51,7 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
       {/* Logo Overlay */}
       {logoSrc && (
         <motion.div
-          className="absolute inset-0 z-20 flex items-center justify-center"
+          className="absolute inset-0 z-20 flex items-center justify-center p-8"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: isHovered ? 1 : 0,
@@ -59,13 +59,16 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
           }}
           transition={{ duration: 0.3 }}
         >
-          <CloudinaryImage
-            src={logoSrc}
-            alt={`${title} logo`}
-            width={120}
-            height={120}
-            className="object-contain max-w-[120px] max-h-[120px]"
-          />
+          <div className="w-32 h-32 flex items-center justify-center">
+            <CloudinaryImage
+              src={logoSrc}
+              alt={`${title} logo`}
+              width={128}
+              height={128}
+              crop="limit"
+              className="object-contain w-full h-full"
+            />
+          </div>
         </motion.div>
       )}
     </motion.div>

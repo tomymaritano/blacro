@@ -73,7 +73,7 @@ export default function CloudinaryImage({
       crop={{
         type: crop,
         source: true,
-        gravity: gravity
+        gravity: crop === "limit" ? undefined : gravity
       }}
       style={style}
       // Use auto format for optimal delivery, but preserve GIF animation
