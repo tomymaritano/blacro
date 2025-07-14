@@ -44,17 +44,26 @@ export default function CloudinaryImage({
 
   const cloudinaryId = getCloudinaryPublicId(src);
 
+  // Conditional props based on fill usage
+  const imageProps = fill 
+    ? {
+        fill: true,
+        sizes: sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      }
+    : {
+        width: width || 1200,
+        height: height || 800,
+        sizes: sizes
+      };
+
   return (
     <CldImage
       src={cloudinaryId}
       alt={alt}
-      width={width || 1200}
-      height={height || 800}
+      {...imageProps}
       className={className}
       priority={priority}
       loading={loading}
-      sizes={sizes}
-      fill={fill}
       quality={quality}
       crop={crop}
       gravity={gravity}
