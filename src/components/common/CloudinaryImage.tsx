@@ -56,14 +56,18 @@ export default function CloudinaryImage({
         sizes: sizes
       };
 
+  // Handle priority vs loading conflict - priority takes precedence
+  const loadingProps = priority 
+    ? { priority: true }
+    : { loading: loading };
+
   return (
     <CldImage
       src={cloudinaryId}
       alt={alt}
       {...imageProps}
+      {...loadingProps}
       className={className}
-      priority={priority}
-      loading={loading}
       quality={quality}
       crop={crop}
       gravity={gravity}
