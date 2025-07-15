@@ -10,7 +10,7 @@ export const aboutMetadata: Metadata = {
     description: "Meet the creative minds behind Blacro Studio. Learn about our journey, vision, and the passion that drives our innovative approach to branding and design.",
     images: [
       {
-        url: "/images/about.jpg",
+        url: "https://res.cloudinary.com/dm9driroe/image/upload/v1/about",
         width: 500,
         height: 750,
         alt: "Blacro Studio founders - Creative team behind the innovative design studio",
@@ -21,6 +21,6 @@ export const aboutMetadata: Metadata = {
     card: "summary_large_image",
     title: `About Us | ${META.SITE_NAME}`,
     description: "Meet the creative minds behind Blacro Studio. Learn about our journey, vision, and the passion that drives our innovative approach to branding and design.",
-    images: ["/images/about.jpg"],
+    images: ["https://res.cloudinary.com/dm9driroe/image/upload/v1/about"],
   },
 };

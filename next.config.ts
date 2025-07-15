@@ -66,7 +66,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
               "font-src 'self' fonts.gstatic.com",
               "img-src 'self' data: blob: res.cloudinary.com",
-              "connect-src 'self'",
+              "connect-src 'self' res.cloudinary.com",
               "frame-ancestors 'none'",
             ].join('; '),
           },

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/og-global.svg",
+        url: "https://res.cloudinary.com/dm9driroe/image/upload/v1/og-global",
         width: META.OG_IMAGE_WIDTH,
         height: META.OG_IMAGE_HEIGHT,
         alt: META.SITE_NAME,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: META.SITE_NAME,
     description: META.DESCRIPTION,
-    images: ["/images/og-global.svg"],
+    images: ["https://res.cloudinary.com/dm9driroe/image/upload/v1/og-global"],
   },
 };
 

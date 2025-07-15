@@ -31,6 +31,7 @@
     "cloudinary": "^2.7.0",
     "country-list": "^2.3.0",
     "dompurify": "^3.2.6",
+    "dotenv": "^17.2.0",
     "framer-motion": "^12.19.1",
     "image-size": "^2.0.2",
     "jsdom": "^26.1.0",

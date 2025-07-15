@@ -4,17 +4,17 @@ import { Project } from "./types";
 export const londonFashionWeek: Project = {
     slug: "london-fashion-week",
     title: "London Fashion Week",
-    imageSrc: "/images/londonfashionweek/london-fashion-week-04.png",
+    imageSrc: "londonfashionweek/london-fashion-week-04",
     category: "Eventos & Producción de Set",
     client: "Aynie & La Rando",
     location: "Londres, Inglaterra",
     year: 2021,
     services: ["Event Production", "Set Production", "Creative Direction"],
     images: [
-        { src: "/images/londonfashionweek/london-fashion-week-02.png", size: "large" },
-        { src: "/images/londonfashionweek/london-fashion-week-01.png", size: "medium" },
-        { src: "/images/londonfashionweek/london-fashion-week-05.png", size: "medium" },
-        { src: "/images/londonfashionweek/london-fashion-week-03.png", size: "large" },
+        { src: "londonfashionweek/london-fashion-week-02", size: "large" },
+        { src: "londonfashionweek/london-fashion-week-01", size: "medium" },
+        { src: "londonfashionweek/london-fashion-week-05", size: "medium" },
+        { src: "londonfashionweek/london-fashion-week-03", size: "large" },
     ],
     content: [
         { type: "text", content: "Acompañamos a Aynie y La Rando, dentro del calendario oficial del London Fashion Week, llevando adelante la producción general de sus presentaciones. Formamos parte de un momento clave para ambas marcas, cuidando cada detalle para que su identidad brillara en una de las pasarelas más importantes del mundo." },

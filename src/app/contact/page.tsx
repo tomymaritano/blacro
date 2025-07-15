@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Let's talk! Get in touch with Blacro Studio to discuss your project or idea.",
   openGraph: {
     title: "Contact Blacro Studio",
-    images: "/images/og-contact.png",
+    images: "https://res.cloudinary.com/dm9driroe/image/upload/v1/og-contact",
   },
 };
 
