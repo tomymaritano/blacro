@@ -41,6 +41,7 @@ function MainImageCard({ project, index }: MainImageCardProps) {
         alt={title}
         fill
         priority={index < 2}
+        loading={index < 2 ? "eager" : "lazy"}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
       />
