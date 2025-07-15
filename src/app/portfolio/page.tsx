@@ -26,7 +26,7 @@ function PortfolioGridSkeleton() {
 export default function Portfolio() {
     return (
         <>
-            <Header title='Our portfolio' />
+            <Header title='Our projects' />
             <Suspense fallback={<PortfolioGridSkeleton />}>
                 <CustomProjectGrid projects={projects} />
             </Suspense>

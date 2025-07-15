@@ -52,14 +52,14 @@ export default function LogosMarquee() {
       {/* Track que se mueve */}
       <div className={`flex space-x-16 items-center ${shouldAnimate ? 'animate-marquee-left' : ''}`}>
         {[...logos, ...logos].map((logo, i) => (
-          <div key={i} className="flex-shrink-0 w-28 h-12 flex items-center justify-center">
+          <div key={i} className="flex-shrink-0 w-28 h-20 flex items-center justify-center">
             <Image
               src={logo}
               alt={`Logo ${i}`}
               width={112}
-              height={48}
+              height={128}
               className="object-contain opacity-70 hover:opacity-100 transition w-full h-full"
-              sizes="(max-width: 768px) 50vw, 112px"
+              style={{ width: "auto", height: "auto" }}
               priority={i < logos.length}
             />
           </div>

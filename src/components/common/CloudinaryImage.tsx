@@ -77,14 +77,15 @@ export default function CloudinaryImage({
   }
 
   // Conditional props based on fill usage
+  // Use provided width/height or defaults to prevent hydration mismatch
   const imageProps = fill 
     ? {
         fill: true,
         sizes: optimizedSizes
       }
     : {
-        width: width || (isMobile ? 640 : 1345),
-        height: height || (isMobile ? 480 : 542),
+        width: width || 1345,
+        height: height || 542,
         sizes: optimizedSizes
       };
 
@@ -110,7 +111,7 @@ export default function CloudinaryImage({
           source: true,
           gravity: crop === "limit" ? undefined : gravity
         }}
-        style={style}
+        style={crop === "limit" ? { width: "auto", height: "auto", ...style } : style}
         format={src.toLowerCase().includes('.gif') ? 'gif' : 'auto'}
         dpr="auto"
         onLoad={handleLoad}

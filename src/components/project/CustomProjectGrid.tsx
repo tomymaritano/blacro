@@ -35,10 +35,11 @@ export default function CustomProjectGrid({ projects }: CustomProjectGridProps) 
                 <div key={project.slug}>
                   <MasonryProjectCard
                     slug={project.slug}
-                    imageSrc={project.imageSrc}
+                    imageSrc={project.mainImageSrc || project.imageSrc}
                     title={project.title}
                     category={project.category}
                     logo={project.logo}
+                    location={project.location}
                     index={groupIndex * 7 + index}
                   />
                 </div>
@@ -53,10 +54,11 @@ export default function CustomProjectGrid({ projects }: CustomProjectGridProps) 
                 <div key={project.slug}>
                   <MasonryProjectCard
                     slug={project.slug}
-                    imageSrc={project.imageSrc}
+                    imageSrc={project.mainImageSrc || project.imageSrc}
                     title={project.title}
                     category={project.category}
                     logo={project.logo}
+                    location={project.location}
                     index={groupIndex * 7 + index + 2}
                   />
                 </div>
@@ -71,10 +73,11 @@ export default function CustomProjectGrid({ projects }: CustomProjectGridProps) 
                 <div key={project.slug}>
                   <MasonryProjectCard
                     slug={project.slug}
-                    imageSrc={project.imageSrc}
+                    imageSrc={project.mainImageSrc || project.imageSrc}
                     title={project.title}
                     category={project.category}
                     logo={project.logo}
+                    location={project.location}
                     index={groupIndex * 7 + index + 5}
                   />
                 </div>

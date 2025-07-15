@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop links */}
         <div className="col-span-10 hidden md:flex uppercase items-center font-grotesk font-semibold justify-end space-x-8 text-foreground text-[22px] h-full" style={{ fontFamily: 'var(--font-darker-grotesque), sans-serif' }}>
-          <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
+          <AnimatedLink href="/portfolio">Projects</AnimatedLink>
           <AnimatedLink href="/about" className="mr-24">About</AnimatedLink>
           <ButtonTalk href="/contact" />
         </div>

@@ -4,7 +4,7 @@ import ProjectGallery from '@/components/project/gallery/ProjectGallery';
 import ProjectMetaInfo from '@/components/project/meta/ProjectMetaInfo';
 import ProjectDescription from '@/components/project/meta/ProjectDescription';
 import ProjectContentBlocks from '@/components/project/gallery/ProjectContentBlocks';
-import Image from 'next/image';
+import CloudinaryImage from '@/components/common/CloudinaryImage';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -38,11 +38,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <ProjectContentBlocks project={project} />
 
           {project.logo && (
-            <Image
+            <CloudinaryImage
               src={project.logo}
               alt={`${project.title} logo`}
               width={128}
               height={128}
+              crop="limit"
               className="w-32 h-32 object-contain mt-4"
             />
           )}

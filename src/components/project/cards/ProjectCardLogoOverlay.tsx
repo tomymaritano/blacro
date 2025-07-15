@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import CloudinaryImage from "@/components/common/CloudinaryImage";
 import { motion } from "framer-motion";
 
 interface ProjectCardLogoOverlayProps {
@@ -18,9 +18,9 @@ export default function ProjectCardLogoOverlay({ logo, isHovered, title }: Proje
         initial={{ scale: 0.8, opacity: 0 }}
         animate={isHovered ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-24 h-24 flex items-center justify-center"
+        className="w-40 h-40 flex items-center justify-center"
       >
-        <Image src={logo} alt={`${title} logo`} width={96} height={96} className="object-contain" />
+        <CloudinaryImage src={logo} alt={`${title} logo`} width={150} height={150} crop="limit" className="object-contain max-w-[150px] max-h-[150px]" />
       </motion.div>
     </motion.div>
   );

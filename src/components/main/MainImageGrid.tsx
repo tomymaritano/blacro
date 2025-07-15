@@ -37,8 +37,8 @@ function MainImageCard({ project, index }: MainImageCardProps) {
     >
       {/* Main Image */}
       <CloudinaryImage
-        src={project.imageSrc}
-        alt={project.title}
+        src={imageSrc}
+        alt={title}
         fill
         priority={index < 2}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -54,7 +54,7 @@ function MainImageCard({ project, index }: MainImageCardProps) {
       />
       
       {/* Logo Overlay */}
-      {project.logo && (
+      {logoSrc && (
         <motion.div
           className="absolute inset-0 z-20 flex items-center justify-center p-8"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -65,8 +65,10 @@ function MainImageCard({ project, index }: MainImageCardProps) {
           transition={{ duration: 0.3 }}
         >
           <CloudinaryImage
-            src={project.logo}
-            alt={`${project.title} logo`}
+            src={logoSrc}
+            alt={`${title} logo`}
+            width={300}
+            height={200}
             crop="limit"
             className="block max-w-full max-h-full object-contain"
             style={{

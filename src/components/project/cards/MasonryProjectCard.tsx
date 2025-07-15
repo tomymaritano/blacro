@@ -12,6 +12,7 @@ interface MasonryProjectCardProps {
   title: string;
   category?: string;
   logo?: string;
+  location?: string;
   index?: number;
 }
 
@@ -21,6 +22,7 @@ export default function MasonryProjectCard({
   title,
   category,
   logo,
+  location,
   index = 0,
 }: MasonryProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -57,20 +59,32 @@ export default function MasonryProjectCard({
         />
       </div>
 
-      {/* Overlay del logo */}
+      {/* Dark Overlay on Hover */}
+      <motion.div
+        className="absolute inset-0 bg-black/40 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+      
+      {/* Logo Overlay */}
       {logo && (
         <motion.div
-          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-black/40 flex items-center justify-center transition-opacity duration-500 ease-in-out z-20"
+          className="absolute inset-0 z-20 flex items-center justify-center p-8"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1 : 0.8
+          }}
           transition={{ duration: 0.3 }}
         >
           <CloudinaryImage
             src={logo}
             alt={`${title} logo`}
-            width={96}
-            height={96}
-            className="object-contain"
+            width={200}
+            height={150}
+            crop="limit"
+            className="object-contain max-w-[200px] max-h-[150px]"
             loading="lazy"
             priority={false}
           />
@@ -90,7 +104,16 @@ export default function MasonryProjectCard({
             {category}
           </motion.span>
         )}
-        <h3 className="font-medium text-white font-sans">{title}</h3>
+        {location && (
+          <motion.p 
+            initial={{ opacity: 0, y: 8 }}
+            animate={isHovered ? { opacity: 0.8, y: 0 } : { opacity: 0, y: 8 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
+            className="font-medium text-white font-sans text-xs sm:text-sm"
+          >
+            {location}
+          </motion.p>
+        )}
       </div>
     </motion.div>
   );

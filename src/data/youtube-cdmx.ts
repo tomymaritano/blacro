@@ -4,6 +4,7 @@ export const youtubeCDMX: Project = {
   slug: "youtube-cdmx",
   title: "YouTube CDMX",
   imageSrc: "main/youtube",
+  mainImageSrc: "main/youtube",
   logo: "logos/youtubeconnect",
   category: "Dirección de Arte & Eventos",
   client: "Ninch Company",
@@ -45,8 +46,6 @@ export const youtubeCDMX: Project = {
   size: "large",
   
   // Main page fields
-  mainImageSrc: "main/youtube",
   showInMain: true,
   mainOrder: 6,
-  logo: "logos/youtubeconnect",
 };

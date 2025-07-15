@@ -14,7 +14,7 @@ export default function HeroSection({ marginTopClass = "mt-20" }: { marginTopCla
   if (pathname === "/") {
     subtitle = "(Based in Buenos Aires, Working Worldwide)";
     lines = [
-      "SOMOS UN ESTUDIO CREATIVO INTEGRAL.",
+      "SOMOS UN ESTUDIO CREATIVO.",
       "CONVERTIMOS IDEAS EN MARCAS",
       "ESPACIOS Y EXPERIENCIAS."
     ];
