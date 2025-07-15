@@ -4,7 +4,8 @@ import { Project } from "./types";
 export const unicoinNextgen: Project = {
     slug: "unicoin-nextgen",
     title: "The Next Gen of Crypto",
-    imageSrc: "unicoin/unicoin-01",
+    imageSrc: "main/thenextgenof",
+    logo: "logos/unicoinlogo",
     category: "Campaña & Direccion de arte",
     client: "Unicoin Inc.",
     location: "New York, United State",

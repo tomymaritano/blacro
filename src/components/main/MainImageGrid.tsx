@@ -4,13 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import CloudinaryImage from "../common/CloudinaryImage";
-import { MainImage } from "../../data/mainImages";
+import { Project } from "@/data/types";
 
-interface MainImageCardProps extends MainImage {
+interface MainImageCardProps {
+  project: Project;
   index: number;
 }
 
-function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardProps) {
+function MainImageCard({ project, index }: MainImageCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const content = (
@@ -30,8 +31,8 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
     >
       {/* Main Image */}
       <CloudinaryImage
-        src={imageSrc}
-        alt={title}
+        src={project.imageSrc}
+        alt={project.title}
         fill
         priority={index < 2}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -47,7 +48,7 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
       />
       
       {/* Logo Overlay */}
-      {logoSrc && (
+      {project.logo && (
         <motion.div
           className="absolute inset-0 z-20 flex items-center justify-center p-8"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -58,8 +59,8 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
           transition={{ duration: 0.3 }}
         >
           <CloudinaryImage
-            src={logoSrc}
-            alt={`${title} logo`}
+            src={project.logo}
+            alt={`${project.title} logo`}
             crop="limit"
             className="block max-w-full max-h-full object-contain"
             style={{
@@ -72,30 +73,26 @@ function MainImageCard({ imageSrc, logoSrc, title, href, index }: MainImageCardP
     </motion.div>
   );
 
-  if (href) {
-    return (
-      <Link href={href} className="block">
-        {content}
-      </Link>
-    );
-  }
-
-  return content;
+  return (
+    <Link href={`/project/${project.slug}`} className="block">
+      {content}
+    </Link>
+  );
 }
 
 interface MainImageGridProps {
-  images: MainImage[];
+  projects: Project[];
   title?: string;
 }
 
-export default function MainImageGrid({ images, title }: MainImageGridProps) {
+export default function MainImageGrid({ projects, title }: MainImageGridProps) {
   return (
     <section className="w-full max-w-full mx-auto space-y-6">
       {title && <h2 className="text-2xl font-semibold">{title}</h2>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {images.map((image, index) => (
-          <MainImageCard key={image.id} {...image} index={index} />
+        {projects.map((project, index) => (
+          <MainImageCard key={project.slug} project={project} index={index} />
         ))}
       </div>
     </section>

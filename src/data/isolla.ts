@@ -4,7 +4,8 @@ import { Project } from "./types";
 export const isolla: Project = {
   slug: "isolla",
   title: "Isolla",
-  imageSrc: "isolla/isolla-01",
+  imageSrc: "main/isolla",
+  logo: "logos/isollalogo",
   category: "Brand Identity",
   client: "Isolla",
   location: "Buenos Aires, Argentina",

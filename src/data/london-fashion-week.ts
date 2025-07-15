@@ -4,7 +4,8 @@ import { Project } from "./types";
 export const londonFashionWeek: Project = {
     slug: "london-fashion-week",
     title: "London Fashion Week",
-    imageSrc: "london/london-01",
+    imageSrc: "main/londonfashionweek",
+    logo: "logos/londonlogo",
     category: "Eventos & Producción de Set",
     client: "Aynie & La Rando",
     location: "Londres, Inglaterra",

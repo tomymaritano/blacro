@@ -4,7 +4,8 @@ import { Project } from "./types";
 export const privateLimo: Project = {
     slug: "private-limo",
     title: "Private Limo",
-    imageSrc: "privatelimo/privatelimo-01",
+    imageSrc: "main/privatelimo",
+    logo: "logos/privatelimologo",
     category: "Visual Identity & Rebranding",
     client: "Private Limo",
     location: "Buenos Aires, Argentina",

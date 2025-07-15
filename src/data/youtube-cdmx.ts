@@ -3,7 +3,8 @@ import { Project } from './types';
 export const youtubeCDMX: Project = {
   slug: "youtube-cdmx",
   title: "YouTube CDMX",
-  imageSrc: "youtube/youtube-01",
+  imageSrc: "main/youtube",
+  logo: "logos/youtubeconnect",
   category: "Dirección de Arte & Eventos",
   client: "Ninch Company",
   location: "CDMX, México",
