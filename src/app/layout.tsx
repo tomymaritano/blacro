@@ -14,27 +14,27 @@ import { META } from "@/constants/design-tokens";
 const familjenGrotesk = Familjen_Grotesk({ 
   variable: "--font-familjen-grotesk",
   subsets: ["latin"],
-  display: "optional", // Changed to optional for better performance
-  preload: true,
-  weight: ["400", "600"], // Further reduced weights
+  display: "optional",
+  preload: false, // Only preload critical fonts
+  weight: ["400", "600"],
   fallback: ['system-ui', 'arial']
 });
 
 const darkerGrotesque = Darker_Grotesque({ 
   variable: "--font-darker-grotesque",
   subsets: ["latin"],
-  display: "optional", // Changed to optional for better performance
-  preload: true,
-  weight: ["400", "600"], // Further reduced weights
+  display: "optional", 
+  preload: true, // This is the main UI font
+  weight: ["600"], // Only semibold for navbar/headers
   fallback: ['system-ui', 'arial']
 });
 
 const inter = Inter({ 
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "optional", // Changed to optional for better performance
-  preload: true,
-  weight: ["400", "500"], // Further reduced weights
+  display: "optional",
+  preload: false, // Reduce preloaded fonts
+  weight: ["400"], // Only regular weight
   fallback: ['system-ui', 'arial']
 });
 
@@ -82,6 +82,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        {/* Optimize rendering */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className="cursor-none">
         <FontLoader />
