@@ -50,18 +50,20 @@ const Navbar: React.FC = () => {
 
   // Optimized scroll handler with better throttling
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let ticking = false;
     const onScroll = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        setScrolled(window.scrollY > 10);
-      }, 16); // ~60fps
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
 

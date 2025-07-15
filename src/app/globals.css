@@ -74,49 +74,61 @@ p {
 
 @keyframes marquee-left {
   from {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
     /* cuando dupliques el contenido */
   }
 }
 
 @keyframes marquee-right {
   from {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 
   to {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
 }
 
 @keyframes marquee-infinite {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-marquee-infinite {
   animation: marquee-infinite 40s linear infinite;
   will-change: transform;
+  contain: layout style paint;
 }
 
 /* Usa estas clases para izquierda o derecha */
 .animate-marquee-left {
   animation: marquee-left 30s linear infinite;
   will-change: transform;
+  contain: layout style paint;
 }
 
 .animate-marquee-right {
   animation: marquee-right 40s linear infinite;
   will-change: transform;
+  contain: layout style paint;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .animate-marquee-infinite {
+    animation-play-state: paused;
+  }
 }
 
 .animate-marquee-right:hover {

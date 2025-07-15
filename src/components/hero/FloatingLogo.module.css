@@ -7,27 +7,30 @@
   z-index: 50;
   pointer-events: none;
   user-select: none;
-  transition: top 0.7s ease-in-out, transform 0.7s ease-in-out;
   width: 500px;          /* Desktop */
   height: auto;
-  transform: scale(1);   /* tamaño inicial en home */
-    transition: all 0.3s ease;
-
+  
+  /* Hardware acceleration and performance optimizations */
+  transform: scale3d(1, 1, 1);   /* Use 3D transform for hardware acceleration */
+  will-change: transform, top;   /* Hint browser for optimization */
+  contain: layout style paint;   /* Optimize rendering */
+  transition: top 0.7s ease-in-out, transform 0.7s ease-in-out;
 }
 
 .logoScrolled {
-  top: 0.5rem;
-  transform: scale(0.2); /* Al hacer scroll solo reduce un poco */
+  top: 1rem; /* Más abajo en desktop */
+  transform: scale3d(0.2, 0.2, 1); /* Un poco más grande en desktop */
 }
 
 @media (max-width: 1024px) {
   .logo {
     width: 320px;      /* Tablet */
     top: 2.5rem;       /* más arriba que antes */
+    transform: scale3d(1, 1, 1);
   }
   .logoScrolled {
-    top: 0.5rem;
-    transform: scale(0.3);
+    top: 1rem; /* Más abajo en tablet */
+    transform: scale3d(0.35, 0.35, 1); /* Un poco más grande */
   }
 }
 
@@ -35,21 +38,23 @@
   .logo {
     width: 160px;
     top: 2.5rem;
+    transform: scale3d(1, 1, 1);
   }
   .logoScrolled {
-    top: 0.5rem;
-    transform: scale(0.35);
+    top: 1rem; /* Más abajo en mobile */
+    transform: scale3d(0.45, 0.45, 1); /* Más grande en mobile */
   }
 }
 
 /* Mobile muy pequeño (ej. menos de 480px) */
 @media (max-width: 480px) {
   .logo {
-    width: 140px;
-    top: 0.5rem;
+    width: 160px;
+    top: 1rem;
+    transform: scale3d(1, 1, 1);
   }
   .logoScrolled {
-    top: 0.5rem;
-    transform: scale(0.55);
+    top: 0.6rem; /* Más abajo en mobile pequeño */
+    transform: scale3d(0.55, 0.55, 1); /* Más grande en mobile pequeño */
   }
 }
