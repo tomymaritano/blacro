@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   description: META.DESCRIPTION,
   keywords: META.KEYWORDS,
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     siteName: META.SITE_NAME,
@@ -66,6 +66,11 @@ export const metadata: Metadata = {
     title: META.SITE_NAME,
     description: META.DESCRIPTION,
     images: ["https://res.cloudinary.com/dm9driroe/image/upload/v1/og-global"],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: META.SITE_NAME,
   },
 };
 

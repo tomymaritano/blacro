@@ -1,0 +1,26 @@
+{
+  "name": "Blacro Studio",
+  "short_name": "Blacro",
+  "description": "Estudio creativo integral en Buenos Aires. Convertimos ideas en marcas, espacios y experiencias.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "design", "developer"],
+  "lang": "es"
+}

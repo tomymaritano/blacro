@@ -1,7 +1,23 @@
+import { Metadata } from "next";
 import { projects } from '@/data/projects';
 import Header from '@/components/layout/Header';
 import CustomProjectGrid from '@/components/project/CustomProjectGrid';
 import { Suspense } from 'react';
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Explore our portfolio of creative projects. Brand identity, art direction, events, and digital experiences.",
+  openGraph: {
+    title: "Projects - Blacro Studio",
+    description: "Explore our portfolio of creative projects. Brand identity, art direction, events, and digital experiences.",
+    images: [{
+      url: "https://res.cloudinary.com/dm9driroe/image/upload/v1/og-portfolio",
+      width: 1200,
+      height: 630,
+      alt: "Blacro Studio Projects",
+    }],
+  },
+};
 
 // Revalidate every 12 hours for portfolio updates
 export const revalidate = 43200; // 12 hours in seconds

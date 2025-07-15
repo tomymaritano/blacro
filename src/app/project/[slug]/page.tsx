@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import { projects } from '@/data/projects';
 import ProjectGallery from '@/components/project/gallery/ProjectGallery';
@@ -8,6 +9,31 @@ import CloudinaryImage from '@/components/common/CloudinaryImage';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const project = projects.find((p) => p.slug === params.slug);
+  
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+    };
+  }
+
+  return {
+    title: project.title,
+    description: `${project.category} for ${project.client}. ${project.services?.join(', ')}.`,
+    openGraph: {
+      title: `${project.title} - Blacro Studio`,
+      description: `${project.category} for ${project.client}. ${project.services?.join(', ')}.`,
+      images: [{
+        url: `https://res.cloudinary.com/dm9driroe/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/${project.mainImageSrc || project.imageSrc}`,
+        width: 1200,
+        height: 630,
+        alt: project.title,
+      }],
+    },
+  };
 }
 
 // Revalidate every hour to pick up any data changes
