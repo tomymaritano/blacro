@@ -36,7 +36,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           alt="Blacro logo" 
           width={100} 
           height={40} 
-          className="object-contain w-auto h-10"
+          className="object-contain w-auto h-8"
           priority
           unoptimized
         />

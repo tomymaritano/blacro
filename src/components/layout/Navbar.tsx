@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
                 alt="Blacro logo"
                 width={100}
                 height={40}
-                className="object-contain w-[80px] sm:w-[96px] md:w-[100px]"
+                className="object-contain w-[50px] sm:w-[70px] md:w-[100px]"
                 style={{ height: "auto" }}
                 priority
                 unoptimized

@@ -33,23 +33,23 @@
 
 @media (max-width: 768px) {
   .logo {
-    width: 200px;      /* Mobile */
-    top: 2.5rem;       /* más arriba también */
+    width: 160px;
+    top: 2.5rem;
   }
   .logoScrolled {
     top: 0.5rem;
-    transform: scale(0.4);
+    transform: scale(0.35);
   }
 }
 
 /* Mobile muy pequeño (ej. menos de 480px) */
 @media (max-width: 480px) {
   .logo {
-    width: 180px;
+    width: 140px;
     top: 0.5rem;
   }
   .logoScrolled {
-    top: 0.6rem;
-    transform: scale(0.4); /* Un poco menos reducido para que sea visible */
+    top: 0.5rem;
+    transform: scale(0.55);
   }
 }
