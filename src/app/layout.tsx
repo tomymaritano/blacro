@@ -7,7 +7,7 @@ import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
-import FontLoadingScript from "@/components/optimization/FontLoadingScript";
+import FontLoader from "@/components/optimization/FontLoader";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
@@ -77,7 +77,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
       <head>
         <CriticalCSS />
-        <FontLoadingScript />
         {/* Preconnect to critical domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -85,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
       <body className="cursor-none">
+        <FontLoader />
         <ErrorBoundary>
           <GlobalCursorWrapper />
           <Navbar />
