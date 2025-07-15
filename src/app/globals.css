@@ -19,6 +19,20 @@ body {
   font-family: var(--font-familjen-grotesk), var(--font-darker-grotesque), var(--font-inter), sans-serif;
 }
 
+/* Image loading animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 p {
   font-family: var(--font-inter), sans-serif;
 }

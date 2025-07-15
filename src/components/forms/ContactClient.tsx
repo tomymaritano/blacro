@@ -5,15 +5,7 @@ import { motion } from "framer-motion";
 import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
 import ContactForm from "./ContactForm";
 import HoverLink from "@/components/ui/interactive/HoverLink";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: "easeOut" as const },
-  },
-};
+import { fadeUp } from "@/lib/utils";
 
 export default function ContactClient() {
   return (

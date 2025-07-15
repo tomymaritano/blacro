@@ -44,7 +44,7 @@ export default function MasonryProjectCard({
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
 
       {/* Imagen del proyecto */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <CloudinaryImage
           src={imageSrc}
           alt={title}
@@ -52,7 +52,8 @@ export default function MasonryProjectCard({
           className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
           priority={index < 3}
-          loading={index < 3 ? "eager" : "lazy"}
+          // Remove conflicting loading prop when priority is true
+          {...(index >= 3 && { loading: "lazy" })}
         />
       </div>
 
@@ -70,6 +71,8 @@ export default function MasonryProjectCard({
             width={96}
             height={96}
             className="object-contain"
+            loading="lazy"
+            priority={false}
           />
         </motion.div>
       )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 interface CursorState {
   mousePosition: { x: number; y: number };
@@ -17,6 +17,9 @@ export function useGlobalCursorEvents() {
     isHovering: false
   });
 
+  const clickTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const lastInteractiveCheck = useRef<{ element: HTMLElement; result: boolean } | null>(null);
+
   const isCursorEnabled = useCallback(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isDesktop = window.innerWidth >= 1024;
@@ -24,7 +27,12 @@ export function useGlobalCursorEvents() {
   }, []);
 
   const isInteractiveElement = useCallback((target: HTMLElement): boolean => {
-    return target.tagName === 'A' || 
+    // Cache interactive element checks to avoid repeated DOM traversal
+    if (lastInteractiveCheck.current?.element === target) {
+      return lastInteractiveCheck.current.result;
+    }
+
+    const result = target.tagName === 'A' || 
            target.tagName === 'BUTTON' || 
            !!target.closest('a') || 
            !!target.closest('button') ||
@@ -32,33 +40,44 @@ export function useGlobalCursorEvents() {
            !!target.closest('[data-clickable]') ||
            target.style.cursor === 'pointer' ||
            target.classList.contains('cursor-pointer');
+
+    lastInteractiveCheck.current = { element: target, result };
+    return result;
   }, []);
 
   useEffect(() => {
     if (!isCursorEnabled()) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorState(prev => ({
-        ...prev,
-        mousePosition: { x: e.clientX, y: e.clientY },
-        isVisible: true,
-        isHovering: isInteractiveElement(e.target as HTMLElement)
-      }));
-    };
-
-    const handleMouseDown = () => {
-      setCursorState(prev => ({ ...prev, isClicked: true }));
-    };
-
-    const handleMouseUp = () => {
-      setCursorState(prev => ({ ...prev, isClicked: false }));
-    };
-
-    const handleClick = () => {
-      setCursorState(prev => ({ ...prev, isClicked: true }));
-      setTimeout(() => {
-        setCursorState(prev => ({ ...prev, isClicked: false }));
-      }, 500);
+    // Combine multiple mouse events into a single handler for better performance
+    const handleMouseEvent = (e: MouseEvent) => {
+      const { type, clientX, clientY, target } = e;
+      
+      setCursorState(prev => {
+        switch (type) {
+          case 'mousemove':
+            return {
+              ...prev,
+              mousePosition: { x: clientX, y: clientY },
+              isVisible: true,
+              isHovering: isInteractiveElement(target as HTMLElement)
+            };
+          case 'mousedown':
+            return { ...prev, isClicked: true };
+          case 'mouseup':
+            return { ...prev, isClicked: false };
+          case 'click':
+            // Clear any existing timeout to prevent memory leaks
+            if (clickTimeoutRef.current) {
+              clearTimeout(clickTimeoutRef.current);
+            }
+            clickTimeoutRef.current = setTimeout(() => {
+              setCursorState(current => ({ ...current, isClicked: false }));
+            }, 500);
+            return { ...prev, isClicked: true };
+          default:
+            return prev;
+        }
+      });
     };
     
     const handleMouseLeave = () => {
@@ -74,18 +93,24 @@ export function useGlobalCursorEvents() {
       setCursorState(prev => ({ ...prev, isVisible: true }));
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("click", handleClick);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    // Use passive listeners where possible for better performance
+    document.addEventListener("mousemove", handleMouseEvent, { passive: true });
+    document.addEventListener("mousedown", handleMouseEvent);
+    document.addEventListener("mouseup", handleMouseEvent);
+    document.addEventListener("click", handleMouseEvent);
+    document.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    document.addEventListener("mouseenter", handleMouseEnter, { passive: true });
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("click", handleClick);
+      // Clear timeout on cleanup
+      if (clickTimeoutRef.current) {
+        clearTimeout(clickTimeoutRef.current);
+      }
+      
+      document.removeEventListener("mousemove", handleMouseEvent);
+      document.removeEventListener("mousedown", handleMouseEvent);
+      document.removeEventListener("mouseup", handleMouseEvent);
+      document.removeEventListener("click", handleMouseEvent);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };

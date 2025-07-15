@@ -2,14 +2,15 @@
 
 import { Project } from "@/data/types";
 import MasonryProjectCard from "./cards/MasonryProjectCard";
+import { useMemo } from "react";
 
 interface CustomProjectGridProps {
   projects: Project[];
 }
 
 export default function CustomProjectGrid({ projects }: CustomProjectGridProps) {
-  // Crear grupos de 7 proyectos con patrón 2-3-2
-  const createProjectGroups = () => {
+  // Memoize project groups to prevent recalculation on every render
+  const projectGroups = useMemo(() => {
     const groups = [];
     for (let i = 0; i < projects.length; i += 7) {
       const group = projects.slice(i, i + 7);
@@ -20,9 +21,7 @@ export default function CustomProjectGrid({ projects }: CustomProjectGridProps) 
       });
     }
     return groups;
-  };
-
-  const projectGroups = createProjectGroups();
+  }, [projects]);
 
   return (
     <div className="w-full max-w-screen-full mx-auto space-y-12">
