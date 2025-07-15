@@ -7,8 +7,8 @@ export default function LogosMarquee() {
   return (
     <div className="relative w-full py-30 max-w-6xl mx-auto overflow-hidden flex items-center">
       {/* Gradientes laterales */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
 
       {/* Track que se mueve */}
       <div className="flex animate-marquee-left space-x-16 items-center">
@@ -19,7 +19,7 @@ export default function LogosMarquee() {
               alt={`Logo ${i}`}
               width={112}
               height={48}
-              className="object-contain opacity-70 hover:opacity-100 transition"
+              className="object-contain opacity-70 hover:opacity-100 transition w-full h-full"
               sizes="(max-width: 768px) 50vw, 112px"
               priority={i < logos.length}
             />

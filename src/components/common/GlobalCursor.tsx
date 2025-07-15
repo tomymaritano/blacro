@@ -1,78 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useGlobalCursorEvents } from "@/hooks/useGlobalCursorEvents";
 
 export default function GlobalCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isClicked, setIsClicked] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const { mousePosition, isClicked, isVisible, isHovering, isCursorEnabled } = useGlobalCursorEvents();
 
-  useEffect(() => {
-    // Only enable custom cursor on desktop devices (non-touch)
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
-
-    // Only enable on larger screens (desktop/laptop)
-    const isDesktop = window.innerWidth >= 1024;
-    if (!isDesktop) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
-      
-      // Detectar si está sobre un elemento interactivo - optimizado sin getComputedStyle
-      const target = e.target as HTMLElement;
-      const isInteractive = target.tagName === 'A' || 
-                           target.tagName === 'BUTTON' || 
-                           !!target.closest('a') || 
-                           !!target.closest('button') ||
-                           !!target.closest('[role="button"]') ||
-                           !!target.closest('[data-clickable]') ||
-                           target.style.cursor === 'pointer' ||
-                           target.classList.contains('cursor-pointer');
-      setIsHovering(isInteractive);
-    };
-
-    const handleMouseDown = () => {
-      setIsClicked(true);
-    };
-    const handleMouseUp = () => {
-      setIsClicked(false);
-    };
-    const handleClick = () => {
-      // Extra click handler for better responsiveness
-      setIsClicked(true);
-      setTimeout(() => setIsClicked(false), 500);
-    };
-    
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-      setIsClicked(false);
-      setIsHovering(false);
-    };
-    const handleMouseEnter = () => setIsVisible(true);
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("click", handleClick);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("click", handleClick);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
-  }, [isVisible]);
-
-  if (!isVisible) return null;
+  if (!isCursorEnabled || !isVisible) return null;
 
   return (
     <motion.div
@@ -118,7 +53,7 @@ export default function GlobalCursor() {
         }}
       >
         <Image
-          src={isHovering ? "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-active" : "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-idle"}
+          src={isHovering ? "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro/ui/click" : "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro/ui/noclick"}
           alt={isHovering ? "Click cursor" : "No click cursor"}
           width={50}
           height={60}

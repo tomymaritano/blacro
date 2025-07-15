@@ -3,7 +3,7 @@ import { Project } from './types';
 export const youtubeCDMX: Project = {
   slug: "youtube-cdmx",
   title: "YouTube CDMX",
-  imageSrc: "/images/youtube/youtube-cover.jpg",
+  imageSrc: "youtube/youtube-01",
   category: "Dirección de Arte & Eventos",
   client: "Ninch Company",
   location: "CDMX, México",
@@ -11,20 +11,20 @@ export const youtubeCDMX: Project = {
   services: ["Dirección de Arte", "Eventos", "Diseño Escenográfico", "Señalética"],
   
   images: [
-    { src: "/images/youtube/youtube-01.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-02.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-03.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-04.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-10.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-07.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-13.jpg", size: "large" },
-    { src: "/images/youtube/youtube-12.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-08.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-11.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-05.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-06.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-09.jpg", size: "medium" },
-    { src: "/images/youtube/youtube-14.jpg", size: "large" }
+    { src: "youtube/youtube-01", size: "medium" },
+    { src: "youtube/youtube-02", size: "medium" },
+    { src: "youtube/youtube-03", size: "medium" },
+    { src: "youtube/youtube-04", size: "medium" },
+    { src: "youtube/youtube-10", size: "medium" },
+    { src: "youtube/youtube-07", size: "medium" },
+    { src: "youtube/youtube-13", size: "large" },
+    { src: "youtube/youtube-12", size: "medium" },
+    { src: "youtube/youtube-08", size: "medium" },
+    { src: "youtube/youtube-11", size: "medium" },
+    { src: "youtube/youtube-05", size: "medium" },
+    { src: "youtube/youtube-06", size: "medium" },
+    { src: "youtube/youtube-09", size: "medium" },
+    { src: "youtube/youtube-14", size: "large" }
   ],
   content: [
     {

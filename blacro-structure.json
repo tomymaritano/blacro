@@ -1,0 +1,80 @@
+{
+  "timestamp": "2025-07-15T04:42:01.404Z",
+  "totalImages": 7,
+  "structure": {
+    "projects/covers": [
+      {
+        "filename": "myrica-3",
+        "publicId": "blacro-portfolio/projects/covers/myrica-3",
+        "relativePath": "projects/covers/myrica-3",
+        "format": "gif",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752547787/blacro-portfolio/projects/covers/myrica-3.gif"
+      }
+    ],
+    "projects/myrica": [
+      {
+        "filename": "myrica-1",
+        "publicId": "blacro-portfolio/projects/myrica/myrica-1",
+        "relativePath": "projects/myrica/myrica-1",
+        "format": "gif",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752547949/blacro-portfolio/projects/myrica/myrica-1.gif"
+      },
+      {
+        "filename": "myrica-2",
+        "publicId": "blacro-portfolio/projects/myrica/myrica-2",
+        "relativePath": "projects/myrica/myrica-2",
+        "format": "gif",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752547957/blacro-portfolio/projects/myrica/myrica-2.gif"
+      },
+      {
+        "filename": "myrica-fix",
+        "publicId": "blacro-portfolio/projects/myrica/myrica-fix",
+        "relativePath": "projects/myrica/myrica-fix",
+        "format": "jpg",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752547789/blacro-portfolio/projects/myrica/myrica-fix.jpg"
+      }
+    ],
+    "root": [
+      {
+        "filename": "blacrologo_f01u2e",
+        "publicId": "blacrologo_f01u2e",
+        "relativePath": "",
+        "format": "svg",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752553197/blacrologo_f01u2e.svg"
+      },
+      {
+        "filename": "blacrologo_fsyh7b",
+        "publicId": "blacrologo_fsyh7b",
+        "relativePath": "",
+        "format": "svg",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752554404/blacrologo_fsyh7b.svg"
+      },
+      {
+        "filename": "blacrologo_fthciz",
+        "publicId": "blacrologo_fthciz",
+        "relativePath": "",
+        "format": "svg",
+        "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752551438/blacrologo_fthciz.svg"
+      }
+    ]
+  },
+  "byProject": {
+    "isolla": [],
+    "london": [],
+    "myrica": [
+      "blacro-portfolio/projects/covers/myrica-3",
+      "blacro-portfolio/projects/myrica/myrica-1",
+      "blacro-portfolio/projects/myrica/myrica-2",
+      "blacro-portfolio/projects/myrica/myrica-fix"
+    ],
+    "privatelimo": [],
+    "unicoin": [],
+    "youtube": [],
+    "logos": [
+      "blacrologo_f01u2e",
+      "blacrologo_fsyh7b",
+      "blacrologo_fthciz"
+    ],
+    "otros": []
+  }
+}

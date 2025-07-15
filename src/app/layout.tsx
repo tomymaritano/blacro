@@ -26,7 +26,7 @@ const darkerGrotesque = Darker_Grotesque({
   subsets: ["latin"],
   display: "swap", 
   preload: true,
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   fallback: ['system-ui', 'arial']
 });
 

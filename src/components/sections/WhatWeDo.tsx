@@ -18,12 +18,12 @@ export default function WhatWeDoSection() {
   ];
 
   return (
-    <section className="w-full px-4 sm:px-8 py-12 text-black flex flex-col items-center space-y-8">
-      <h2 className="text-xs uppercase border border-black rounded-full px-4 py-1 tracking-wide font-sans">
+    <section className="w-full px-4 sm:px-8 py-12 text-foreground flex flex-col items-center space-y-8">
+      <h2 className="text-xs uppercase border border-foreground rounded-full px-4 py-1 tracking-wide font-familjen">
         What we do
       </h2>
 
-      <p className="text-center max-w-3xl text-base sm:text-lg leading-relaxed tracking-wide font-sans">
+      <p className="text-center max-w-3xl text-base sm:text-lg leading-relaxed tracking-wide font-familjen">
         NACIDO DE LA UNIÓN ENTRE DIRECCIÓN DE ARTE, DISEÑO ESPACIAL Y ESTRATEGIA CREATIVA,
         BLACRÓ HABITA EL PUNTO EXACTO DONDE LO VISUAL Y LO CONCEPTUAL SE ENCUENTRAN.
       </p>
@@ -39,12 +39,12 @@ export default function WhatWeDoSection() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ amount: 0.2, once: false }}
           >
-            <h3 className="font-bold text-base sm:text-lg mb-2 font-sans">{col.title}</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-2 font-familjen">{col.title}</h3>
             <div className="flex flex-col space-y-2">
               {col.items.map((item, i) => (
                 <div
                   key={i}
-                  className="py-2 border-b border-black/20 text-sm sm:text-base uppercase cursor-pointer transition-all hover:pl-2 font-sans"
+                  className="py-2 border-b border-foreground/20 text-sm sm:text-base uppercase cursor-pointer transition-all hover:pl-2 font-familjen"
                 >
                   {item}
                 </div>

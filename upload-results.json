@@ -1,0 +1,421 @@
+{
+  "success": [
+    {
+      "file": "aboutus.jpg",
+      "publicId": "blacro/brand/founders-photo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555213/blacro/brand/founders-photo.jpg"
+    },
+    {
+      "file": "isolla/isolla-02.png",
+      "publicId": "blacro/isolla/isolla-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555214/blacro/isolla/isolla-02.png"
+    },
+    {
+      "file": "isolla/isolla-04.jpg",
+      "publicId": "blacro/isolla/isolla-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555216/blacro/isolla/isolla-04.jpg"
+    },
+    {
+      "file": "isolla/isolla-05.png",
+      "publicId": "blacro/isolla/isolla-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555219/blacro/isolla/isolla-05.png"
+    },
+    {
+      "file": "isolla/isolla-07.png",
+      "publicId": "blacro/isolla/isolla-07",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555222/blacro/isolla/isolla-07.png"
+    },
+    {
+      "file": "isolla/isolla-08.png",
+      "publicId": "blacro/isolla/isolla-08",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555224/blacro/isolla/isolla-08.png"
+    },
+    {
+      "file": "isolla/isolla-09.png",
+      "publicId": "blacro/isolla/isolla-09",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555226/blacro/isolla/isolla-09.png"
+    },
+    {
+      "file": "isolla/isolla-10.png",
+      "publicId": "blacro/isolla/isolla-10",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555229/blacro/isolla/isolla-10.png"
+    },
+    {
+      "file": "isolla/isolla-11.png",
+      "publicId": "blacro/isolla/isolla-11",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555232/blacro/isolla/isolla-11.png"
+    },
+    {
+      "file": "isolla/isolla-12.png",
+      "publicId": "blacro/isolla/isolla-12",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555235/blacro/isolla/isolla-12.png"
+    },
+    {
+      "file": "isolla/isolla-13.png",
+      "publicId": "blacro/isolla/isolla-13",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555237/blacro/isolla/isolla-13.png"
+    },
+    {
+      "file": "isolla/isolla-14.png",
+      "publicId": "blacro/isolla/isolla-14",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555239/blacro/isolla/isolla-14.png"
+    },
+    {
+      "file": "isolla/isolla-15.png",
+      "publicId": "blacro/isolla/isolla-15",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555240/blacro/isolla/isolla-15.png"
+    },
+    {
+      "file": "isolla/isolla-6.png",
+      "publicId": "blacro/isolla/isolla-6",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555241/blacro/isolla/isolla-6.png"
+    },
+    {
+      "file": "logos/BEEFEEATER_.svg",
+      "publicId": "blacro/logos/BEEFEEATER_",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555242/blacro/logos/BEEFEEATER_.svg"
+    },
+    {
+      "file": "logos/blacrologo.svg",
+      "publicId": "blacro/logos/blacrologo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555244/blacro/logos/blacrologo.svg"
+    },
+    {
+      "file": "logos/click.svg",
+      "publicId": "blacro/ui/click",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555247/blacro/ui/click.svg"
+    },
+    {
+      "file": "logos/isollalogo.png",
+      "publicId": "blacro/logos/isollalogo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555249/blacro/logos/isollalogo.png"
+    },
+    {
+      "file": "logos/london.svg",
+      "publicId": "blacro/clients/london",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555250/blacro/clients/london.svg"
+    },
+    {
+      "file": "logos/londonlogo.png",
+      "publicId": "blacro/logos/londonlogo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555252/blacro/logos/londonlogo.png"
+    },
+    {
+      "file": "logos/loreal.svg",
+      "publicId": "blacro/clients/loreal",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555253/blacro/clients/loreal.svg"
+    },
+    {
+      "file": "logos/mipcom.svg",
+      "publicId": "blacro/clients/mipcom",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555255/blacro/clients/mipcom.svg"
+    },
+    {
+      "file": "logos/myricalogo.png",
+      "publicId": "blacro/logos/myricalogo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555257/blacro/logos/myricalogo.png"
+    },
+    {
+      "file": "logos/noclick.svg",
+      "publicId": "blacro/ui/noclick",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555258/blacro/ui/noclick.svg"
+    },
+    {
+      "file": "logos/paris.svg",
+      "publicId": "blacro/clients/paris",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555261/blacro/clients/paris.svg"
+    },
+    {
+      "file": "logos/privatelimologo.png",
+      "publicId": "blacro/logos/privatelimologo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555262/blacro/logos/privatelimologo.png"
+    },
+    {
+      "file": "logos/unicoinlogo.png",
+      "publicId": "blacro/logos/unicoinlogo",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555263/blacro/logos/unicoinlogo.png"
+    },
+    {
+      "file": "logos/youtube.svg",
+      "publicId": "blacro/clients/youtube",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555264/blacro/clients/youtube.svg"
+    },
+    {
+      "file": "logos/youtubeconnect.png",
+      "publicId": "blacro/logos/youtubeconnect",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555266/blacro/logos/youtubeconnect.png"
+    },
+    {
+      "file": "london/london-01.png",
+      "publicId": "blacro/london/london-01",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555273/blacro/london/london-01.png"
+    },
+    {
+      "file": "london/london-02.png",
+      "publicId": "blacro/london/london-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555277/blacro/london/london-02.png"
+    },
+    {
+      "file": "london/london-03.png",
+      "publicId": "blacro/london/london-03",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555279/blacro/london/london-03.png"
+    },
+    {
+      "file": "london/london-04.png",
+      "publicId": "blacro/london/london-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555282/blacro/london/london-04.png"
+    },
+    {
+      "file": "london/london-05.png",
+      "publicId": "blacro/london/london-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555291/blacro/london/london-05.png"
+    },
+    {
+      "file": "myrica/myrica-01.gif",
+      "publicId": "blacro/myrica/myrica-01",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555293/blacro/myrica/myrica-01.gif"
+    },
+    {
+      "file": "myrica/myrica-02.png",
+      "publicId": "blacro/myrica/myrica-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555310/blacro/myrica/myrica-02.png"
+    },
+    {
+      "file": "myrica/myrica-03.gif",
+      "publicId": "blacro/myrica/myrica-03",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555312/blacro/myrica/myrica-03.gif"
+    },
+    {
+      "file": "myrica/myrica-04.jpg",
+      "publicId": "blacro/myrica/myrica-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555315/blacro/myrica/myrica-04.jpg"
+    },
+    {
+      "file": "myrica/myrica-05.gif",
+      "publicId": "blacro/myrica/myrica-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555317/blacro/myrica/myrica-05.gif"
+    },
+    {
+      "file": "myrica/myrica-06.png",
+      "publicId": "blacro/myrica/myrica-06",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555320/blacro/myrica/myrica-06.png"
+    },
+    {
+      "file": "myrica/myrica-07.jpg",
+      "publicId": "blacro/myrica/myrica-07",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555322/blacro/myrica/myrica-07.jpg"
+    },
+    {
+      "file": "myrica/myrica-08.jpg",
+      "publicId": "blacro/myrica/myrica-08",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555324/blacro/myrica/myrica-08.jpg"
+    },
+    {
+      "file": "myrica/myrica-09.jpg",
+      "publicId": "blacro/myrica/myrica-09",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555326/blacro/myrica/myrica-09.jpg"
+    },
+    {
+      "file": "myrica/myrica-10.jpg",
+      "publicId": "blacro/myrica/myrica-10",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555328/blacro/myrica/myrica-10.jpg"
+    },
+    {
+      "file": "myrica/myrica-11.jpg",
+      "publicId": "blacro/myrica/myrica-11",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555330/blacro/myrica/myrica-11.jpg"
+    },
+    {
+      "file": "myrica/myrica-12.jpg",
+      "publicId": "blacro/myrica/myrica-12",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555332/blacro/myrica/myrica-12.jpg"
+    },
+    {
+      "file": "next.svg",
+      "publicId": "blacro/next.svg/next",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555333/blacro/next.svg/next.svg"
+    },
+    {
+      "file": "privatelimo/privatelimo-01.gif",
+      "publicId": "blacro/privatelimo/privatelimo-01",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555342/blacro/privatelimo/privatelimo-01.gif"
+    },
+    {
+      "file": "privatelimo/privatelimo-02.png",
+      "publicId": "blacro/privatelimo/privatelimo-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555344/blacro/privatelimo/privatelimo-02.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-03.png",
+      "publicId": "blacro/privatelimo/privatelimo-03",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555346/blacro/privatelimo/privatelimo-03.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-04.gif",
+      "publicId": "blacro/privatelimo/privatelimo-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555347/blacro/privatelimo/privatelimo-04.gif"
+    },
+    {
+      "file": "privatelimo/privatelimo-04.png",
+      "publicId": "blacro/privatelimo/privatelimo-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555354/blacro/privatelimo/privatelimo-04.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-05.png",
+      "publicId": "blacro/privatelimo/privatelimo-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555356/blacro/privatelimo/privatelimo-05.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-06.png",
+      "publicId": "blacro/privatelimo/privatelimo-06",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555358/blacro/privatelimo/privatelimo-06.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-07.png",
+      "publicId": "blacro/privatelimo/privatelimo-07",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555362/blacro/privatelimo/privatelimo-07.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-08.png",
+      "publicId": "blacro/privatelimo/privatelimo-08",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555364/blacro/privatelimo/privatelimo-08.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-09.png",
+      "publicId": "blacro/privatelimo/privatelimo-09",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555366/blacro/privatelimo/privatelimo-09.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-10.png",
+      "publicId": "blacro/privatelimo/privatelimo-10",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555371/blacro/privatelimo/privatelimo-10.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-11.png",
+      "publicId": "blacro/privatelimo/privatelimo-11",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555374/blacro/privatelimo/privatelimo-11.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-12.png",
+      "publicId": "blacro/privatelimo/privatelimo-12",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555376/blacro/privatelimo/privatelimo-12.png"
+    },
+    {
+      "file": "privatelimo/privatelimo-13.png",
+      "publicId": "blacro/privatelimo/privatelimo-13",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555378/blacro/privatelimo/privatelimo-13.png"
+    },
+    {
+      "file": "unicoin/unicoin-01.jpg",
+      "publicId": "blacro/unicoin/unicoin-01",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555381/blacro/unicoin/unicoin-01.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-02.jpg",
+      "publicId": "blacro/unicoin/unicoin-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555383/blacro/unicoin/unicoin-02.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-04.jpg",
+      "publicId": "blacro/unicoin/unicoin-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555384/blacro/unicoin/unicoin-04.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-05.jpg",
+      "publicId": "blacro/unicoin/unicoin-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555387/blacro/unicoin/unicoin-05.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-06.jpg",
+      "publicId": "blacro/unicoin/unicoin-06",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555389/blacro/unicoin/unicoin-06.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-07-1.jpg",
+      "publicId": "blacro/unicoin/unicoin-07-1",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555391/blacro/unicoin/unicoin-07-1.jpg"
+    },
+    {
+      "file": "unicoin/unicoin-07.jpg",
+      "publicId": "blacro/unicoin/unicoin-07",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555393/blacro/unicoin/unicoin-07.jpg"
+    },
+    {
+      "file": "youtube/youtube-01.jpg",
+      "publicId": "blacro/youtube/youtube-01",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555395/blacro/youtube/youtube-01.jpg"
+    },
+    {
+      "file": "youtube/youtube-02.jpg",
+      "publicId": "blacro/youtube/youtube-02",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555397/blacro/youtube/youtube-02.jpg"
+    },
+    {
+      "file": "youtube/youtube-03.jpg",
+      "publicId": "blacro/youtube/youtube-03",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555399/blacro/youtube/youtube-03.jpg"
+    },
+    {
+      "file": "youtube/youtube-04.jpg",
+      "publicId": "blacro/youtube/youtube-04",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555401/blacro/youtube/youtube-04.jpg"
+    },
+    {
+      "file": "youtube/youtube-05.jpg",
+      "publicId": "blacro/youtube/youtube-05",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555403/blacro/youtube/youtube-05.jpg"
+    },
+    {
+      "file": "youtube/youtube-06.jpg",
+      "publicId": "blacro/youtube/youtube-06",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555405/blacro/youtube/youtube-06.jpg"
+    },
+    {
+      "file": "youtube/youtube-07.jpg",
+      "publicId": "blacro/youtube/youtube-07",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555406/blacro/youtube/youtube-07.jpg"
+    },
+    {
+      "file": "youtube/youtube-08.jpg",
+      "publicId": "blacro/youtube/youtube-08",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555412/blacro/youtube/youtube-08.jpg"
+    },
+    {
+      "file": "youtube/youtube-09.jpg",
+      "publicId": "blacro/youtube/youtube-09",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555415/blacro/youtube/youtube-09.jpg"
+    },
+    {
+      "file": "youtube/youtube-10.jpg",
+      "publicId": "blacro/youtube/youtube-10",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555417/blacro/youtube/youtube-10.jpg"
+    },
+    {
+      "file": "youtube/youtube-11-1.jpg",
+      "publicId": "blacro/youtube/youtube-11-1",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555419/blacro/youtube/youtube-11-1.jpg"
+    },
+    {
+      "file": "youtube/youtube-11.jpg",
+      "publicId": "blacro/youtube/youtube-11",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555422/blacro/youtube/youtube-11.jpg"
+    },
+    {
+      "file": "youtube/youtube-12.jpg",
+      "publicId": "blacro/youtube/youtube-12",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555425/blacro/youtube/youtube-12.jpg"
+    },
+    {
+      "file": "youtube/youtube-13.jpg",
+      "publicId": "blacro/youtube/youtube-13",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555428/blacro/youtube/youtube-13.jpg"
+    },
+    {
+      "file": "youtube/youtube-14.jpg",
+      "publicId": "blacro/youtube/youtube-14",
+      "url": "https://res.cloudinary.com/dm9driroe/image/upload/v1752555431/blacro/youtube/youtube-14.jpg"
+    }
+  ],
+  "failed": [],
+  "skipped": []
+}

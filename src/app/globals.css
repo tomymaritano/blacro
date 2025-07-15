@@ -160,19 +160,19 @@ label {
   font-size: 20px;
 }
 
-/* Eliminar cursor predeterminado completamente */
-* {
-  cursor: none !important;
-}
+/* Cursor personalizado condicional - solo en desktop */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 
-/* Específicamente para imágenes y elementos interactivos */
-img, a, button, [role="button"], input, textarea, select {
-  cursor: none !important;
-}
+  img, a, button, [role="button"], input, textarea, select {
+    cursor: none !important;
+  }
 
-/* Eliminar cursor de hover en elementos interactivos */
-a:hover, button:hover, [role="button"]:hover, img:hover {
-  cursor: none !important;
+  a:hover, button:hover, [role="button"]:hover, img:hover {
+    cursor: none !important;
+  }
 }
 
 /* Optimizar renderizado de imágenes */

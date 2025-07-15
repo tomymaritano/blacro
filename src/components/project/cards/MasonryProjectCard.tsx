@@ -38,22 +38,23 @@ export default function MasonryProjectCard({
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative w-full overflow-hidden rounded-sm group"
+      className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden rounded-sm group"
     >
       {/* Link */}
       <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
 
       {/* Imagen del proyecto */}
-      <CloudinaryImage
-        src={imageSrc}
-        alt={title}
-        width={1600}
-        height={900}
-        className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-        priority={index < 3}
-        loading={index < 3 ? "eager" : "lazy"}
-      />
+      <div className="absolute inset-0">
+        <CloudinaryImage
+          src={imageSrc}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+          priority={index < 3}
+          loading={index < 3 ? "eager" : "lazy"}
+        />
+      </div>
 
       {/* Overlay del logo */}
       {logo && (

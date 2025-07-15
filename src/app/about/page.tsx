@@ -64,7 +64,7 @@ export default function AboutPage(): React.JSX.Element {
                     variants={fadeInUp}
                 >
                     <Image
-                        src="https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/brand/founders-photo"
+                        src="https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro/brand/founders-photo"
                         alt="Blacro Studio founders - Creative team behind the innovative design studio"
                         width={500}
                         height={750}
@@ -95,7 +95,7 @@ export default function AboutPage(): React.JSX.Element {
                         return (
                             <motion.p
                                 key={i}
-                                className="text-lg leading-relaxed tracking-wide font-sans"
+                                className="text-lg leading-relaxed tracking-wide font-familjen"
                                 variants={{
                                     hidden: { opacity: 0, y: 10 },
                                     visible: { 
@@ -113,7 +113,7 @@ export default function AboutPage(): React.JSX.Element {
                                     index % 2 === 1 ? (
                                         <strong 
                                             key={index} 
-                                            className="font-semibold text-black font-sans"
+                                            className="font-semibold text-foreground font-familjen"
                                         >
                                             {part}
                                         </strong>

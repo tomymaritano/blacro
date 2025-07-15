@@ -76,23 +76,23 @@ const Navbar: React.FC = () => {
           {isHome ? (
             <FloatingLogo />
           ) : (
-            <Link href="/" aria-label="Go to homepage">
+            <Link href="/" aria-label="Go to homepage" className="flex items-center">
               <Image
-                src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro-portfolio/brand/blacro-logo"
+                src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro/logos/blacrologo"
                 alt="Blacro logo"
                 width={100}
-                height={60}
-                sizes="100px"
-                className="object-contain"
-                style={{ width: "auto", height: "auto" }}
+                height={40}
+                className="object-contain w-[80px] sm:w-[96px] md:w-[100px]"
+                style={{ height: "auto" }}
+                priority
+                unoptimized
               />
             </Link>
           )}
         </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex uppercase items-center font-darker font-semibold justify-end space-x-8 text-black text-[22px] h-full"
-        style={{ fontFamily: "Darker Grotesque, sans-serif" }}>
+        <div className="col-span-10 hidden md:flex uppercase items-center font-grotesk font-semibold justify-end space-x-8 text-foreground text-[22px] h-full" style={{ fontFamily: 'var(--font-darker-grotesque), sans-serif' }}>
           <AnimatedLink href="/portfolio">Portfolio</AnimatedLink>
           <AnimatedLink href="/about" className="mr-24">About</AnimatedLink>
           <ButtonTalk href="/contact" />

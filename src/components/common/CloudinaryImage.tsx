@@ -52,8 +52,8 @@ export default function CloudinaryImage({
     // Remove /images/ prefix and file extension
     const pathWithoutImages = imageSrc.replace('/images/', '').replace(/\.[^/.]+$/, '');
     
-    // Return the path for blacro-portfolio folder in Cloudinary
-    return `blacro-portfolio/${pathWithoutImages}`;
+    // Return the path for blacro folder in Cloudinary
+    return `blacro/${pathWithoutImages}`;
   };
 
   const cloudinaryId = getCloudinaryPublicId(src);

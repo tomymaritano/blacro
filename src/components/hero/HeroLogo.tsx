@@ -23,7 +23,7 @@ export default function FloatingLogo() {
   return (
     <div className={`${styles.logo} ${isScrolled ? styles.logoScrolled : ""}`}>
       <Image
-        src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro-portfolio/brand/blacro-logo-animated"
+        src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro/logos/blacrologo"
         width={400}
         height={100}
         alt="logo"
@@ -31,6 +31,7 @@ export default function FloatingLogo() {
         sizes="(max-width: 480px) 180px, (max-width: 768px) 200px, (max-width: 1024px) 320px, 500px"
         className={styles.logo}
         style={{ width: "100%", height: "auto" }}
+        unoptimized
       />
     </div>
   );

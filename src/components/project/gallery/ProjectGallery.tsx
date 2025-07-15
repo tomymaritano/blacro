@@ -10,15 +10,16 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
     return (
         <section className="col-span-12 lg:col-span-8 max-h-screen lg:max-h-none overflow-y-auto lg:overflow-y-visible pr-2">
             {/* Imagen principal */}
-            <CloudinaryImage
-                src={project.imageSrc}
-                alt={project.title}
-                width={1200}
-                height={800}
-                priority
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                className="w-full h-auto object-cover rounded-none mb-6"
-            />
+            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-none mb-6">
+                <CloudinaryImage
+                    src={project.imageSrc}
+                    alt={project.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className="object-cover"
+                />
+            </div>
 
             {/* Imagenes secundarias */}
             {project.images && project.images.length > 0 && (
