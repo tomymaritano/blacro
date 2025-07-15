@@ -36,5 +36,4 @@ export const privateLimo: Project = {
     mainImageSrc: "main/privatelimo",
     showInMain: true,
     mainOrder: 1,
-    logo: "logos/privatelimologo",
 };

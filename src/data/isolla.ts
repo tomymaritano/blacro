@@ -54,5 +54,4 @@ export const isolla: Project = {
   mainImageSrc: "main/isolla",
   showInMain: true,
   mainOrder: 4,
-  logo: "logos/isollalogo",
 };

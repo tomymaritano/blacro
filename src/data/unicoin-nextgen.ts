@@ -46,5 +46,4 @@ export const unicoinNextgen: Project = {
     mainImageSrc: "main/thenextgenof",
     showInMain: true,
     mainOrder: 5,
-    logo: "logos/unicoinlogo",
 };

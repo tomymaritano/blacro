@@ -27,5 +27,4 @@ export const londonFashionWeek: Project = {
     mainImageSrc: "main/londonfashionweek",
     showInMain: true,
     mainOrder: 3,
-    logo: "logos/londonlogo",
 };

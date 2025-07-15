@@ -35,5 +35,4 @@ export const myricaGin: Project = {
     mainImageSrc: "main/myrica",
     showInMain: true,
     mainOrder: 2,
-    logo: "logos/myricalogo",
 };
