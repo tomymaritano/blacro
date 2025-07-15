@@ -23,7 +23,7 @@ export default function FloatingLogo() {
   return (
     <div className={`${styles.logo} ${isScrolled ? styles.logoScrolled : ""}`}>
       <Image
-        src="https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/brand/logo-scroll"
+        src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro-portfolio/brand/blacro-logo-animated"
         width={400}
         height={100}
         alt="logo"

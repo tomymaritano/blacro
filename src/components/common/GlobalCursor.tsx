@@ -118,7 +118,7 @@ export default function GlobalCursor() {
         }}
       >
         <Image
-          src={isHovering ? "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-click" : "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-default"}
+          src={isHovering ? "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-active" : "https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/ui/cursor-idle"}
           alt={isHovering ? "Click cursor" : "No click cursor"}
           width={50}
           height={60}

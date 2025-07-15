@@ -32,7 +32,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Go to homepage"
       >
         <Image 
-          src="https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro-portfolio/brand/logo" 
+          src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro-portfolio/brand/blacro-logo" 
           alt="Blacro logo" 
           width={100} 
           height={60} 
