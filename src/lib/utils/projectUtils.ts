@@ -16,6 +16,11 @@ const MAIN_PROJECT_SLUGS = [
  * @returns Array of projects that should appear on main page, ordered by MAIN_PROJECT_SLUGS
  */
 export function getMainProjects(projects: Project[]): Project[] {
+  // Safety check for empty or undefined projects array
+  if (!projects || !Array.isArray(projects) || projects.length === 0) {
+    return [];
+  }
+
   const projectMap = new Map(projects.map(project => [project.slug, project]));
   
   return MAIN_PROJECT_SLUGS

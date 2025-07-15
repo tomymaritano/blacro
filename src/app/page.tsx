@@ -12,6 +12,10 @@ export const revalidate = 86400; // 24 hours in seconds
 export default function Home() {
   const mainProjects = getMainProjects(projects);
   
+  // Debug logging (remove in production)
+  console.log('All projects:', projects);
+  console.log('Main projects:', mainProjects);
+  
   return (
     <>
       <HeroSection marginTopClass="mt-30 sm:mt-40 md:mt-60 lg:mt-80"/>
