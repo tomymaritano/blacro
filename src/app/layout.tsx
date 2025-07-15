@@ -7,33 +7,34 @@ import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
+import FontLoadingScript from "@/components/optimization/FontLoadingScript";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
 const familjenGrotesk = Familjen_Grotesk({ 
   variable: "--font-familjen-grotesk",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional", // Changed to optional for better performance
   preload: true,
-  weight: ["400", "600", "700"], // Reduced for performance
+  weight: ["400", "600"], // Further reduced weights
   fallback: ['system-ui', 'arial']
 });
 
 const darkerGrotesque = Darker_Grotesque({ 
   variable: "--font-darker-grotesque",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional", // Changed to optional for better performance
   preload: true,
-  weight: ["400", "600", "700"], // Reduced for performance
+  weight: ["400", "600"], // Further reduced weights
   fallback: ['system-ui', 'arial']
 });
 
 const inter = Inter({ 
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional", // Changed to optional for better performance
   preload: true,
-  weight: ["400", "500", "600"], // Reduced for performance
+  weight: ["400", "500"], // Further reduced weights
   fallback: ['system-ui', 'arial']
 });
 
@@ -76,6 +77,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${familjenGrotesk.variable} ${darkerGrotesque.variable} ${inter.variable}`}>
       <head>
         <CriticalCSS />
+        <FontLoadingScript />
+        {/* Preconnect to critical domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>

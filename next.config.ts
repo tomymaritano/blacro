@@ -35,6 +35,21 @@ const nextConfig: NextConfig = {
   // Target modern browsers to reduce polyfills
   transpilePackages: [],
   
+  // Webpack configuration to reduce polyfills
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Target modern browsers
+      config.target = ['web', 'es2020'];
+      
+      // Reduce polyfills for modern features
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'core-js': false,
+      };
+    }
+    return config;
+  },
+  
   // Security headers
   async headers() {
     return [

@@ -1,26 +1,30 @@
-# Modern browsers configuration
-# This reduces JavaScript bundle size by targeting newer browsers
+# Modern browsers configuration - ES2020+ support
+# This reduces JavaScript bundle size by avoiding unnecessary polyfills
 
-# Chrome >= 91 (supports most modern features)
+# Chrome 91+ (May 2021) - Full ES2020 support
 Chrome >= 91
 
-# Firefox >= 89 (supports most modern features)
+# Firefox 89+ (June 2021) - Full ES2020 support  
 Firefox >= 89
 
-# Safari >= 14 (supports most modern features)
-Safari >= 14
+# Safari 15+ (Sept 2021) - Full ES2020 support
+Safari >= 15
 
-# Edge >= 91 (Chromium-based)
+# Edge 91+ (May 2021) - Chromium-based with ES2020
 Edge >= 91
 
-# iOS Safari >= 14
-iOS >= 14
+# iOS Safari 15+ - Full ES2020 support
+iOS >= 15
 
-# Samsung Internet >= 14
-Samsung >= 14
+# Samsung Internet 15+ - Modern Chromium base
+Samsung >= 15
 
-# Don't support dead browsers
+# No legacy browsers
+not IE 11
 not dead
 
-# Don't support browsers with < 0.25% usage
-not < 0.25%
+# Only browsers with significant usage
+not < 0.5%
+
+# Exclude browsers without ES2020 support
+not op_mini all
