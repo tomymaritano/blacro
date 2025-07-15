@@ -1,5 +1,5 @@
-# Modern browsers configuration - ES2020+ support
-# This reduces JavaScript bundle size by avoiding unnecessary polyfills
+# Modern browsers configuration - balanced approach
+# Reduces bundle size while maintaining good browser support
 
 # Chrome 91+ (May 2021) - Full ES2020 support
 Chrome >= 91

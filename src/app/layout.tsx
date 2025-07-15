@@ -8,14 +8,15 @@ import ErrorBoundary from "@/components/common/ErrorBoundary";
 import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
 import FontLoader from "@/components/optimization/FontLoader";
+import DeferredScripts from "@/components/optimization/DeferredScripts";
 import { Metadata, Viewport } from "next";
 import { META } from "@/constants/design-tokens";
 
 const familjenGrotesk = Familjen_Grotesk({ 
   variable: "--font-familjen-grotesk",
   subsets: ["latin"],
-  display: "optional",
-  preload: false, // Only preload critical fonts
+  display: "swap",
+  preload: true,
   weight: ["400", "600"],
   fallback: ['system-ui', 'arial']
 });
@@ -23,18 +24,18 @@ const familjenGrotesk = Familjen_Grotesk({
 const darkerGrotesque = Darker_Grotesque({ 
   variable: "--font-darker-grotesque",
   subsets: ["latin"],
-  display: "optional", 
-  preload: true, // This is the main UI font
-  weight: ["600"], // Only semibold for navbar/headers
+  display: "swap", 
+  preload: true,
+  weight: ["400", "600"],
   fallback: ['system-ui', 'arial']
 });
 
 const inter = Inter({ 
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "optional",
-  preload: false, // Reduce preloaded fonts
-  weight: ["400"], // Only regular weight
+  display: "swap",
+  preload: true,
+  weight: ["400", "500"],
   fallback: ['system-ui', 'arial']
 });
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="cursor-none">
         <FontLoader />
+        <DeferredScripts />
         <ErrorBoundary>
           <GlobalCursorWrapper />
           <Navbar />

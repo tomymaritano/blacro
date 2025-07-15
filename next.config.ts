@@ -16,8 +16,12 @@ const nextConfig: NextConfig = {
         pathname: '/dm9driroe/**',
       },
     ],
-    formats: ['image/webp', 'image/avif'],
+    formats: ['image/avif', 'image/webp'], // AVIF first for better compression
     minimumCacheTTL: 31536000,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Optimized device sizes
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Optimized image sizes
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
@@ -35,13 +39,10 @@ const nextConfig: NextConfig = {
   // Target modern browsers to reduce polyfills
   transpilePackages: [],
   
-  // Webpack configuration to reduce polyfills
+  // Simple webpack configuration for modern browsers
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Target modern browsers
       config.target = ['web', 'es2020'];
-      
-      // Reduce polyfills for modern features
       config.resolve.alias = {
         ...config.resolve.alias,
         'core-js': false,
