@@ -64,7 +64,7 @@ export default function AboutPage(): React.JSX.Element {
                     variants={fadeInUp}
                 >
                     <Image
-                        src="/images/about.jpg"
+                        src="/abouts.jpg"
                         alt="Blacro Studio founders - Creative team behind the innovative design studio"
                         width={500}
                         height={750}
