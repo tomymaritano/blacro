@@ -22,4 +22,10 @@ export const londonFashionWeek: Project = {
         { type: "text", content: "Nos aseguramos que todo estuviera alineado con el universo de las marcas, basado en la calidad, la tradición y el diseño de autor. A través de una experiencia sensorial que celebró lo mejor de Argentina en el corazón de Londres, con un enfoque contemporáneo y curado." }
     ],
     featured: true,
+    
+    // Main page fields
+    mainImageSrc: "main/londonfashionweek",
+    showInMain: true,
+    mainOrder: 3,
+    logo: "logos/londonlogo",
 };

@@ -49,4 +49,10 @@ export const isolla: Project = {
     },
   ],
   featured: true,
+  
+  // Main page fields
+  mainImageSrc: "main/isolla",
+  showInMain: true,
+  mainOrder: 4,
+  logo: "logos/isollalogo",
 };

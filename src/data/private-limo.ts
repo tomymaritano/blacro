@@ -31,4 +31,10 @@ export const privateLimo: Project = {
         { type: "text", content: "El nuevo sistema visual transmite solidez, elegancia y vigencia. Una identidad diseñada para acompañar a Private Limo en toda su comunicación." }
     ],
     featured: true,
+    
+    // Main page fields
+    mainImageSrc: "main/privatelimo",
+    showInMain: true,
+    mainOrder: 1,
+    logo: "logos/privatelimologo",
 };

@@ -43,4 +43,7 @@ export const unicoinEverywhere: Project = {
         }
     ],
     featured: true,
+    
+    // Main page fields - Este proyecto no se muestra en main page
+    showInMain: false,
 };

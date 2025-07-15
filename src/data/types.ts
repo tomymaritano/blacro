@@ -25,5 +25,9 @@ export interface Project {
   content?: ProjectContentBlock[];
   featured?: boolean;
   size?: "normal" | "large" | "tall"; // Nuevo campo opcional
-
+  
+  // Main page specific fields
+  mainImageSrc?: string;  // Alternative image for main page
+  showInMain?: boolean;   // Whether to show in main page
+  mainOrder?: number;     // Order on main page
 }

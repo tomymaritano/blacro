@@ -14,6 +14,12 @@ interface MainImageCardProps {
 function MainImageCard({ project, index }: MainImageCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Use mainImageSrc if available, otherwise fall back to imageSrc
+  const imageSrc = project.mainImageSrc || project.imageSrc;
+  const logoSrc = project.logo;
+  const title = project.title;
+  const href = `/project/${project.slug}`;
+
   const content = (
     <motion.div
       className="relative w-full h-64 sm:h-80 md:h-[542px] overflow-hidden rounded-sm group"
@@ -74,7 +80,7 @@ function MainImageCard({ project, index }: MainImageCardProps) {
   );
 
   return (
-    <Link href={`/project/${project.slug}`} className="block">
+    <Link href={href} className="block">
       {content}
     </Link>
   );
@@ -85,23 +91,13 @@ interface MainImageGridProps {
   title?: string;
 }
 
-export default function MainImageGrid({ projects, title }: MainImageGridProps) {
-  // Add safety check for projects array
+export default function MainImageGrid({ projects = [], title }: MainImageGridProps) {
   if (!projects || !Array.isArray(projects)) {
-    return (
-      <section className="w-full max-w-full mx-auto space-y-6">
-        {title && <h2 className="text-2xl font-semibold">{title}</h2>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* Loading skeleton */}
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div 
-              key={index} 
-              className="w-full h-64 sm:h-80 md:h-[542px] bg-gray-200 animate-pulse rounded-sm" 
-            />
-          ))}
-        </div>
-      </section>
-    );
+    return null;
+  }
+
+  if (projects.length === 0) {
+    return null;
   }
 
   return (
@@ -109,7 +105,7 @@ export default function MainImageGrid({ projects, title }: MainImageGridProps) {
       {title && <h2 className="text-2xl font-semibold">{title}</h2>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {projects.map((project, index) => (
+        {projects && Array.isArray(projects) && projects.map((project, index) => (
           <MainImageCard key={project.slug} project={project} index={index} />
         ))}
       </div>

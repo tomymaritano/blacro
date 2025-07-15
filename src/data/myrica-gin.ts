@@ -30,4 +30,10 @@ export const myricaGin: Project = {
         { type: "text", content: "Una identidad con personalidad clara y lenguaje propio, que posiciona a Myrica Gin como una marca con impronta de autor, elegante y refinada." }
     ],
     featured: true,
+    
+    // Main page fields
+    mainImageSrc: "main/myrica",
+    showInMain: true,
+    mainOrder: 2,
+    logo: "logos/myricalogo",
 };

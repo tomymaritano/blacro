@@ -42,5 +42,11 @@ export const youtubeCDMX: Project = {
     }
   ],
   featured: true,
-  size: "large"
+  size: "large",
+  
+  // Main page fields
+  mainImageSrc: "main/youtube",
+  showInMain: true,
+  mainOrder: 6,
+  logo: "logos/youtubeconnect",
 };

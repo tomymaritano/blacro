@@ -13,8 +13,8 @@ export default function Home() {
   const mainProjects = getMainProjects(projects);
   
   // Debug logging (remove in production)
-  console.log('All projects:', projects);
-  console.log('Main projects:', mainProjects);
+  console.log('Server All projects:', projects);
+  console.log('Server Main projects:', mainProjects);
   
   return (
     <>

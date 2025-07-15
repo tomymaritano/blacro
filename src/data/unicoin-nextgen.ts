@@ -41,4 +41,10 @@ export const unicoinNextgen: Project = {
         }
     ],
     featured: true,
+    
+    // Main page fields
+    mainImageSrc: "main/thenextgenof",
+    showInMain: true,
+    mainOrder: 5,
+    logo: "logos/unicoinlogo",
 };
