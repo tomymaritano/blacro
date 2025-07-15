@@ -4,9 +4,7 @@ export default function CriticalCSS() {
     <style dangerouslySetInnerHTML={{
       __html: `
         /* Critical styles for immediate render */
-        * {
-          margin: 0;
-          padding: 0;
+        *, *::before, *::after {
           box-sizing: border-box;
         }
         
@@ -36,17 +34,9 @@ export default function CriticalCSS() {
           height: 64px;
         }
         
-        /* Main content padding to account for navbar */
-        main {
-          padding-top: 64px;
-        }
+        /* Main content - removed forced padding */
         
-        /* Grid system critical styles */
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(12, 1fr);
-          gap: 0.75rem;
-        }
+        /* Let Tailwind handle grid styles */
         
         /* Typography critical styles */
         h1, h2, h3, h4, h5, h6 {
@@ -118,16 +108,8 @@ export default function CriticalCSS() {
         
         /* Mobile optimizations */
         @media (max-width: 768px) {
-          .grid {
-            gap: 0.5rem;
-          }
-          
           nav {
             height: 56px;
-          }
-          
-          main {
-            padding-top: 56px;
           }
         }
         
