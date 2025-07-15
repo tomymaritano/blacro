@@ -2,13 +2,20 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import AnimatedLink from "../common/AnimatedLink";
 import ButtonTalk from "../ui/buttons/ButtonTalk";
-import FloatingLogo from "../hero/HeroLogo"; // solo home
+import FloatingLogo from "../hero/HeroLogo";
+import MobileToggle from "./MobileToggle";
 import { usePathname } from "next/navigation";
+
+// Lazy load mobile menu
+const MobileMenu = dynamic(() => import("./MobileMenu"), {
+  ssr: false,
+  loading: () => null,
+});
 
 /**
  * Navbar - Main navigation component with responsive design and scroll effects
@@ -41,20 +48,21 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll with throttling for better performance
+  // Optimized scroll handler with better throttling
   useEffect(() => {
-    let ticking = false;
+    let timeoutId: NodeJS.Timeout;
     const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 10);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setScrolled(window.scrollY > 10);
+      }, 16); // ~60fps
     };
+    
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
 
@@ -91,94 +99,12 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile toggle */}
-        <motion.button
-          className="col-span-10 flex justify-end md:hidden p-2 font-grotesque"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-          whileTap={{ scale: 0.9 }}
-        >
-          <AnimatePresence initial={false} mode="wait">
-            {isOpen ? (
-              <motion.div
-                key="close"
-                initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X size={28} className="text-black" />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: -90, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Menu size={28} className="text-black" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.button>
+        <MobileToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile menu - lazy loaded */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed top-0 left-0 w-full h-screen bg-[#FFFDF9] font-darker font-semibold backdrop-blur-3xl flex flex-col items-center justify-center space-y-8 text-black text-3xl font-grotesk z-50"
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: "0%" }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            style={{ fontFamily: "Darker Grotesque, sans-serif" }}
-          >
-            {/* Logo */}
-            <Link href="/" onClick={() => setIsOpen(false)} className="absolute top-6 left-6 flex items-center h-16" aria-label="Go to homepage">
-              <Image src="/logo.svg" alt="Blacro logo" width={100} height={60} sizes="100px" style={{ width: "auto", height: "auto" }} />
-            </Link>
-
-            {/* Close */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 p-2 hover:scale-110 transition"
-              aria-label="Close"
-            >
-              <X size={28} className="text-black" />
-            </button>
-
-            {/* Links */}
-            <motion.div
-              className="flex flex-col items-center"
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            >
-              {[
-                { href: "/portfolio", label: "Projects" },
-                { href: "/about", label: "About" },
-              ].map((item) => (
-                <motion.div
-                  key={item.href}
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                  className="mb-8"
-                >
-                  <AnimatedLink href={item.href} onClick={() => setIsOpen(false)}>
-                    {item.label}
-                  </AnimatedLink>
-                </motion.div>
-              ))}
-
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                className="mt-12"
-              >
-                <ButtonTalk href="/contact" mobile onClick={() => setIsOpen(false)} />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
+        <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </AnimatePresence>
     </nav>
   );
