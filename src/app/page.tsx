@@ -5,6 +5,9 @@ import MainImageGrid from '@/components/main/MainImageGrid';
 
 import { mainImages } from '@/data/mainImages';
 
+// Revalidate every 24 hours for any content updates
+export const revalidate = 86400; // 24 hours in seconds
+
 export default function Home() {
   return (
     <>

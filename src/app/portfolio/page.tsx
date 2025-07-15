@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header';
 import CustomProjectGrid from '@/components/project/CustomProjectGrid';
 import { Suspense } from 'react';
 
+// Revalidate every 12 hours for portfolio updates
+export const revalidate = 43200; // 12 hours in seconds
+
 // Loading component for portfolio grid
 function PortfolioGridSkeleton() {
   return (

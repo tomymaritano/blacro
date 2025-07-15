@@ -10,6 +10,9 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
+// Revalidate every hour to pick up any data changes
+export const revalidate = 3600; // 1 hour in seconds
+
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);

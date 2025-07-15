@@ -28,15 +28,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <Link 
         href="/" 
         onClick={onClose} 
-        className="absolute top-6 left-6 flex items-center h-16" 
+        className="absolute top-6 left-6 flex items-center" 
         aria-label="Go to homepage"
       >
         <Image 
           src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro/logos/blacrologo" 
           alt="Blacro logo" 
-          width={100} 
-          height={40} 
-          className="object-contain w-auto h-8"
+          width={80} 
+          height={32} 
+          className="object-contain w-24 h-auto"
           priority
           unoptimized
         />

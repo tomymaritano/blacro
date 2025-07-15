@@ -51,9 +51,50 @@ const nextConfig: NextConfig = {
     return config;
   },
   
-  // Security headers
+  // Security headers and cache optimization
   async headers() {
     return [
+      // Cache static assets
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache images
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache fonts
+      {
+        source: '/fonts/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache for API routes
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=60, stale-while-revalidate=300',
+          },
+        ],
+      },
+      // Security headers for all routes
       {
         source: '/(.*)',
         headers: [
