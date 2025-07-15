@@ -14,7 +14,8 @@ export default function FloatingLogo() {
 
   useEffect(() => {
     if (!isHome) return;
-    return scrollY.onChange((latest) => setInNavbar(latest > 100));
+    const unsubscribe = scrollY.on("change", (latest) => setInNavbar(latest > 100));
+    return unsubscribe;
   }, [isHome, scrollY]);
 
   const isScrolled = isHome ? inNavbar : true;
