@@ -40,7 +40,7 @@ export default function MasonryProjectCard({
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative w-full aspect-[4/3] sm:aspect-[3/2] md:aspect-[16/10] overflow-hidden rounded-sm group"
+      className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden rounded-sm group"
     >
       {/* Link - Increased z-index to ensure clickability */}
       <Link href={`/project/${slug}`} className="absolute inset-0 z-40" aria-label={`View ${title} project`} />

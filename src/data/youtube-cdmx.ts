@@ -2,8 +2,8 @@ import { Project } from './types';
 
 export const youtubeCDMX: Project = {
   slug: "youtube-cdmx",
-  title: "YouTube CDMX",
-  imageSrc: "main/youtube",
+  title: "YouTube Connect",
+  imageSrc: "youtube/youtube-13",
   mainImageSrc: "main/youtube",
   logo: "logos/youtubeconnect",
   category: "Dirección de Arte & Eventos",

@@ -10,14 +10,14 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
     return (
         <section className="col-span-12 lg:col-span-8 max-h-screen lg:max-h-none overflow-y-auto lg:overflow-y-visible pr-2">
             {/* Imagen principal */}
-            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-none mb-6">
+            <div className="relative w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-[21/9] overflow-hidden rounded-none mb-6">
                 <CloudinaryImage
                     src={project.imageSrc}
                     alt={project.title}
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 66vw"
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                 />
             </div>
 
@@ -28,9 +28,9 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                         <div 
                             key={i}
                             className={`relative overflow-hidden rounded-none ${
-                                img.size === "large" ? "col-span-2 md:col-span-6 h-[300px] md:h-[542px]" : 
-                                img.size === "medium" ? "col-span-2 md:col-span-3 h-[250px] md:h-[707px]" : 
-                                "col-span-1 md:col-span-2 h-[200px] md:h-[466px]"
+                                img.size === "large" ? "col-span-2 md:col-span-6 aspect-[16/10] md:aspect-[21/9]" : 
+                                img.size === "medium" ? "col-span-2 md:col-span-3 aspect-[4/3] md:aspect-[3/4]" : 
+                                "col-span-1 md:col-span-2 aspect-square md:aspect-[3/4]"
                             }`}>
                             <CloudinaryImage
                                 src={img.src}
@@ -43,7 +43,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                                     "(max-width: 768px) 50vw, 33vw"
                                 }
                                 priority={i < 2}
-                                className="object-cover"
+                                className="object-cover w-full h-full"
                             />
                         </div>
                     ))}

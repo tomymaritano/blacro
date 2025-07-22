@@ -22,7 +22,7 @@ function MainImageCard({ project, index }: MainImageCardProps) {
 
   const content = (
     <motion.div
-      className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[21/9] overflow-hidden rounded-sm group"
+      className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden rounded-sm group"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       initial={{ opacity: 0, y: 30 }}
