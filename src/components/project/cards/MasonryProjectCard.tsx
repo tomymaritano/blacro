@@ -40,10 +40,10 @@ export default function MasonryProjectCard({
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden rounded-sm group"
+      className="relative w-full aspect-[4/3] sm:aspect-[3/2] md:aspect-[16/10] overflow-hidden rounded-sm group"
     >
-      {/* Link */}
-      <Link href={`/project/${slug}`} className="absolute inset-0 z-10" />
+      {/* Link - Increased z-index to ensure clickability */}
+      <Link href={`/project/${slug}`} className="absolute inset-0 z-40" aria-label={`View ${title} project`} />
 
       {/* Imagen del proyecto */}
       <div className="absolute inset-0 w-full h-full">
@@ -51,7 +51,7 @@ export default function MasonryProjectCard({
           src={imageSrc}
           alt={title}
           fill
-          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
+          className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:blur-md"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
           priority={index < 3}
           // Remove conflicting loading prop when priority is true
