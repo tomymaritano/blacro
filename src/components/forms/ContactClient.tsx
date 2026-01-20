@@ -2,7 +2,6 @@
 
 import Header from "@/components/layout/Header";
 import { motion } from "framer-motion";
-import ProjectCarouselRow from "@/components/project/carousel/ProjectCardCarouselRow";
 import ContactForm from "./ContactForm";
 import HoverLink from "@/components/ui/interactive/HoverLink";
 import { fadeUp } from "@/lib/utils";
@@ -60,7 +59,6 @@ export default function ContactClient() {
           <ContactForm />
         </motion.div>
       </section>
-      <ProjectCarouselRow />
     </>
   );
 }

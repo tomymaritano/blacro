@@ -45,8 +45,23 @@ const MobileMenu = dynamic(() => import("./MobileMenu"), {
 const Navbar: React.FC = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  // Detect if we're on a project detail page (has slug)
+  const isProjectPage = /^\/(branding|experiencias|espacios)\/[^/]+$/.test(pathname);
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Only apply transparent mode after client mount to avoid hydration mismatch
+  const isTransparentMode = mounted && isProjectPage && !scrolled;
+
+  // Handle client mount and scroll
+  useEffect(() => {
+    setMounted(true);
+    // Check initial scroll position on mount
+    setScrolled(window.scrollY > 10);
+  }, []);
 
   // Optimized scroll handler with better throttling
   useEffect(() => {
@@ -60,7 +75,7 @@ const Navbar: React.FC = () => {
         ticking = true;
       }
     };
-    
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -68,10 +83,21 @@ const Navbar: React.FC = () => {
   }, []);
 
 
+  // Dynamic nav classes based on page type and scroll state
+  // Use mounted check to ensure consistent server/client rendering
+  const navClasses = `fixed top-0 left-0 sm:py-3 w-full z-50 transition-all duration-300 font-grotesk ${
+    scrolled
+      ? "bg-white/60 backdrop-blur-md shadow-md"
+      : mounted && isProjectPage
+        ? "bg-transparent"
+        : "bg-white/5 backdrop-blur-md"
+  }`;
+
+  // Text color class - defaults to foreground until mounted to avoid hydration mismatch
+  const textColorClass = isTransparentMode ? "text-white" : "text-foreground";
+
   return (
-    <nav
-      className={`fixed top-0 left-0 sm:py-3  w-full backdrop-blur-md z-50 transition font-grotesk ${scrolled ? "bg-white/60 shadow-md" : "bg-white/5"}`}
-    >
+    <nav className={navClasses}>
       <div className="grid grid-cols-12 items-center h-16 px-4 sm:px-4 md:px-6 lg:px-8">
         {/* Logo */}
         <div className="col-span-2 flex items-center h-full">
@@ -80,12 +106,14 @@ const Navbar: React.FC = () => {
           ) : (
             <Link href="/" aria-label="Go to homepage" className="flex items-center">
               <Image
-                src="https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro/logos/blacrologo"
+                src={isTransparentMode
+                  ? "/logoblanco.svg"
+                  : "https://res.cloudinary.com/dm9driroe/image/upload/v2/blacro/logos/blacrologo"
+                }
                 alt="Blacro logo"
                 width={100}
                 height={40}
-                className="object-contain w-[50px] sm:w-[70px] md:w-[100px]"
-                style={{ height: "auto" }}
+                className="object-contain w-[50px] sm:w-[70px] md:w-[100px] h-auto transition-all duration-300"
                 priority
                 unoptimized
               />
@@ -94,14 +122,19 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop links */}
-        <div className="col-span-10 hidden md:flex uppercase items-center font-grotesk font-semibold justify-end space-x-8 text-foreground text-[22px] h-full" style={{ fontFamily: 'var(--font-darker-grotesque), sans-serif' }}>
-          <AnimatedLink href="/portfolio">Projects</AnimatedLink>
-          <AnimatedLink href="/about" className="mr-24">About</AnimatedLink>
-          <ButtonTalk href="/contact" />
+        <div
+          className={`col-span-10 hidden md:flex uppercase items-center font-grotesk font-semibold justify-end space-x-8 ${textColorClass} text-[22px] h-full transition-colors duration-300`}
+          style={{ fontFamily: 'var(--font-darker-grotesque), sans-serif' }}
+        >
+          <AnimatedLink href="/experiencias" textColor={textColorClass}>Experiencias</AnimatedLink>
+          <AnimatedLink href="/branding" textColor={textColorClass}>Branding</AnimatedLink>
+          <AnimatedLink href="/espacios" textColor={textColorClass}>Espacios</AnimatedLink>
+          <AnimatedLink href="/about" className="mr-24" textColor={textColorClass}>About</AnimatedLink>
+          <ButtonTalk href="/contact" textColor={textColorClass} />
         </div>
 
         {/* Mobile toggle */}
-        <MobileToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+        <MobileToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} textColor={textColorClass} />
       </div>
 
       {/* Mobile menu - lazy loaded */}

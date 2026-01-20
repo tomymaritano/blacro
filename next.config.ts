@@ -13,13 +13,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/dm9driroe/**',
+        pathname: '/**',
       },
     ],
     formats: ['image/avif', 'image/webp'], // AVIF first for better compression
     minimumCacheTTL: 31536000,
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Optimized device sizes
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Optimized image sizes
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2560, 3840], // Up to 4K support
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512], // Larger image sizes
+    unoptimized: false,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
@@ -39,18 +40,6 @@ const nextConfig: NextConfig = {
   // Target modern browsers to reduce polyfills
   transpilePackages: [],
   
-  // Simple webpack configuration for modern browsers
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.target = ['web', 'es2020'];
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'core-js': false,
-      };
-    }
-    return config;
-  },
-  
   // Security headers and cache optimization
   async headers() {
     return [
@@ -67,6 +56,16 @@ const nextConfig: NextConfig = {
       // Cache images
       {
         source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache public folder images (EXPERIENCIAS, ESPACIOS, BRANDING, HOME)
+      {
+        source: '/:folder(EXPERIENCIAS|ESPACIOS|BRANDING|HOME)/(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -106,8 +105,8 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-eval' 'unsafe-inline'", // Next.js requires unsafe-eval and unsafe-inline for development
               "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
               "font-src 'self' fonts.gstatic.com",
-              "img-src 'self' data: blob: res.cloudinary.com",
-              "connect-src 'self' res.cloudinary.com",
+              "img-src 'self' data: blob: https://res.cloudinary.com",
+              "connect-src 'self'",
               "frame-ancestors 'none'",
             ].join('; '),
           },

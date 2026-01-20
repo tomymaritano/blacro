@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { logos } from "@/data/Logos";
+import { logos } from "@/data/logos";
 import { useEffect, useRef, useState } from "react";
 
 export default function LogosMarquee() {

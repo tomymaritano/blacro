@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, easeOut, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import HoverLink from "@/components/ui/interactive/HoverLink";
-
+import { SOCIAL_LINKS, ANIMATIONS } from "@/constants/design-tokens";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -10,8 +10,8 @@ const containerVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: easeOut,
+      duration: ANIMATIONS.DURATION.SLOW,
+      ease: ANIMATIONS.EASING.EASE_OUT,
       staggerChildren: 0.15,
     },
   },
@@ -23,12 +23,11 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
-      ease: easeOut,
+      duration: ANIMATIONS.DURATION.DEFAULT,
+      ease: ANIMATIONS.EASING.EASE_OUT,
     },
   },
 };
-
 
 export default function Footer() {
   return (
@@ -36,40 +35,55 @@ export default function Footer() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="w-full px-4 sm:px-6 lg:px-8 py-6 text-sm font-darker text-black backdrop-blur-md bg-white/50 border-t border-black/10"
-      style={{ fontFamily: "Darker Grotesque, sans-serif" }}
+      className="w-full px-4 sm:px-6 lg:px-8 py-4 lg:py-6 font-darker text-foreground"
     >
       <motion.div
-        className="w-full flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-3 md:gap-0"
+        className="w-full flex flex-col items-center gap-2 lg:flex-row lg:justify-between lg:gap-0"
         variants={containerVariants}
       >
-        {/* Left */}
+        {/* Left - Email */}
         <motion.div
           variants={itemVariants}
-          className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center md:justify-start"
+          className="text-footer-sm lg:text-footer-lg font-medium flex items-center gap-2"
         >
-          <span className="uppercase font-bold">LET’S TALK!</span>
-          <HoverLink href="mailto:hola@blacro.com" text="HOLA@BLACRO.COM" ariaLabel="Send email to hola@blacro.com" />
+          <span className="uppercase font-bold">LET&apos;S TALK!</span>
+          <HoverLink
+            href={`mailto:${SOCIAL_LINKS.EMAIL}`}
+            text={SOCIAL_LINKS.EMAIL.toUpperCase()}
+            ariaLabel={`Send email to ${SOCIAL_LINKS.EMAIL}`}
+          />
         </motion.div>
 
         {/* Center: socials */}
         <motion.div
           variants={itemVariants}
-          className="text-[22px] font-medium flex items-center gap-3 flex-wrap justify-center"
+          className="text-footer-sm lg:text-footer-lg font-medium flex items-center gap-2"
         >
-          <HoverLink href="https://instagram.com/blacrostudio" text="INSTAGRAM" ariaLabel="Visit Blacro Studio on Instagram" />
+          <HoverLink
+            href={SOCIAL_LINKS.INSTAGRAM}
+            text="INSTAGRAM"
+            ariaLabel="Visit Blacro Studio on Instagram"
+          />
           <span>|</span>
-          <HoverLink href="https://linkedin.com/company/blacro" text="LINKEDIN" ariaLabel="Visit Blacro Studio on LinkedIn" />
+          <HoverLink
+            href={SOCIAL_LINKS.LINKEDIN}
+            text="LINKEDIN"
+            ariaLabel="Visit Blacro Studio on LinkedIn"
+          />
           <span>|</span>
-          <HoverLink href="https://behance.net/blacro" text="BEHANCE" ariaLabel="Visit Blacro Studio on Behance" />
+          <HoverLink
+            href={SOCIAL_LINKS.BEHANCE}
+            text="BEHANCE"
+            ariaLabel="Visit Blacro Studio on Behance"
+          />
         </motion.div>
 
-        {/* Right */}
+        {/* Right - Copyright */}
         <motion.div
           variants={itemVariants}
-          className="text-[22px] font-medium text-center md:text-right"
+          className="text-footer-copyright-sm lg:text-footer-lg font-medium"
         >
-          2025 BLACRO STUDIO ALL RIGHTS RESERVED
+          {new Date().getFullYear()} BLACRO STUDIO ALL RIGHTS RESERVED
         </motion.div>
       </motion.div>
     </motion.footer>

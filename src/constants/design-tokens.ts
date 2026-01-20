@@ -214,6 +214,39 @@ export const SOCIAL_LINKS = {
   EMAIL: 'hola@blacro.com',
 } as const;
 
+// === HERO SECTION ===
+export const HERO = {
+  // Image slider
+  SLIDER_INTERVAL: 4000, // 4 seconds
+  SLIDER_TRANSITION_DURATION: 0.8,
+
+  // Layout proportions
+  IMAGE_WIDTH_MOBILE: '100%',
+  IMAGE_WIDTH_DESKTOP: '48%',
+
+  // Aspect ratio
+  IMAGE_ASPECT_RATIO: '4/3',
+} as const;
+
+// === HERO IMAGES ===
+export const HERO_IMAGES = [
+  '/home/foto_01.png',
+  '/home/foto_02.png',
+  '/home/foto_03.png',
+  '/home/foto_04.png',
+  '/home/foto_05.png',
+] as const;
+
+// === HERO TEXT CONTENT ===
+export const HERO_CONTENT = {
+  SUBTITLE: '(Based in Buenos Aires, Working Worldwide)',
+  LINES: [
+    'SOMOS UN ESTUDIO CREATIVO.',
+    'CONVERTIMOS IDEAS EN MARCAS,',
+    'ESPACIOS Y EXPERIENCIAS.',
+  ],
+} as const;
+
 // === META & SEO ===
 export const META = {
   SITE_NAME: 'Blacro Studio',

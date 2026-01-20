@@ -2,6 +2,7 @@
 import { Metadata } from "next";
 import ContactClient from "@/components/forms/ContactClient";
 import FormErrorBoundary from "@/components/common/FormErrorBoundary";
+import GridWrapper from "@/components/layout/GridWrapper";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -14,8 +15,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <FormErrorBoundary>
-      <ContactClient />
-    </FormErrorBoundary>
+    <GridWrapper className="py-8">
+      <main className="col-span-12 flex flex-col gap-3">
+        <FormErrorBoundary>
+          <ContactClient />
+        </FormErrorBoundary>
+      </main>
+    </GridWrapper>
   );
 }

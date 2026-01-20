@@ -3,7 +3,6 @@ import "./globals.css";
 import { Familjen_Grotesk, Darker_Grotesque, Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import GridWrapper from "@/components/layout/GridWrapper";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import GlobalCursorWrapper from "@/components/common/GlobalCursorWrapper";
 import CriticalCSS from "@/components/optimization/CriticalCSS";
@@ -93,15 +92,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="format-detection" content="telephone=no" />
       </head>
-      <body className="cursor-none">
+      <body className="cursor-none min-h-screen flex flex-col">
         <FontLoader />
         <DeferredScripts />
         <ErrorBoundary>
           <GlobalCursorWrapper />
           <Navbar />
-          <GridWrapper className="py-8">
-            <main className="col-span-12 flex flex-col gap-3">{children}</main>
-          </GridWrapper>
+          <div className="flex-1 flex flex-col">
+            {children}
+          </div>
           <Footer />
         </ErrorBoundary>
       </body>

@@ -59,7 +59,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         {[
-          { href: "/portfolio", label: "Projects" },
+          { href: "/experiencias", label: "Experiencias" },
+          { href: "/branding", label: "Branding" },
+          { href: "/espacios", label: "Espacios" },
           { href: "/about", label: "About" },
         ].map((item) => (
           <motion.div
