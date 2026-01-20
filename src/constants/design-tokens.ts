@@ -230,11 +230,11 @@ export const HERO = {
 
 // === HERO IMAGES ===
 export const HERO_IMAGES = [
-  '/home/foto_01.png',
-  '/home/foto_02.png',
-  '/home/foto_03.png',
-  '/home/foto_04.png',
-  '/home/foto_05.png',
+  '/HOME/foto_01.png',
+  '/HOME/foto_02.png',
+  '/HOME/foto_03.png',
+  '/HOME/foto_04.png',
+  '/HOME/foto_05.png',
 ] as const;
 
 // === HERO TEXT CONTENT ===
