@@ -15,7 +15,7 @@ export default function ProjectHero({
   priority = true,
 }: ProjectHeroProps) {
   return (
-    <section className="relative w-screen h-[440px] md:h-[500px] lg:h-[550px] overflow-hidden">
+    <section className="relative w-screen h-[280px] sm:h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
       {/* Background Image - full width, no padding */}
       <Image
         src={imageSrc}
@@ -35,7 +35,7 @@ export default function ProjectHero({
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-white font-bold uppercase text-[48px] md:text-[80px] lg:text-[128px]"
+          className="text-white font-bold uppercase text-[32px] sm:text-[48px] md:text-[80px] lg:text-[128px]"
           style={{
             fontFamily: "var(--font-darker-grotesque), sans-serif",
             lineHeight: "130%"
