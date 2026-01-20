@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import LogosMarquee from "@/components/ui/navigation/LogosMarquee";
 import GridWrapper from "@/components/layout/GridWrapper";
-import { aboutParagraphs } from '@/data/aboutParagraphs';
+import { aboutParagraphs, servicesData } from '@/data/aboutParagraphs';
 import { ANIMATIONS } from "@/constants/design-tokens";
 import { aboutStructuredData } from "./structured-data";
 
-// Animation variants for consistent motion - moved outside component to prevent re-creation
+// Animation variants for consistent motion
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -22,22 +22,7 @@ const fadeInUp = {
     }
 };
 
-/**
- * AboutPage - Company information and team presentation
- *
- * Features:
- * - Optimized hero image with proper loading
- * - Responsive grid layout
- * - Animated text content with Inter font
- * - Bold text highlighting with markdown-style parsing
- * - Client logos marquee
- * - Related projects carousel
- *
- * @component
- * @returns {React.JSX.Element} The rendered about page
- */
 export default function AboutPage(): React.JSX.Element {
-
     return (
         <GridWrapper className="py-8">
             <main className="col-span-12 flex flex-col gap-3">
@@ -65,19 +50,19 @@ export default function AboutPage(): React.JSX.Element {
                         variants={fadeInUp}
                     >
                         <Image
-                            src="https://res.cloudinary.com/dm9driroe/image/upload/v1/blacro/brand/founders-photo"
+                            src="/ABOUT US/Rectangle 30.jpg"
                             alt="Blacro Studio founders - Creative team behind the innovative design studio"
                             width={500}
                             height={750}
                             sizes="(max-width: 1024px) 100vw, 33vw"
-                            className="rounded-xl object-cover object-center w-full h-auto pr-2"
+                            className="object-cover object-center w-full h-auto"
                             priority
                         />
                     </motion.figure>
 
                     {/* Company Story Content */}
                     <motion.article
-                        className="col-span-12 lg:col-span-6 flex flex-col space-y-8 text-black/80 lg:pl-16 pr-8"
+                        className="col-span-12 lg:col-span-6 flex flex-col space-y-6 text-black/80 lg:pl-16 pr-8"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.2 }}
@@ -91,46 +76,95 @@ export default function AboutPage(): React.JSX.Element {
                         }}
                     >
                         <h2 className="sr-only">About Blacro Studio</h2>
-                        {aboutParagraphs.map((paragraph, i) => {
-                            const parts = paragraph.split(/\*\*(.*?)\*\*/);
-                            return (
-                                <motion.p
-                                    key={i}
-                                    className="text-lg leading-relaxed tracking-wide font-familjen"
-                                    variants={{
-                                        hidden: { opacity: 0, y: 10 },
-                                        visible: {
-                                            opacity: 1,
-                                            y: 0,
-                                            transition: {
-                                                duration: ANIMATIONS.DURATION.SLOW,
-                                                ease: ANIMATIONS.EASING.EASE_OUT
-                                            }
+                        {aboutParagraphs.map((paragraph, i) => (
+                            <motion.p
+                                key={i}
+                                className="text-sm lg:text-base leading-relaxed tracking-wide font-familjen"
+                                variants={{
+                                    hidden: { opacity: 0, y: 10 },
+                                    visible: {
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: ANIMATIONS.DURATION.SLOW,
+                                            ease: ANIMATIONS.EASING.EASE_OUT
                                         }
-                                    }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                >
-                                    {parts.map((part, index) =>
-                                        index % 2 === 1 ? (
-                                            <strong
-                                                key={index}
-                                                className="font-semibold text-foreground font-familjen"
-                                            >
-                                                {part}
-                                            </strong>
-                                        ) : (
-                                            part
-                                        )
-                                    )}
-                                </motion.p>
-                            );
-                        })}
+                                    }
+                                }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
+                                {paragraph}
+                            </motion.p>
+                        ))}
                     </motion.article>
                 </section>
 
+                {/* Services Grid Section */}
+                <motion.section
+                    className="mt-16 w-full"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={fadeInUp}
+                    aria-label="Our services"
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 py-8 border-t border-black/10">
+                        {/* ESPACIOS */}
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-sm font-semibold text-black tracking-wide font-familjen">
+                                {servicesData.espacios.title}
+                            </h3>
+                            <ul className="flex flex-col gap-3">
+                                {servicesData.espacios.services.map((service, i) => (
+                                    <li
+                                        key={i}
+                                        className="text-sm text-black/60 tracking-wide font-familjen"
+                                    >
+                                        {service}{i === 0 && " >"}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* EXPERIENCIAS */}
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-sm font-semibold text-black tracking-wide font-familjen">
+                                {servicesData.experiencias.title}
+                            </h3>
+                            <ul className="flex flex-col gap-3">
+                                {servicesData.experiencias.services.map((service, i) => (
+                                    <li
+                                        key={i}
+                                        className="text-sm text-black/60 tracking-wide font-familjen"
+                                    >
+                                        {service}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* BRANDING */}
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-sm font-semibold text-black tracking-wide font-familjen">
+                                {servicesData.branding.title}
+                            </h3>
+                            <ul className="flex flex-col gap-3">
+                                {servicesData.branding.services.map((service, i) => (
+                                    <li
+                                        key={i}
+                                        className="text-sm text-black/60 tracking-wide font-familjen"
+                                    >
+                                        {service}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </motion.section>
+
                 {/* Client Logos Section */}
                 <motion.section
-                    className="mt-16"
+                    className="mt-8"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}

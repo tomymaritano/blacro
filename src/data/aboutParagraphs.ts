@@ -1,6 +1,38 @@
-    export const aboutParagraphs = [
-        `Blacrò es un estudio creativo integral fundado por Camila Blanco y Candela Crosta. Luego de años trabajando para empresas internacionales, decidimos lanzar nuestro propio espacio para ofrecer soluciones creativas enfocadas en el diseño de experiencias, espacios y comunicación de marca.`,
-        `Somos un estudio de exploración visual. Convertimos ideas en marcas, espacios y experiencias. **Nos mueve la curiosidad, las ganas de jugar y la experimentación como forma de creación.**`,
-        `Trabajamos en proyectos increíbles junto a marcas y equipos de distintas partes del mundo, incluyendo L’Oréal Paris, YouTube, London Fashion Week, MIPCOM Cannes, Web Summit Qatar, Qatar Economic Forum, Web Summit Lisbon y Blockchain Week Paris.`,
-        `Nuestro universo incluye: Branding · Estrategia · Art Direction · Set Design · Eventos presenciales & virtuales · Experiencias de marca · Activaciones · Campañas · Contenido · Producción · Packaging · Web · Gestión de impresión & color · Fotografía.`,
-    ];
+export const aboutParagraphs = [
+  `BLACRÓ ES UN ESTUDIO CREATIVO FUNDADO POR CAMILA BLANCO Y CANDELA CROSTA. CREAMOS NUESTRO PROPIO ESPACIO PARA REPENSAR CÓMO SE CONSTRUYEN LAS EXPERIENCIAS DE MARCA: NO SOLO DESDE LO VISUAL, SINO TAMBIÉN DESDE LO HUMANO Y LO ESTRATÉGICO.`,
+  `NOS ESPECIALIZAMOS EN EL DISEÑO DE EXPERIENCIAS, ESPACIOS Y UNIVERSOS VISUALES. NACIDO DE LA UNIÓN ENTRE DIRECCIÓN DE ARTE, DISEÑO ESPACIAL Y ESTRATEGIA CREATIVA, BLACRÓ HABITA EL PUNTO EXACTO DONDE LO VISUAL, LO CONCEPTUAL Y LO ESTRATÉGICO SE ENCUENTRAN.`,
+  `TRABAJAMOS CON MARCAS Y EQUIPOS INTERNACIONALES COMO L'ORÉAL PARIS, YOUTUBE, LONDON FASHION WEEK, MIPCOM CANNES, WEB SUMMIT QATAR, QATAR ECONOMIC FORUM, WEB SUMMIT LISBOA Y BLOCKCHAIN WEEK PARIS.`,
+];
+
+export const servicesData = {
+  espacios: {
+    title: "ESPACIOS",
+    services: [
+      "BRAND EXPERIENCE",
+      "POP UP & BRAND SPACES",
+      "IMMERSIVE INSTALLATIONS",
+      "SET DESIGN & SCENOGRAPHY",
+      "SPATIAL DESIGN & ART DIRECTION",
+    ],
+  },
+  experiencias: {
+    title: "EXPERIENCIAS",
+    services: [
+      "EVENT & PRODUCTION",
+      "BRAND TRIPS",
+      "EXPERIENCE DESIGN",
+      "PRODUCT & B2B EVENTS",
+      "CULTURAL & COMMUNITY EVENTS",
+    ],
+  },
+  branding: {
+    title: "BRANDING",
+    services: [
+      "BRAND ARCHITECTURE",
+      "VISUAL IDENTITY",
+      "STRATEGY & MARKETING",
+      "BRAND GUIDELINES",
+      "IA DESIGN",
+    ],
+  },
+};
