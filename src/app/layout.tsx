@@ -9,6 +9,7 @@ import CriticalCSS from "@/components/optimization/CriticalCSS";
 import FontLoader from "@/components/optimization/FontLoader";
 import DeferredScripts from "@/components/optimization/DeferredScripts";
 import { Metadata, Viewport } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { META } from "@/constants/design-tokens";
 
 const familjenGrotesk = Familjen_Grotesk({ 
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <Footer />
         </ErrorBoundary>
+        <SpeedInsights />
       </body>
     </html>
   );
