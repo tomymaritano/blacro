@@ -16,10 +16,20 @@ export default function ProjectInfo({ metadata, description }: ProjectInfoProps)
   // Split description by double newlines for paragraphs
   const paragraphs = description.split('\n\n').filter(Boolean);
 
-  // Filter out category items - they should not be displayed on project pages
-  const filteredMetadata = metadata.filter(
-    (item) => item.label.toLowerCase() !== "categoría"
-  );
+  // Define the order of metadata labels
+  const labelOrder = ["ubicación", "año", "servicios", "cliente"];
+
+  // Filter out category items and sort by defined order
+  const filteredMetadata = metadata
+    .filter((item) => item.label.toLowerCase() !== "categoría")
+    .sort((a, b) => {
+      const indexA = labelOrder.indexOf(a.label.toLowerCase());
+      const indexB = labelOrder.indexOf(b.label.toLowerCase());
+      // If not in the order list, put at the end
+      const orderA = indexA === -1 ? labelOrder.length : indexA;
+      const orderB = indexB === -1 ? labelOrder.length : indexB;
+      return orderA - orderB;
+    });
 
   return (
     <motion.section
@@ -34,11 +44,14 @@ export default function ProjectInfo({ metadata, description }: ProjectInfoProps)
           {filteredMetadata.map((item, index) => (
             <motion.div
               key={index}
-              className="flex flex-col gap-2 w-[173px]"
+              className="flex flex-col gap-1 w-[173px]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
             >
+              <p className="text-[15.73px] text-black leading-[1.3] tracking-[-0.25px] uppercase" style={{ fontFamily: 'var(--font-darker-grotesque)', fontWeight: 700 }}>
+                ({item.label})
+              </p>
               <p className="font-normal text-[15.73px] text-[#8e8e93] leading-[1.3] tracking-[-0.25px]">
                 {item.value}
               </p>

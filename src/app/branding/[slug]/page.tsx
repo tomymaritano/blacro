@@ -62,7 +62,7 @@ export default async function ProjectPage({
   return (
     <>
       {/* Hero OUTSIDE GridWrapper - Full bleed */}
-      <ProjectHero imageSrc={project.headerImage} title={project.title} />
+      <ProjectHero imageSrc={project.headerImage} title={project.heroTitle || project.title} />
 
       {/* Content INSIDE GridWrapper */}
       <GridWrapper className="py-8">

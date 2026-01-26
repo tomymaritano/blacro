@@ -30,13 +30,13 @@ interface ProjectImageGridProps {
   projectTitle?: string;
 }
 
-// DETERMINISTIC: Fixed percentage values (integers to avoid floating-point issues)
-// These values are pre-calculated and will be identical on server and client
+// DETERMINISTIC: Fixed flex values based on pixel widths from Figma
+// small: 385px, medium: 980px, large: 1300px, full: 1784px
 const SIZE_TO_FLEX: Record<GridSize, number> = {
-  small: 22,
-  medium: 55,
-  large: 73,
-  full: 100,
+  small: 385,
+  medium: 980,
+  large: 1300,
+  full: 1784,
 };
 
 // DETERMINISTIC: Fixed sizes for Next/Image (avoid dynamic calculation)

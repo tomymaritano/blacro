@@ -12,6 +12,7 @@ export interface ProjectMetadata {
 export interface CategoryProject {
   slug: string;
   title: string;
+  heroTitle?: string;
   description: string;
   longDescription?: string;
   metadata?: ProjectMetadata[];
@@ -364,11 +365,18 @@ export const categoryProjects: CategoryData = {
         "/BRANDING/ISOLLA/fotos/foto_10.jpg",
         "/BRANDING/ISOLLA/fotos/foto_11.jpg",
       ],
-      gridType: "uniform",
+      gridLayout: [
+        ["small", "medium", "small"],
+        ["small", "large"],
+        ["medium", "medium"],
+        ["large", "small"],
+        ["small", "large"],
+      ],
     },
     {
       slug: "g1m",
       title: "Go One More (G1M)",
+      heroTitle: "G1M",
       description: "Rebranding G1M y ampliación del sistema visual, sistema de productos y packagings, creación de tienda nube.",
       longDescription: "Desarrollamos el rebranding completo de G1M (Go One More) y la ampliación de su sistema visual.\n\nEl proyecto incluyó el diseño del sistema de productos y packagings, así como la creación de su tienda nube, consolidando una marca de nutrición deportiva contemporánea con una identidad potente y coherente.",
       metadata: [
@@ -428,14 +436,15 @@ export const categoryProjects: CategoryData = {
         "/BRANDING/PRIVATE LIMO/fotos/foto_13.jpg",
         "/BRANDING/PRIVATE LIMO/fotos/foto_14.jpg",
         "/BRANDING/PRIVATE LIMO/fotos/foto_15.jpg",
+        "/BRANDING/PRIVATE LIMO/fotos/foto_16.jpg",
       ],
       gridLayout: [
         ["large", "small"],
         ["small", "large"],
         ["medium", "medium"],
         ["large", "small"],
-        ["small", "large", "small"],
-        ["large", "small"],
+        ["small", "medium", "small"],
+        ["small", "medium", "small"],
         ["small", "large"],
       ],
     },
@@ -516,7 +525,7 @@ export const categoryProjects: CategoryData = {
       gridLayout: [
         ["small", "small", "large"],
         ["small", "large", "small"],
-        ["large", "medium"],
+        ["medium", "medium"],
         ["small", "large", "small"],
         ["small", "large", "small"],
         ["small", "small", "large"],
@@ -555,10 +564,11 @@ export const categoryProjects: CategoryData = {
         "/BRANDING/UNICOIN/fotos/foto_13.jpg",
         "/BRANDING/UNICOIN/fotos/foto_14.jpg",
         "/BRANDING/UNICOIN/fotos/foto_15.jpg",
+        "/BRANDING/UNICOIN/fotos/foto_16.jpg",
       ],
       gridLayout: [
         ["small", "large"],
-        ["large", "medium"],
+        ["medium", "medium"],
         ["small", "medium", "small"],
         ["large", "small"],
         ["full"],
